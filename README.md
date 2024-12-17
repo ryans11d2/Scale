@@ -184,7 +184,8 @@ Adjust Transform To Preference
 
 ![image](https://github.com/user-attachments/assets/176b25c7-8312-43a4-820d-b0533a38ad38)
 
-Adjust Power And Collision Box (Make Sure Collision Box Is Unique On A Duplicated Object)
+Adjust Power And Collision Box (Make Sure Collision Box Is Unique On A Duplicated Object
+[Further Steps Have Been Automated]
 
 ![image](https://github.com/user-attachments/assets/0db6c276-499a-42d5-9bb8-ba4a108257e9)
 
