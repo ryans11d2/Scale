@@ -357,7 +357,8 @@ attenuation = 1e-05
 position = Vector2(1874, 2504)
 
 [node name="Spikes" type="StaticBody2D" parent="Stuff"]
-position = Vector2(742, 296)
+position = Vector2(742, 288)
+rotation = 0.0112112
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes"]
