@@ -83,4 +83,94 @@ Paste Ball Position Value To Return To Set Value
 ![image](https://github.com/user-attachments/assets/1307611b-4e7a-422a-b98d-99769d1f4d88)
 
 
+STEP 7 - Set Background
+
+Delete Unwanted Background Sprites
+![image](https://github.com/user-attachments/assets/4f061d89-9af1-4f77-a691-b521f17d3b81)
+
+Adjust Sprite Bounds To Fit Level
+![image](https://github.com/user-attachments/assets/6dcac346-898f-4b57-ba21-cecda738da58)
+![image](https://github.com/user-attachments/assets/aee9dc30-aef2-4878-b07c-d33bf108ed83)
+
+To Insert Custom Background, 
+
+Select Sprite Folder, Drag Image Into Scene From File Manager
+![image](https://github.com/user-attachments/assets/b1fb5fcf-3f98-468e-af07-5216ebfe2f0e)
+
+Drag Texture From File Manager
+![image](https://github.com/user-attachments/assets/dcab83b2-ceb9-40fa-a802-84e3298d2cad)
+
+
+
+STEP 6 - Spikes
+
+Copy A Row Of Spikes
+![image](https://github.com/user-attachments/assets/5af6ed2d-13b8-445e-bbbd-48c320a63d4b)
+
+Move Spikes To Desired Location
+![image](https://github.com/user-attachments/assets/9da43492-615e-496a-8351-71cbf56b9c25)
+
+Use Rotate Mode (E) To Rotate Spikes
+![image](https://github.com/user-attachments/assets/d9b88d92-04fe-43a0-9fe0-2fe0ebe8bce0)
+![image](https://github.com/user-attachments/assets/5f7e00d4-41d0-4fbc-9e44-7f6fac75bfff)
+
+Copy Or Delete Spikes To Alter Length
+![image](https://github.com/user-attachments/assets/4a86bf72-f361-4ad9-b6f3-a59f6af2fb33)
+
+To Adjust Collision Box Size, Make Collision Shape Unique, Click And Drag Collision Shape Bounds
+![image](https://github.com/user-attachments/assets/726f0385-e875-47d5-b090-b3024d4e5a2f)
+![image](https://github.com/user-attachments/assets/1d7805fd-7b43-456a-9dbe-ca592002ace4)
+
+
+STEP 7 - Pins
+
+Duplicate Pin Object
+![image](https://github.com/user-attachments/assets/cb94d017-5c25-4da4-b2ed-386fb06ae4eb)
+
+Adjust Transform To Preference
+![image](https://github.com/user-attachments/assets/380e1b69-06a6-42e1-b1e4-f93322190e01)
+![image](https://github.com/user-attachments/assets/69d0f09d-d48d-43ca-baed-bdcbaa08c3e8)
+
+Adjust Mass To Preference
+![image](https://github.com/user-attachments/assets/dd0e4a9e-172f-44b3-834b-71b385c021b2)
+
+
+STEP 8 - Fan
+
+Copy Fan Object
+![image](https://github.com/user-attachments/assets/13330ab4-a0b4-403f-8a1e-780559f0538c)
+![image](https://github.com/user-attachments/assets/fc0ca304-26de-444b-93c6-7be446cb4a15)
+
+Adjust Transform To Preference
+![image](https://github.com/user-attachments/assets/176b25c7-8312-43a4-820d-b0533a38ad38)
+
+Adjust Power And Collision Box (Make Sure Collision Box Is Unique On A Duplicated Object)
+![image](https://github.com/user-attachments/assets/0db6c276-499a-42d5-9bb8-ba4a108257e9)
+![image](https://github.com/user-attachments/assets/b34493dd-07b1-4458-a215-ff71d66d0def)
+
+Adjust Particle Emitter To Fit Collision Box
+![image](https://github.com/user-attachments/assets/954bc387-1b56-4165-ab7c-b503cc544fd1)
+![image](https://github.com/user-attachments/assets/6542eb9b-884a-4b97-86f6-cfbe34c20d88)
+
+
+
+STEP 9 - Scale
+
+Move Scale To Desired Location, Copy And Place 1-3 In Level (In Game Setup Is Automatic)
+![image](https://github.com/user-attachments/assets/9d7dc3c7-3843-4627-b91f-2800a405c663)
+![image](https://github.com/user-attachments/assets/379ac0c5-97c1-44b4-9f48-5e4f145528da)
+![image](https://github.com/user-attachments/assets/2d1dfdfa-1358-49af-9b9c-dad51a5dc153)
+
+STEP 10 - Add Anything Else
+
+Create new objects, scripts, physics materials... to fit your level, just make sure to keep things organised
+
+
+STEP 11 - Finish
+
+Move, Rotate, Copy Finish Pole
+![image](https://github.com/user-attachments/assets/6bc072bb-a7e2-41fc-a2c0-7e4f3bd25101)
+![image](https://github.com/user-attachments/assets/1484874b-a7da-43d7-b027-510c273c3278)
+
+
 DO NOT SAVE CHANGES TO ANY OTHER SCENES, DOING SO WILL CREATE MERGE CONLICTS
