@@ -1,0 +1,131 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8u15dq5fhl2h"]
+
+[ext_resource type="Script" path="res://Levels/select.gd" id="1_2h88q"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="2_vf574"]
+[ext_resource type="AudioStream" uid="uid://dil45qhrw2f6u" path="res://Sounds/(Scaliball Menu) resonant-victory-glbml-22044.mp3" id="3_foct5"]
+[ext_resource type="Texture2D" uid="uid://vbjwww8jrh36" path="res://Sprites/Scale_BG_Menu.png" id="4_00gtk"]
+
+[node name="Select" type="CanvasLayer"]
+script = ExtResource("1_2h88q")
+
+[node name="Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0001
+offset_top = -23.0
+offset_right = 92.0001
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.83, 0.83)
+
+[node name="Level1" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = -484.0
+offset_top = -310.0
+offset_right = -164.0
+offset_bottom = -160.0
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level2" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = -159.036
+offset_top = -309.638
+offset_right = 160.964
+offset_bottom = -159.638
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level3" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = 164.0
+offset_top = -310.0
+offset_right = 484.0
+offset_bottom = -160.0
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level4" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = -484.337
+offset_top = -145.783
+offset_right = -164.337
+offset_bottom = 4.21686
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level5" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = -160.241
+offset_top = -145.783
+offset_right = 159.759
+offset_bottom = 4.21689
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level6" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = 164.0
+offset_top = -146.0
+offset_right = 484.0
+offset_bottom = 4.0
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level7" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = -160.0
+offset_top = 18.0
+offset_right = 160.0
+offset_bottom = 168.0
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_foct5")
+volume_db = -10.0
+autoplay = true
+attenuation = 7.51432e-05
+
+[node name="volume" type="HSlider" parent="."]
+offset_left = 58.0
+offset_top = 579.0
+offset_right = 398.0
+offset_bottom = 613.0
+min_value = -10.0
+max_value = 10.0
+step = 0.1
+
+[node name="ScaleBgMenu" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(610, 340.5)
+scale = Vector2(0.9625, 0.968056)
+texture = ExtResource("4_00gtk")
+
+[connection signal="button_down" from="Levels/Level1" to="." method="open_level" binds= ["res://main.tscn"]]
+[connection signal="button_down" from="Levels/Level2" to="." method="open_level" binds= ["res://Levels/level_6.tscn"]]
+[connection signal="button_down" from="Levels/Level3" to="." method="open_level" binds= ["res://Levels/level_3.tscn"]]
+[connection signal="button_down" from="Levels/Level4" to="." method="open_level" binds= ["res://Levels/level_2.tscn"]]
+[connection signal="button_down" from="Levels/Level5" to="." method="open_level" binds= ["res://Levels/level_4.tscn"]]
+[connection signal="button_down" from="Levels/Level6" to="." method="open_level" binds= ["res://Levels/level_7.tscn"]]
+[connection signal="button_down" from="Levels/Level7" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="value_changed" from="volume" to="." method="_on_volume_value_changed"]

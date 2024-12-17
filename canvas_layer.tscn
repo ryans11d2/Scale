@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpulqqlyti8yv"]
+
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="1_ovfgc"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="2_qhclx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vy0mf"]
+texture = ExtResource("2_qhclx")
+texture_margin_top = 72.0
+texture_margin_bottom = 7.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj2r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqp1i"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Scale" type="HSlider" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -473.0
+offset_right = 473.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("1_ovfgc")
+theme_override_icons/grabber_highlight = ExtResource("1_ovfgc")
+theme_override_icons/grabber_disabled = ExtResource("1_ovfgc")
+theme_override_styles/slider = SubResource("StyleBoxTexture_vy0mf")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_nj2r7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqp1i")
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="Finish" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -147.0
+offset_right = 124.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 26
+text = "    Level Complete
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Time
+"
+fit_content = true
+
+[node name="Rotation" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Rotation
+"
+fit_content = true
+
+[node name="Collect" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Collect
+"
+fit_content = true

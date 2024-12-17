@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dil45qhrw2f6u"
+path="res://.godot/imported/(Scaliball Menu) resonant-victory-glbml-22044.mp3-495e149c3b9f44e84fd753b852237aaf.mp3str"
+
+[deps]
+
+source_file="res://Sounds/(Scaliball Menu) resonant-victory-glbml-22044.mp3"
+dest_files=["res://.godot/imported/(Scaliball Menu) resonant-victory-glbml-22044.mp3-495e149c3b9f44e84fd753b852237aaf.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

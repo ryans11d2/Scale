@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://okwa33h1ypi7"]
+
+[ext_resource type="Script" path="res://Fan.gd" id="1_6lfvc"]
+[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="2_qmd2x"]
+[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="3_8k8l5"]
+[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="4_8dwjq"]
+[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="5_ku6kj"]
+[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="6_i6jca"]
+[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="7_5dcj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qj81"]
+size = Vector2(938.001, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nri3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qmd2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8k8l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8dwjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ku6kj")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sh2yj"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 70, 1)
+spread = 0.0
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 100.0
+linear_accel_max = 100.0
+
+[node name="Fan" type="Area2D"]
+rotation = 4.71239
+collision_layer = 5
+collision_mask = 4
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1000.0
+script = ExtResource("1_6lfvc")
+power = 10000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(316, 58.9998)
+shape = SubResource("RectangleShape2D_6qj81")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 63)
+sprite_frames = SubResource("SpriteFrames_nri3v")
+animation = &"new_animation"
+frame_progress = 0.0339449
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-52.9999, 53)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_sh2yj")
+texture = ExtResource("6_i6jca")
+lifetime = 3.55
+visibility_rect = Rect2(-33, -150, 871, 298)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_5dcj4")
+attenuation = 1e-05
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

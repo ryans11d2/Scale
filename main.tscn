@@ -1,0 +1,466 @@
+[gd_scene load_steps=36 format=3 uid="uid://d21k602dsoytu"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_inu8w"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_gcg1u"]
+[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="5_uobqr"]
+[ext_resource type="Script" path="res://Fan.gd" id="6_ayont"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="7_b2h8c"]
+[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="7_thy33"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="7_ttbnv"]
+[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="8_i467y"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="9_h034g"]
+[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="9_m0b2g"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="9_nemht"]
+[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="10_rlwds"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="11_h0a7u"]
+[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="12_wf50u"]
+[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="13_hd725"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="13_wdpo3"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="14_xecv1"]
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="15_hlfwq"]
+[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="15_pq53v"]
+[ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_r3nxn"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="16_5rsny"]
+[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="16_12io1"]
+[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="16_s1qir"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="19_p2y7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgcqa"]
+size = Vector2(23.5, 393)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2xoe"]
+size = Vector2(1032, 287)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nri3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_thy33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i467y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m0b2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rlwds")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sh2yj"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.34, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 70, 1)
+spread = 0.0
+initial_velocity_min = 450.0
+initial_velocity_max = 450.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24poe"]
+size = Vector2(576, 57)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dq3i7"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qaaml"]
+radius = 29.2746
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vy0mf"]
+texture = ExtResource("9_nemht")
+texture_margin_top = 72.0
+texture_margin_bottom = 7.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj2r7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqp1i"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0uue"]
+streams_count = 2
+stream_0/stream = ExtResource("16_s1qir")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("16_12io1")
+stream_1/weight = 2.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_inu8w")
+level = 1
+
+[node name="Ball" parent="." instance=ExtResource("2_gcg1u")]
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -450
+limit_right = 2930
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Ball"]
+position = Vector2(-156, -216)
+stream = ExtResource("15_pq53v")
+volume_db = -10.0
+autoplay = true
+attenuation = 7.51432e-05
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
+texture_repeat = 2
+texture = ExtResource("5_uobqr")
+polygon = PackedVector2Array(44, -1019, 47, 56, 226.5, 44, 582.5, 167.5, 582.5, 229, -254.5, 228, -255.5, -1021.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+visible = false
+polygon = PackedVector2Array(44, -1019, 47, 56, 226.5, 44, 582.5, 167.5, 582.5, 229, -254.5, 228, -255.5, -1021.5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground"]
+texture_repeat = 2
+texture = ExtResource("5_uobqr")
+polygon = PackedVector2Array(556, 378, 573.5, 378, 1423.5, 131.5, 1423.5, -996.95, -249.5, -1001, -251.5, -1204.5, 1491.5, -1200, 1491.5, 435.5, 555.5, 435.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]
+visible = false
+polygon = PackedVector2Array(556, 378, 573.5, 378, 1423.5, 131.5, 1423.5, -1200, 1491.5, -1200, 1491.5, 435.5, 555.5, 435.5)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Ground"]
+texture_repeat = 2
+texture = ExtResource("5_uobqr")
+polygon = PackedVector2Array(-256.5, 153, 368, 150, 369, 658.5, 983.5, 837, 983.5, 915, 1211.5, 914, 1211.5, 837, 1272.5, 760, 1487, 760, 1493.5, 1853.5, -273.5, 1638.5)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-256.5, 153, 368, 150, 369, 658.5, 983.5, 837, 982, 918, 1213, 917, 1211.5, 837, 1272.5, 760, 1487, 760, 1487, 1033.5, -259, 1033)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+visible = false
+position = Vector2(1496.75, 612.5)
+shape = SubResource("RectangleShape2D_xgcqa")
+
+[node name="Grass" type="Line2D" parent="Ground"]
+modulate = Color(0, 0.615686, 0, 1)
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(367, 228.5, 369, 658.5, 983.5, 837, 981, 920, 1213, 915, 1211.5, 837, 1272.5, 760, 1487, 760, 1493, 1735.5, -268.5, 1766.5, -251.5, -1019, 45.5, -1018, 46, 56.5, 219.568, 44.48, 581.5, 169.5, 581.5, 228, 367.5, 228)
+width = 106.78
+texture = ExtResource("7_b2h8c")
+texture_mode = 1
+
+[node name="Grass2" type="Line2D" parent="Ground"]
+modulate = Color(0, 0.615686, 0, 1)
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(556, 378, 573.5, 378, 1423.5, 131.5, 1423.5, -1200, 1491.5, -1200, 1492, 434.5, 557, 433.5, 556.5, 378)
+width = 106.78
+texture = ExtResource("7_b2h8c")
+texture_mode = 1
+
+[node name="Line2D" type="Line2D" parent="Ground"]
+points = PackedVector2Array(364, -146.5, 754, 239.5, 1050, 39.5, 1112, -178.5, 1224, -140.5)
+width = 100.0
+default_color = Color(0, 0.443137, 0, 1)
+texture = ExtResource("7_b2h8c")
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Pin" parent="Stuff" instance=ExtResource("7_ttbnv")]
+position = Vector2(1124, 772)
+mass = 50.0
+
+[node name="Fan" type="Area2D" parent="Stuff"]
+position = Vector2(2119, 1805)
+rotation = 4.71239
+collision_layer = 5
+collision_mask = 4
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1000.0
+script = ExtResource("6_ayont")
+power = 10000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
+position = Vector2(337, 57.5)
+shape = SubResource("RectangleShape2D_w2xoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
+position = Vector2(-2, 63)
+sprite_frames = SubResource("SpriteFrames_nri3v")
+animation = &"new_animation"
+frame_progress = 0.0339449
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
+position = Vector2(-52.9999, 53)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_sh2yj")
+texture = ExtResource("12_wf50u")
+lifetime = 1.8
+visibility_rect = Rect2(-33, -150, 871, 298)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
+stream = ExtResource("13_hd725")
+attenuation = 1e-05
+
+[node name="Finish" parent="Stuff" instance=ExtResource("9_h034g")]
+
+[node name="Spikes" type="StaticBody2D" parent="Stuff"]
+position = Vector2(2182, 1008)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes"]
+position = Vector2(138, 20.5)
+shape = SubResource("RectangleShape2D_24poe")
+
+[node name="Spike" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-145, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike2" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-80, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike3" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-14, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike4" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(46, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike5" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(111, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike6" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(177, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike7" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(232, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike8" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(297, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike9" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(363, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Spike10" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(423, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_r3nxn")
+
+[node name="Collect" type="Area2D" parent="Stuff"]
+position = Vector2(2777, 326)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("11_h0a7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_dq3i7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_qaaml")
+
+[node name="Hint1" type="RichTextLabel" parent="Stuff"]
+offset_left = 2617.0
+offset_top = 218.0
+offset_right = 3042.0
+offset_bottom = 379.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 23
+text = "Collect scales
+for extra
+challenge"
+
+[node name="Hint2" type="RichTextLabel" parent="Stuff"]
+offset_left = 198.0
+offset_top = 52.0
+offset_right = 623.0
+offset_bottom = 213.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 23
+text = "Grow to push
+off ground"
+
+[node name="Hint3" type="RichTextLabel" parent="Stuff"]
+offset_left = 2357.0
+offset_top = 1062.0
+offset_right = 2782.0
+offset_bottom = 1223.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 23
+text = "Avoid Spikes"
+
+[node name="Hint4" type="RichTextLabel" parent="Stuff"]
+offset_left = 2535.0
+offset_top = 1535.0
+offset_right = 2960.0
+offset_bottom = 1696.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 23
+text = "Reach the flag
+to finish the level"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scale" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -519.0
+offset_top = 23.0
+offset_right = 427.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("15_hlfwq")
+theme_override_icons/grabber_highlight = ExtResource("15_hlfwq")
+theme_override_icons/grabber_disabled = ExtResource("15_hlfwq")
+theme_override_styles/slider = SubResource("StyleBoxTexture_vy0mf")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_nj2r7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqp1i")
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -147.0
+offset_right = 124.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 26
+text = "    Level Complete
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 20
+text = "Time
+"
+fit_content = true
+
+[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 20
+text = "Rotation
+"
+fit_content = true
+
+[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 20
+text = "Collect
+"
+fit_content = true
+
+[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
+layout_mode = 2
+texture_normal = ExtResource("13_wdpo3")
+texture_pressed = ExtResource("13_wdpo3")
+texture_hover = ExtResource("13_wdpo3")
+
+[node name="Reset" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 329.0
+grow_horizontal = 0
+scale = Vector2(0.32, 0.32)
+texture_normal = ExtResource("14_xecv1")
+texture_pressed = ExtResource("14_xecv1")
+texture_hover = ExtResource("14_xecv1")
+
+[node name="Hint1" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 108.0
+offset_top = 80.0
+offset_right = 533.0
+offset_bottom = 241.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 21
+text = "Slide to change size, mass, and bounce"
+
+[node name="Hint2" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 990.0
+offset_top = 58.0
+offset_right = 1415.0
+offset_bottom = 219.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 21
+text = "Press once to 
+reset, twice to
+exit the level"
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+modulate = Color(0.658824, 0.772549, 1, 1)
+z_index = -1
+position = Vector2(2052, 181.44)
+scale = Vector2(5.89766, 5.78178)
+texture = ExtResource("16_5rsny")
+
+[node name="AudioUI" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_s0uue")
+attenuation = 2.7504e-05
+
+[connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
+[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
+[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
+[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
+[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://d21k602dsoytu"]
+
+[ext_resource type="Script" path="res://Ball.gd" id="1_im2gk"]
+[ext_resource type="Script" path="res://main.gd" id="1_inu8w"]
+[ext_resource type="Texture2D" uid="uid://c8tukbjkpsu67" path="res://Sprites/Scale_Player_2.png" id="2_yd3j0"]
+[ext_resource type="Shape2D" uid="uid://bigoh18q82h3i" path="res://ball.tres" id="3_n01yl"]
+[ext_resource type="Texture2D" uid="uid://bl7w23ucm10e6" path="res://Sprites/Scale_Bowling_Pin.png" id="5_4hjhr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_76tum"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_inu8w")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(156, 216)
+physics_material_override = SubResource("PhysicsMaterial_76tum")
+freeze_mode = 1
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_im2gk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.083, 0.083)
+texture = ExtResource("2_yd3j0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = ExtResource("3_n01yl")
+
+[node name="Area2D" type="Area2D" parent="Ball"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball/Area2D"]
+scale = Vector2(0.9, 0.9)
+shape = ExtResource("3_n01yl")
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -450
+limit_right = 2930
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+collision_layer = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground"]
+texture_repeat = 2
+polygon = PackedVector2Array(47, -295, 47, 56, 226.5, 44, 582.5, 167.5, 582.5, 229, -254.5, 228, -254, -295.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(47, -295, 47, 56, 226.5, 44, 582.5, 167.5, 582.5, 229, -254.5, 228, -254, -295.5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(556, 378.5, 819, 364, 1423.5, 131.5, 1423.5, -265, 1491.5, -265, 1491.5, 435.5, 555.5, 435.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(556, 378, 819.5, 364, 1423.5, 131.5, 1423.5, -265, 1491.5, -265, 1491.5, 435.5, 555.5, 435.5)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-257, 228.5, 369, 230.5, 369, 713, 950.5, 817, 1232.5, 816, 1283, 728, 1337, 817.5, 1337, 1035.5, -259, 1033)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-256, 193.5, 369, 196.5, 369, 713, 950.5, 817, 1232.5, 816, 1283, 728, 1337, 817.5, 1337, 1035.5, -259, 1033)
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Stuff"]
+position = Vector2(1124, 814)
+rotation = -0.0348154
+mass = 12.0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 2.9)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/RigidBody2D"]
+position = Vector2(0, -20)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("5_4hjhr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stuff/RigidBody2D"]
+polygon = PackedVector2Array(-11, 66, 13, 66, 26, 36, 31, 9, 27, -15, 14, -45, 12, -55, 13, -67, 18, -84, 17, -93, 11, -104, 5, -107, -6, -106, -14, -101, -18, -90, -18, -84, -14, -69, -12, -59, -12, -53, -15, -42, -25, -22, -31, 0, -31, 17, -25, 38, -19, 53)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 73.0
+offset_right = 269.0
+offset_bottom = 45.0
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[connection signal="body_entered" from="Ball" to="Ball" method="_on_body_entered"]
+[connection signal="body_exited" from="Ball" to="Ball" method="_on_body_exited"]
+[connection signal="body_entered" from="Ball/Area2D" to="Ball" method="_on_area_2d_body_entered"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="Ball" method="_on_h_slider_value_changed"]

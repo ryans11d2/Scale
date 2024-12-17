@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cey5ol50wpm0a"]
+
+[ext_resource type="Texture2D" uid="uid://dtytyuvpxgsqp" path="res://Sprites/Scale_Flag_Finish.png" id="1_bdwxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6l1i"]
+size = Vector2(6, 300)
+
+[node name="Finish" type="Area2D"]
+position = Vector2(2759, 1401)
+scale = Vector2(1.545, 1.545)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bdwxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_e6l1i")
