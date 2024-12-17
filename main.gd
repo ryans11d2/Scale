@@ -3,7 +3,7 @@ extends Node2D
 var last_value = 1
 var changing = false
 var last_change = false
-@export var level = 0
+@export var level = 0##Ordering of current level
 
 func level_complete(time, rot, collect, scales):
 	$CanvasLayer/Finish.visible = true

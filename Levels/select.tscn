@@ -91,9 +91,31 @@ texture_hover = ExtResource("2_vf574")
 
 [node name="Level7" type="TextureButton" parent="Levels"]
 layout_mode = 2
+offset_left = -483.133
+offset_top = 13.253
+offset_right = -163.133
+offset_bottom = 163.253
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level8" type="TextureButton" parent="Levels"]
+layout_mode = 2
 offset_left = -160.0
 offset_top = 18.0
 offset_right = 160.0
+offset_bottom = 168.0
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Level9" type="TextureButton" parent="Levels"]
+layout_mode = 2
+offset_left = 164.0
+offset_top = 18.0
+offset_right = 484.0
 offset_bottom = 168.0
 scale = Vector2(0.925, 0.925)
 texture_normal = ExtResource("2_vf574")
@@ -127,5 +149,7 @@ texture = ExtResource("4_00gtk")
 [connection signal="button_down" from="Levels/Level4" to="." method="open_level" binds= ["res://Levels/level_2.tscn"]]
 [connection signal="button_down" from="Levels/Level5" to="." method="open_level" binds= ["res://Levels/level_4.tscn"]]
 [connection signal="button_down" from="Levels/Level6" to="." method="open_level" binds= ["res://Levels/level_7.tscn"]]
-[connection signal="button_down" from="Levels/Level7" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="button_down" from="Levels/Level7" to="." method="open_level" binds= ["res://Levels/level_climb.tscn"]]
+[connection signal="button_down" from="Levels/Level8" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="button_down" from="Levels/Level9" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
 [connection signal="value_changed" from="volume" to="." method="_on_volume_value_changed"]
