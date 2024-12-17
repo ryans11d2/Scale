@@ -62,7 +62,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x8rll"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yohy6"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -390,7 +390,7 @@ frame_progress = 0.110732
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_x8rll")
+process_material = SubResource("ParticleProcessMaterial_yohy6")
 texture = ExtResource("13_u4elw")
 lifetime = 3.6
 visibility_rect = Rect2(-60, -150, 1700, 298)

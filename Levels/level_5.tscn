@@ -478,15 +478,8 @@ rotation = -2.83156
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes15"]
-position = Vector2(14.5, 20.5)
+position = Vector2(83.8585, 22.4877)
 shape = SubResource("RectangleShape2D_46k4k")
-
-[node name="Spike" type="Sprite2D" parent="Stuff/Spikes15"]
-texture_repeat = 2
-position = Vector2(-145, 24)
-rotation = 3.14159
-scale = Vector2(0.22, 0.22)
-texture = ExtResource("15_vyywh")
 
 [node name="Spike2" type="Sprite2D" parent="Stuff/Spikes15"]
 texture_repeat = 2

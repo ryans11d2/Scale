@@ -57,7 +57,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5n4wh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_is6v1"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -70,7 +70,7 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0whfr"]
 size = Vector2(1936, 590.002)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0aevl"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qea1f"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -80,7 +80,7 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8dxv7"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j5yt4"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -93,7 +93,7 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg0s3"]
 size = Vector2(2588, 888.002)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aq3w2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_81rjr"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -103,7 +103,7 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pw1bd"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xvpje"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -113,7 +113,7 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vdipk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dshkr"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -261,7 +261,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_5n4wh")
+process_material = SubResource("ParticleProcessMaterial_is6v1")
 texture = ExtResource("13_vguy8")
 lifetime = 3.25294
 preprocess = 3.0
@@ -295,7 +295,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_0aevl")
+process_material = SubResource("ParticleProcessMaterial_qea1f")
 texture = ExtResource("13_vguy8")
 lifetime = 7.2
 preprocess = 7.2
@@ -330,7 +330,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_8dxv7")
+process_material = SubResource("ParticleProcessMaterial_j5yt4")
 texture = ExtResource("13_vguy8")
 lifetime = 7.2
 preprocess = 7.2
@@ -364,7 +364,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_aq3w2")
+process_material = SubResource("ParticleProcessMaterial_81rjr")
 texture = ExtResource("13_vguy8")
 lifetime = 1.39384
 preprocess = 1.39384
@@ -399,7 +399,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_pw1bd")
+process_material = SubResource("ParticleProcessMaterial_xvpje")
 texture = ExtResource("13_vguy8")
 lifetime = 1.39384
 preprocess = 1.39384
@@ -434,7 +434,7 @@ frame_progress = 0.387075
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_vdipk")
+process_material = SubResource("ParticleProcessMaterial_dshkr")
 texture = ExtResource("13_vguy8")
 lifetime = 1.39384
 preprocess = 1.39384

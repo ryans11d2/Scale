@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cihicjjs3pkgx"]
+[gd_scene load_steps=44 format=3 uid="uid://cihicjjs3pkgx"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_3xeur"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_hj1wp"]
@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="23_aup42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awhmw"]
-size = Vector2(1116, 302)
+size = Vector2(1114, 302)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nri3v"]
 animations = [{
@@ -48,7 +48,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2hi2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yaqfn"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -58,10 +58,10 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff527"]
-size = Vector2(556, 289)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsnuv"]
+size = Vector2(508, 289)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jgypk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_618qn"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -71,7 +71,10 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jsw2t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpqwk"]
+size = Vector2(471.999, 289)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1md01"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -81,7 +84,10 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sy4e7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drav1"]
+size = Vector2(589.125, 289)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_840ml"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -91,7 +97,10 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r46wq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_semu0"]
+size = Vector2(588.125, 289)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8vg5x"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -101,7 +110,7 @@ initial_velocity_min = 510.0
 initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sdbhv"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dde8r"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
@@ -212,22 +221,23 @@ power = 700
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
-position = Vector2(399, 52.9998)
+position = Vector2(398, 52.9998)
 shape = SubResource("RectangleShape2D_awhmw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_x2hi2")
+process_material = SubResource("ParticleProcessMaterial_yaqfn")
 texture = ExtResource("11_32r56")
-lifetime = 2.25
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 5.68067
+preprocess = 5.68067
+visibility_rect = Rect2(-60, -140, 1074, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("12_uk6b2")
@@ -246,22 +256,23 @@ power = 12000
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan2"]
-position = Vector2(131, 58.5)
-shape = SubResource("RectangleShape2D_ff527")
+position = Vector2(97, 58.4997)
+shape = SubResource("RectangleShape2D_fsnuv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan2"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_jgypk")
+process_material = SubResource("ParticleProcessMaterial_618qn")
 texture = ExtResource("11_32r56")
-lifetime = 0.95
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.133333
+preprocess = 0.133333
+visibility_rect = Rect2(-60, -140, 468, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan2"]
 stream = ExtResource("12_uk6b2")
@@ -280,22 +291,23 @@ power = 12000
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan3"]
-position = Vector2(131, 58.5)
-shape = SubResource("RectangleShape2D_ff527")
+position = Vector2(73.0006, 58.5)
+shape = SubResource("RectangleShape2D_kpqwk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan3"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_jsw2t")
+process_material = SubResource("ParticleProcessMaterial_1md01")
 texture = ExtResource("11_32r56")
-lifetime = 0.95
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.121568
+preprocess = 0.121568
+visibility_rect = Rect2(-60, -140, 431.999, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan3"]
 stream = ExtResource("12_uk6b2")
@@ -314,22 +326,23 @@ power = 12000
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan4"]
-position = Vector2(131, 58.5)
-shape = SubResource("RectangleShape2D_ff527")
+position = Vector2(118.875, 58.5)
+shape = SubResource("RectangleShape2D_drav1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan4"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_sy4e7")
+process_material = SubResource("ParticleProcessMaterial_840ml")
 texture = ExtResource("11_32r56")
-lifetime = 0.95
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.159845
+preprocess = 0.159845
+visibility_rect = Rect2(-60, -140, 549.125, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan4"]
 stream = ExtResource("12_uk6b2")
@@ -348,22 +361,23 @@ power = 10000
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan5"]
-position = Vector2(131, 58.5)
-shape = SubResource("RectangleShape2D_ff527")
+position = Vector2(153.938, 58.5)
+shape = SubResource("RectangleShape2D_semu0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan5"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_r46wq")
+process_material = SubResource("ParticleProcessMaterial_8vg5x")
 texture = ExtResource("11_32r56")
-lifetime = 0.95
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.191422
+preprocess = 0.191422
+visibility_rect = Rect2(-60, -140, 548.125, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan5"]
 stream = ExtResource("12_uk6b2")
@@ -382,22 +396,23 @@ power = 10000
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan6"]
-position = Vector2(131, 58.5)
-shape = SubResource("RectangleShape2D_ff527")
+position = Vector2(154.438, 58.5)
+shape = SubResource("RectangleShape2D_drav1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan6"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.615361
+frame_progress = 0.137404
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)
 amount = 25
-process_material = SubResource("ParticleProcessMaterial_sdbhv")
+process_material = SubResource("ParticleProcessMaterial_dde8r")
 texture = ExtResource("11_32r56")
-lifetime = 0.95
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.191814
+preprocess = 0.191814
+visibility_rect = Rect2(-60, -140, 549.125, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan6"]
 stream = ExtResource("12_uk6b2")
