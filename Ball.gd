@@ -15,8 +15,11 @@ var collect = 0
 @export var scales = 1
 @onready var ball = preload("res://ball.tres")
 
+@export var bus: StringName = "Master"
+
 func _ready():
 	checkpoint = global_position
+	$Audio.bus = bus
 
 func _physics_process(delta):
 	time += delta

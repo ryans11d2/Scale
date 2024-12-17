@@ -150,6 +150,6 @@ texture = ExtResource("4_00gtk")
 [connection signal="button_down" from="Levels/Level5" to="." method="open_level" binds= ["res://Levels/level_4.tscn"]]
 [connection signal="button_down" from="Levels/Level6" to="." method="open_level" binds= ["res://Levels/level_7.tscn"]]
 [connection signal="button_down" from="Levels/Level7" to="." method="open_level" binds= ["res://Levels/level_climb.tscn"]]
-[connection signal="button_down" from="Levels/Level8" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="button_down" from="Levels/Level8" to="." method="open_level" binds= ["res://Levels/level_space.tscn"]]
 [connection signal="button_down" from="Levels/Level9" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
 [connection signal="value_changed" from="volume" to="." method="_on_volume_value_changed"]

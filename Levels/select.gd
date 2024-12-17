@@ -13,7 +13,7 @@ func _ready():
 	
 	var status = load_from_file().split()
 
-	for i in 7:
+	for i in 9:
 		if status[i] == "1":
 			$Levels.get_child(i).texture_normal = green
 			$Levels.get_child(i).texture_pressed = green
