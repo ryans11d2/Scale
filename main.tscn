@@ -29,7 +29,7 @@
 size = Vector2(23.5, 393)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2xoe"]
-size = Vector2(1032, 287)
+size = Vector2(928, 287)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nri3v"]
 animations = [{
@@ -51,14 +51,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sh2yj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jgx3g"]
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 70, 1)
 spread = 0.0
-initial_velocity_min = 450.0
-initial_velocity_max = 450.0
+initial_velocity_min = 2550.0
+initial_velocity_max = 2550.0
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24poe"]
@@ -183,22 +183,23 @@ script = ExtResource("6_ayont")
 power = 10000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
-position = Vector2(337, 57.5)
+position = Vector2(285, 57.5)
 shape = SubResource("RectangleShape2D_w2xoe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.0339449
+frame_progress = 0.107277
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_sh2yj")
+process_material = SubResource("ParticleProcessMaterial_jgx3g")
 texture = ExtResource("12_wf50u")
-lifetime = 1.8
-visibility_rect = Rect2(-33, -150, 871, 298)
+lifetime = 0.28549
+preprocess = 0.28549
+visibility_rect = Rect2(-60, -140, 888, 288)
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("13_hd725")
@@ -359,7 +360,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_nj2r7")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqp1i")
 min_value = 1.0
 max_value = 10.0
-step = 0.1
+step = 0.01
 value = 1.0
 
 [node name="Finish" type="VBoxContainer" parent="CanvasLayer"]

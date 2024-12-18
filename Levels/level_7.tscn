@@ -338,7 +338,7 @@ theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
 min_value = 1.0
 max_value = 10.0
-step = 0.1
+step = 0.01
 value = 1.0
 
 [node name="Finish" type="VBoxContainer" parent="CanvasLayer"]

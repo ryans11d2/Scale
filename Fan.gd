@@ -23,7 +23,7 @@ func _enter_tree():
 	last_box = $CollisionShape2D.shape.size
 	last_pow = power
 	
-	$GPUParticles2D.process_material = load("res://fan_material.material").duplicate()
+	#$GPUParticles2D.process_material = load("res://fan_material.material").duplicate()
 	
 	if !$CollisionShape2D.is_connected("item_rect_changed", area_changed):
 		$CollisionShape2D.connect("item_rect_changed", area_changed)
