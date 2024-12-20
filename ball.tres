@@ -1,3 +1,4 @@
 [gd_resource type="CircleShape2D" format=3 uid="uid://bigoh18q82h3i"]
 
 [resource]
+radius = 20.0

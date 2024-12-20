@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var aer = 1
+var aer: float = 1
 var full = 1
 var growth = 0
 var contacts = []
@@ -20,6 +20,8 @@ var collect = 0
 func _ready():
 	checkpoint = global_position
 	$Audio.bus = bus
+	
+	
 
 func _physics_process(delta):
 	time += delta
@@ -32,15 +34,15 @@ func _physics_process(delta):
 
 func _on_scale_value_changed(value):
 	full = value
-	
+	print(value)
 
 func _integrate_forces(state):
 	
-	ball.radius = aer * 20
+	ball.radius = aer * 20.0
 	$Sprite2D.scale.x = 0.0083 * ball.radius
 	$Sprite2D.scale.y = $Sprite2D.scale.x
-	mass = aer * 3
-	physics_material_override.bounce = (10 - aer) / 10
+	mass = aer * 3.0
+	physics_material_override.bounce = (10.0 - aer) / 10.0
 	
 	contacts = []
 	if(state.get_contact_count() >= 1): 
@@ -91,6 +93,7 @@ func grass_sound():
 	else:
 		$Audio.stream = load("res://Sounds/footstep_carpet_000.ogg")
 	$Audio.play()
+	
 
 func _on_area_2d_area_entered(area):
 	if "Finish" in area.name and !finished:

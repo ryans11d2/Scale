@@ -19,34 +19,6 @@ draw_center = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sthf7"]
 
-[sub_resource type="Animation" id="Animation_3e338"]
-resource_name = "start"
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.9),
-"transitions": PackedFloat32Array(1.7411, 1, 1.8025),
-"update": 0,
-"values": [Vector2(556, -384), Vector2(556, 320), Vector2(556, 288)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:fall")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="Animation" id="Animation_hrjlb"]
 length = 0.001
 tracks/0/type = "value"
@@ -107,22 +79,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -848)]
-}
-
-[sub_resource type="Animation" id="Animation_xxkc3"]
-resource_name = "inflate"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title/Button:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
+"values": [Vector2(576, -624)]
 }
 
 [sub_resource type="Animation" id="Animation_oac1k"]
@@ -154,6 +111,48 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.366022, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="Animation" id="Animation_xxkc3"]
+resource_name = "inflate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title/Button:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="Animation" id="Animation_sbka0"]
+resource_name = "quick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(556, 1074)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Select:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 302)]
 }
 
 [sub_resource type="Animation" id="Animation_1ce8q"]
@@ -193,34 +192,35 @@ tracks/2/keys = {
 "times": PackedFloat32Array(1, 3.9),
 "transitions": PackedFloat32Array(7.72748, 1),
 "update": 0,
-"values": [Vector2(0, -848), Vector2(0, 0)]
+"values": [Vector2(576, -848), Vector2(576, 296)]
 }
 
-[sub_resource type="Animation" id="Animation_sbka0"]
-resource_name = "quick"
+[sub_resource type="Animation" id="Animation_3e338"]
+resource_name = "start"
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Title:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1.7411, 1, 1.8025),
 "update": 0,
-"values": [Vector2(556, 1074)]
+"values": [Vector2(556, -384), Vector2(556, 320), Vector2(556, 288)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Select:position")
+tracks/1/path = NodePath(".:fall")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6uugp"]
@@ -247,17 +247,16 @@ texture = ExtResource("4_00gtk")
 expand_mode = 1
 
 [node name="Title" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -708.0
-offset_right = -20.0
-offset_bottom = -708.0
+offset_left = 556.0
+offset_top = -384.0
+offset_right = 556.0
+offset_bottom = -384.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -331,19 +330,20 @@ vertical_alignment = 1
 
 [node name="Select" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_top = -848.0
-offset_bottom = -848.0
-
-[node name="Levels" type="Control" parent="Select"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = 576.0
+offset_top = -624.0
+offset_right = 576.0
+offset_bottom = -624.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Levels" type="Control" parent="Select"]
+anchors_preset = 0
 scale = Vector2(0.83, 0.83)
 
 [node name="Level1" type="TextureButton" parent="Select/Levels"]
@@ -650,6 +650,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SFX" type="HSlider" parent="Select"]
+layout_mode = 0
 offset_left = -552.0
 offset_top = -280.0
 offset_right = -28.0
