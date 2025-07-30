@@ -1,6 +1,6 @@
 [gd_scene load_steps=35 format=3 uid="uid://7qw68tgft6vs"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_lrrcu"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_lrrcu"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_qb75v"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_kkrul"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_tqnh1"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="8_noh3j"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="9_j02gq"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="10_gmxjc"]
-[ext_resource type="Script" path="res://Fan.gd" id="10_tp6yt"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="10_tp6yt"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="11_8o2cj"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_g56qy"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="12_33ead"]
@@ -80,7 +80,6 @@ draw_center = false
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0uue"]
 streams_count = 2
 stream_0/stream = ExtResource("14_05ryj")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("15_q8183")
 stream_1/weight = 2.0
 

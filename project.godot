@@ -14,7 +14,7 @@ config/name="Scale"
 run/main_scene="res://Levels/select.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="save"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Sprites/Scale_Game_Icon.png"
 
 [display]

@@ -80,7 +80,3 @@ func area_changed():
 	
 	#par.visibility_rect.width = 60 + (sha.shape.size.x - 100)
 	
-
-
-
-

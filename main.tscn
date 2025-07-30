@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://d21k602dsoytu"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_inu8w"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_inu8w"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_gcg1u"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="5_uobqr"]
-[ext_resource type="Script" path="res://Fan.gd" id="6_ayont"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="6_ayont"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="7_b2h8c"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="7_thy33"]
 [ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="7_ttbnv"]
@@ -83,7 +83,6 @@ draw_center = false
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0uue"]
 streams_count = 2
 stream_0/stream = ExtResource("16_s1qir")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("16_12io1")
 stream_1/weight = 2.0
 
@@ -190,16 +189,16 @@ shape = SubResource("RectangleShape2D_w2xoe")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.107277
+frame_progress = 0.507268
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_jgx3g")
 texture = ExtResource("12_wf50u")
 lifetime = 0.28549
 preprocess = 0.28549
 visibility_rect = Rect2(-60, -140, 888, 288)
+process_material = SubResource("ParticleProcessMaterial_jgx3g")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("13_hd725")

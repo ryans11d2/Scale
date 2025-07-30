@@ -11,7 +11,6 @@ absorbent = true
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("2_ucpnn")
-stream_0/weight = 1.0
 
 [node name="Pin" type="RigidBody2D"]
 rotation = -0.0348154

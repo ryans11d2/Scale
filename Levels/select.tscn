@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://b8u15dq5fhl2h"]
 
-[ext_resource type="Script" path="res://Levels/select.gd" id="1_2h88q"]
+[ext_resource type="Script" uid="uid://bneybkwhpltyn" path="res://Levels/select.gd" id="1_2h88q"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="2_vf574"]
 [ext_resource type="AudioStream" uid="uid://dil45qhrw2f6u" path="res://Sounds/(Scaliball Menu) resonant-victory-glbml-22044.mp3" id="3_foct5"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="3_frxo6"]
@@ -225,13 +225,13 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6uugp"]
 _data = {
-"RESET": SubResource("Animation_hrjlb"),
-"deflate": SubResource("Animation_oac1k"),
-"grow": SubResource("Animation_66gsi"),
-"inflate": SubResource("Animation_xxkc3"),
-"quick": SubResource("Animation_sbka0"),
-"shrink": SubResource("Animation_1ce8q"),
-"start": SubResource("Animation_3e338")
+&"RESET": SubResource("Animation_hrjlb"),
+&"deflate": SubResource("Animation_oac1k"),
+&"grow": SubResource("Animation_66gsi"),
+&"inflate": SubResource("Animation_xxkc3"),
+&"quick": SubResource("Animation_sbka0"),
+&"shrink": SubResource("Animation_1ce8q"),
+&"start": SubResource("Animation_3e338")
 }
 
 [node name="Select" type="CanvasLayer"]

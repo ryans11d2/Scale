@@ -1,11 +1,11 @@
 [gd_scene load_steps=44 format=3 uid="uid://cihicjjs3pkgx"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_3xeur"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_3xeur"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_hj1wp"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_m067a"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_btkxv"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_ernny"]
-[ext_resource type="Script" path="res://Fan.gd" id="6_nh6we"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="6_nh6we"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="7_g4lxa"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="8_iol8i"]
 [ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="8_ja1qy"]
@@ -142,7 +142,6 @@ draw_center = false
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0uue"]
 streams_count = 2
 stream_0/stream = ExtResource("16_3wgkp")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("17_kt5x0")
 stream_1/weight = 2.0
 

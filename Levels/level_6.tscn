@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://b2xw5r7i4t01k"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_81pjf"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_81pjf"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_si7mk"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_y4tq7"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_ifcnb"]
@@ -40,7 +40,6 @@ draw_center = false
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uvhyc"]
 streams_count = 2
 stream_0/stream = ExtResource("22_ccpe3")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("23_8mlpg")
 stream_1/weight = 2.0
 

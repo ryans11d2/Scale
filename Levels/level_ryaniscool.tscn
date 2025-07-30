@@ -1,13 +1,13 @@
 [gd_scene load_steps=37 format=3 uid="uid://dbwfbi2g7wr4a"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_m8oxk"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_m8oxk"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_ro4bu"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="3_4fhsw"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="4_sdm5u"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="5_6diva"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="6_r7cm4"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="7_h0iv5"]
-[ext_resource type="Script" path="res://Fan.gd" id="8_7r880"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="8_7r880"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="9_xxv7o"]
 [ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="10_d4yjj"]
 [ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="11_7vv3t"]
@@ -85,7 +85,6 @@ draw_center = false
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
 streams_count = 2
 stream_0/stream = ExtResource("21_4ggpi")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("22_ctona")
 stream_1/weight = 2.0
 

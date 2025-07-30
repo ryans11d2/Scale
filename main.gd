@@ -62,4 +62,3 @@ func _input(event):
 
 func _on_scale_drag_started():
 	$AudioUI.play()
-
