@@ -696,7 +696,7 @@ attenuation = 7.51432e-05
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6uugp")
+&"": SubResource("AnimationLibrary_6uugp")
 }
 
 [connection signal="button_down" from="Title/Button/Start" to="." method="grow"]

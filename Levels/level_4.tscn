@@ -232,11 +232,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_anpv3")
 texture = ExtResource("11_32r56")
 lifetime = 3.97255
 preprocess = 3.97255
 visibility_rect = Rect2(-60, -140, 1073, 288)
+process_material = SubResource("ParticleProcessMaterial_anpv3")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("12_uk6b2")
@@ -267,11 +267,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_n622p")
 texture = ExtResource("11_32r56")
 lifetime = 0.121242
 preprocess = 0.121242
 visibility_rect = Rect2(-60, -140, 431, 288)
+process_material = SubResource("ParticleProcessMaterial_n622p")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan2"]
 stream = ExtResource("12_uk6b2")
@@ -302,11 +302,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_7ks7x")
 texture = ExtResource("11_32r56")
 lifetime = 0.124836
 preprocess = 0.124836
 visibility_rect = Rect2(-60, -140, 441.998, 288)
+process_material = SubResource("ParticleProcessMaterial_7ks7x")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan3"]
 stream = ExtResource("12_uk6b2")
@@ -337,11 +337,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_vkc4d")
 texture = ExtResource("11_32r56")
 lifetime = 0.142453
 preprocess = 0.142453
 visibility_rect = Rect2(-60, -140, 495.906, 288)
+process_material = SubResource("ParticleProcessMaterial_vkc4d")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan4"]
 stream = ExtResource("12_uk6b2")
@@ -372,11 +372,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
 amount = 30
-process_material = SubResource("ParticleProcessMaterial_pf157")
 texture = ExtResource("11_32r56")
 lifetime = 0.182794
 preprocess = 0.182794
 visibility_rect = Rect2(-60, -140, 526.124, 288)
+process_material = SubResource("ParticleProcessMaterial_pf157")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan5"]
 stream = ExtResource("12_uk6b2")
@@ -407,11 +407,11 @@ frame_progress = 0.366214
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)
 amount = 25
-process_material = SubResource("ParticleProcessMaterial_ac6qk")
 texture = ExtResource("11_32r56")
 lifetime = 0.170944
 preprocess = 0.170944
 visibility_rect = Rect2(-60, -140, 495.906, 288)
+process_material = SubResource("ParticleProcessMaterial_ac6qk")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan6"]
 stream = ExtResource("12_uk6b2")
