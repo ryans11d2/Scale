@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_bj3he"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_qihjb"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_2utfi"]
-[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_2jpqm"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_tpk1w"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_dvgyn"]
 [ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="6_7vlgs"]
 [ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="6_kksmv"]
@@ -129,7 +129,7 @@ collision_layer = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
-texture = ExtResource("4_2jpqm")
+texture = ExtResource("4_tpk1w")
 polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, -261.5, 782, -262, -1990.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
@@ -147,7 +147,7 @@ texture_mode = 1
 [node name="Polygon2D3" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
 position = Vector2(0, 1667.21)
-texture = ExtResource("4_2jpqm")
+texture = ExtResource("4_tpk1w")
 polygon = PackedVector2Array(47, -897.714, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2292, 538.286, 2694, 538.286, 2692, -93.214, 3084, -93.214, 3085, 1343.29, -262, 1356.29, -262.5, -894.714)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
@@ -168,7 +168,7 @@ texture_mode = 1
 texture_repeat = 2
 position = Vector2(2815.78, 783.78)
 scale = Vector2(-1, 1)
-texture = ExtResource("4_2jpqm")
+texture = ExtResource("4_tpk1w")
 polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, -261.5, 782, -262, -1990.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]
@@ -207,7 +207,7 @@ shape = SubResource("RectangleShape2D_6qj81")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.695395
+frame_progress = 0.999068
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -240,7 +240,7 @@ shape = SubResource("RectangleShape2D_6qj81")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.695395
+frame_progress = 0.999068
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -274,7 +274,7 @@ shape = SubResource("RectangleShape2D_6qj81")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.695395
+frame_progress = 0.999068
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)

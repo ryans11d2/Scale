@@ -17,6 +17,9 @@ var collect = 0
 
 @export var bus: StringName = "Master"
 
+var bounce_tone: int = 0
+var tone_dir: bool = false
+
 func _ready():
 	checkpoint = global_position
 	$Audio.bus = bus
@@ -34,7 +37,7 @@ func _physics_process(delta):
 
 func _on_scale_value_changed(value):
 	full = value
-	print(value)
+	#print(value)
 
 func _integrate_forces(state):
 	
@@ -67,37 +70,52 @@ func reset():
 			get_tree().call_deferred("reload_current_scene")
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
+	if dead: return
 	if abs(linear_velocity.length()) < 8:
 		linear_velocity = Vector2.ZERO
 	
-	if "Spikes" in body.name and !finished and !dead:
+	if "Spikes" in _body.name and !finished and !dead:
 		dead = true
 		freeze = true
 		$Audio.stream = load("res://Sounds/error_007.ogg")
 		$Audio.play()
 		await  $Audio.finished
 		reset()
-	elif "Fan" in body.name or "Pin" in body.name:
+	elif "Fan" in _body.name or "Pin" in _body.name:
 		$Audio.stream = load("res://Sounds/impactMetal_heavy_002.ogg")
 		$Audio.play()
 	else:
 		grass_sound()
 
 func grass_sound():
-	var sound = randi_range(0, 2)
-	if sound == 0:
-		$Audio.stream = load("res://Sounds/footstep_grass_002.ogg")
-	elif sound == 1:
-		$Audio.stream = load("res://Sounds/footstep_grass_001.ogg")
-	else:
-		$Audio.stream = load("res://Sounds/footstep_carpet_000.ogg")
-	$Audio.play()
+	
+	var tone: float
+	if !tone_dir: tone = bounce_tone
+	else: tone = 12 - bounce_tone
+	
+	
+	$Bounce.pitch_scale = pow(2, float(tone) / 12.0 - ((full + 1) / 4.0))
+	
+	$Bounce.play()
+	#prints(tone, tone_dir)
+	bounce_tone += 1
+	if bounce_tone > 12: 
+		bounce_tone = 1
+		tone_dir = !tone_dir
+	#var sound = randi_range(0, 2)
+	#if sound == 0:
+		#$Audio.stream = load("res://Sounds/footstep_grass_002.ogg")
+	#elif sound == 1:
+		#$Audio.stream = load("res://Sounds/footstep_grass_001.ogg")
+	#else:
+		#$Audio.stream = load("res://Sounds/footstep_carpet_000.ogg")
+	#$Audio.play()
 	
 
 func _on_area_2d_area_entered(area):
 	if "Finish" in area.name and !finished:
-		$Audio.stream = load("res://Sounds/select_005.ogg")
+		$Audio.stream = preload("res://Sounds/select_005.ogg")
 		$Audio.play()
 		finished = true
 		get_parent().level_complete(int(time), int(total_rotation), collect, scales)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_lrrcu"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_qb75v"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_kkrul"]
-[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_tqnh1"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_kl0t8"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_uqw5o"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="6_2qqxk"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="7_vwru7"]
@@ -116,7 +116,7 @@ collision_layer = 3
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
 color = Color(0.207843, 0.45098, 0.803922, 1)
-texture = ExtResource("4_tqnh1")
+texture = ExtResource("4_kl0t8")
 polygon = PackedVector2Array(-988, -4464.5, 3474, -4847.5, 2510.5, -3001.5, 1954.5, -2725, 565.142, -835.339, 484.5, -632, 440.579, -665.921, 44.0001, -126.536, 44.0001, -1.38419, 61.5, 15.5, -32, 128.5, 613.5, 671.5, 735.589, 579.882, 1288.88, -77.3919, 1220, -129, 1468.81, -291.136, 2917, -2011.5, 3031.5, -2571, 2510, -3004, 3449.5, -4838, 5772.5, -2950, 5979, 2213, -520, 2642, -3959.5, -39.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
@@ -317,16 +317,16 @@ shape = SubResource("RectangleShape2D_ioau5")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_hlc6u")
 animation = &"new_animation"
-frame_progress = 0.0763627
+frame_progress = 0.137727
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_2otbh")
 texture = ExtResource("15_p85fk")
 lifetime = 13.2188
 preprocess = 13.2188
 visibility_rect = Rect2(-60, -140, 1745.4, 288)
+process_material = SubResource("ParticleProcessMaterial_2otbh")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("16_jros8")

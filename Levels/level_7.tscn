@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_wl5m5"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_itfq7"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_jeiwp"]
-[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_us4up"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_fc3vy"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_xp6ac"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_kg2dc"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="14_eoob6"]
@@ -67,7 +67,7 @@ collision_layer = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
-texture = ExtResource("4_us4up")
+texture = ExtResource("4_fc3vy")
 polygon = PackedVector2Array(-256, -1411, 1788, -1437, 1780, -843, 44.4633, -853.009, 47, 56, 178, 101, 210, 133, 215.5, 183, 637, 183, 637, 271, -172, 271, -171.34, 682.014, -41.5, 682.5, -41.5, 801, -171.15, 800.452, -170.732, 1217.08, 199, 1295, 199, 1346, 424, 1346, 424.5, 1269, 649, 1300.5, 649, 1387.5, 522.197, 1387.47, 522.43, 1705.7, 810.062, 1705.54, 810, 1385.5, 724.5, 1385.5, 725, 1297, 953, 1262.5, 953.5, 1351.5, 1180, 1352, 1181.5, 745, 1682, 746.5, 1675.5, 1352.5, 1685, 1921, -259, 1934, -255.5, -1021.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
@@ -84,7 +84,7 @@ texture_mode = 1
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
-texture = ExtResource("4_us4up")
+texture = ExtResource("4_fc3vy")
 polygon = PackedVector2Array(693, 181.5, 693, 271.5, 691.5, 625.5, 534, 644.5, 534, 673.5, 52.5, 688.5, 14.5, 684.5, 15, 810, 1668, 820, 1675, -1011, 879.5, -995, 877.5, 181.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground"]

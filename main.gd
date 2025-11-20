@@ -4,7 +4,11 @@ var last_value = 1
 var changing = false
 var last_change = false
 @export var level = 0##Ordering of current level
-	
+
+func _ready():
+	#save_to_file("000000000000")
+	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+
 
 func level_complete(time, rot, collect, scales):
 	$CanvasLayer/Finish.visible = true
@@ -23,14 +27,14 @@ func level_complete(time, rot, collect, scales):
 func load_from_file():
 	var file = FileAccess.open("user://save.txt", FileAccess.READ)
 	var content = file.get_as_text()
-	file = null
+	file.close()
 	print(content)
 	return content
 
 func save_to_file(content):
 	var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
 	file.store_string(content)
-	file = null
+	file.close()
 	
 	
 
@@ -42,6 +46,7 @@ func write_progress(state):
 	for i in data:
 		new_data += i
 	#$CanvasLayer/Finish/Collect.text = new_data
+	print("New Data: ", new_data)
 	save_to_file(new_data)
 	load_from_file()
 

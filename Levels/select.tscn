@@ -253,10 +253,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 556.0
-offset_top = -384.0
-offset_right = 556.0
-offset_bottom = -384.0
+offset_left = -20.0
+offset_top = -708.0
+offset_right = -20.0
+offset_bottom = -708.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -335,15 +335,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 576.0
-offset_top = -624.0
-offset_right = 576.0
-offset_bottom = -624.0
+offset_top = -948.0
+offset_bottom = -948.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Levels" type="Control" parent="Select"]
 anchors_preset = 0
+offset_top = -26.0
+offset_bottom = -26.0
 scale = Vector2(0.83, 0.83)
 
 [node name="Level1" type="TextureButton" parent="Select/Levels"]
@@ -511,8 +511,7 @@ theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
-text = "5
-"
+text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -581,8 +580,7 @@ theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
-text = "7
-"
+text = "7"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -644,8 +642,100 @@ theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
-text = "9
-"
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level10" type="TextureButton" parent="Select/Levels"]
+layout_mode = 2
+offset_left = -462.651
+offset_top = 320.482
+offset_right = -142.651
+offset_bottom = 470.482
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Label" type="Label" parent="Select/Levels/Level10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.90753
+offset_top = -9.11755
+offset_right = -3.90753
+offset_bottom = -9.11755
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_frxo6")
+theme_override_font_sizes/font_size = 86
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level11" type="TextureButton" parent="Select/Levels"]
+layout_mode = 2
+offset_left = -119.277
+offset_top = 320.482
+offset_right = 200.723
+offset_bottom = 470.482
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Label" type="Label" parent="Select/Levels/Level11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.90753
+offset_top = -9.11755
+offset_right = -3.90753
+offset_bottom = -9.11755
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_frxo6")
+theme_override_font_sizes/font_size = 86
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level12" type="TextureButton" parent="Select/Levels"]
+layout_mode = 2
+offset_left = 214.458
+offset_top = 320.482
+offset_right = 534.458
+offset_bottom = 470.482
+scale = Vector2(0.925, 0.925)
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+
+[node name="Label" type="Label" parent="Select/Levels/Level12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.90753
+offset_top = -9.11755
+offset_right = -3.90753
+offset_bottom = -9.11755
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_frxo6")
+theme_override_font_sizes/font_size = 86
+text = "???"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -712,4 +802,7 @@ libraries = {
 [connection signal="button_down" from="Select/Levels/Level7" to="." method="open_level" binds= ["res://Levels/level_climb.tscn"]]
 [connection signal="button_down" from="Select/Levels/Level8" to="." method="open_level" binds= ["res://Levels/level_space.tscn"]]
 [connection signal="button_down" from="Select/Levels/Level9" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="button_down" from="Select/Levels/Level10" to="." method="open_level" binds= ["res://Levels/level_spin.tscn"]]
+[connection signal="button_down" from="Select/Levels/Level11" to="." method="open_level" binds= ["res://Levels/level_ice.tscn"]]
+[connection signal="button_down" from="Select/Levels/Level12" to="." method="open_level" binds= ["res://Levels/level_marathon.tscn"]]
 [connection signal="value_changed" from="Select/SFX" to="." method="_on_volume_value_changed"]

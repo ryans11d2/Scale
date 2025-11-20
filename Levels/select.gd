@@ -9,11 +9,17 @@ var grow_button = true
 @export var shrink_button = false
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	#if true:
+		#var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
+		#file.store_string("000000000000")
+		#file = null
 	
 	if !FileAccess.file_exists("user://save.txt"):
 		var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-		file.store_string("000000000")
-		file = null
+		file.store_string("000000000000")
+		file.close()
 	
 	var status = load_from_file().split()
 	print(status)
@@ -35,6 +41,11 @@ func _ready():
 		$AnimationPlayer.play("start")
 	else:
 		$AnimationPlayer.play("quick")
+	
+	var file_stuff = load_from_file()
+	$Select/Levels/Level10.visible = "222222222" in file_stuff
+	$Select/Levels/Level11.visible = "2222222221" in file_stuff
+	$Select/Levels/Level12.visible = "22222222222" in file_stuff
 	
 
 func close():
@@ -76,6 +87,6 @@ func grow():
 
 func shrink():
 	fall = false
-	$AnimationPlayer.pause()
-	await get_tree().create_timer(0.25).timeout
+	#$AnimationPlayer.pause()
+	#await get_tree().create_timer(0.25).timeout
 	$AnimationPlayer.play("shrink")

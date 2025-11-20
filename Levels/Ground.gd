@@ -17,4 +17,3 @@ func _ready():
 	col.polygon = polygon
 	lin.points = polygon
 	
-

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_2dj7f"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_kaqfn"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_lns20"]
-[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="4_y8ksl"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_q5sk7"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_46ig2"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_l00rb"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="14_k8lpq"]
@@ -68,7 +68,7 @@ collision_layer = 3
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 z_index = 1
 texture_repeat = 2
-texture = ExtResource("4_y8ksl")
+texture = ExtResource("4_q5sk7")
 polygon = PackedVector2Array(8300, -1036.5, 8337, 2580, 8188.5, 2556, 8185.68, 2203.55, 7181.52, 1898.36, 7052.5, 2003, 6806, 1835.5, 6476.6, 1684.12, 5247.53, 1310.57, 4821, 1310.5, 4821.18, 1181, 3839.64, 888.713, 3839.64, 699.873, 3209.68, 699.873, 47, -270, 47, 50, 2147.18, 682.131, 2383.5, 682, 2471.09, 779.624, 3209.68, 1006.7, 3209.5, 1200, 3839.64, 1200, 4529.67, 1412.21, 4948, 1412.5, 4948.05, 1540.87, 8333.5, 2582, 8341, 2873.5, -346.5, 2834, -254.5, 228, -255.5, -1021.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]

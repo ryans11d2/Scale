@@ -1,9 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://bm6rge2rsadfg"]
+[gd_scene load_steps=43 format=3 uid="uid://bm6rge2rsadfg"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_6xcue"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_02bft"]
 [ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://dull.tres" id="3_75d7b"]
-[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/Ground.gd" id="3_qma0l"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="3_qma0l"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_daol6"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="4_xu3bi"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="5_wc7mk"]
@@ -33,9 +33,16 @@
 radius = 200.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3bum"]
+radius = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jihuv"]
 size = Vector2(414.008, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnm65"]
+size = Vector2(1125.52, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7g70q"]
+size = Vector2(879.999, 57)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
 radius = 25.0
@@ -94,10 +101,10 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6xcue")
-level = 6
+level = 10
 
 [node name="Size Reference" type="Node2D" parent="."]
-position = Vector2(7377, 3273)
+position = Vector2(12440, 4573)
 
 [node name="Max" type="CollisionShape2D" parent="Size Reference"]
 shape = SubResource("CircleShape2D_77423")
@@ -113,7 +120,8 @@ position = Vector2(885, -1917)
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.5, 0.5)
 limit_left = -965
-limit_right = 20175
+limit_right = 13440
+limit_bottom = 7180
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2(0, 126)
@@ -123,21 +131,21 @@ scale = Vector2(2, 2)
 z_index = 1
 collision_layer = 3
 physics_material_override = ExtResource("3_75d7b")
-script = ExtResource("3_qma0l")
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
 modulate = Color(0.301961, 0.129412, 0.4, 1)
 texture_repeat = 2
 texture = ExtResource("4_daol6")
-polygon = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 4024.5, 1823, 4024.96, 1675.4, 4862.5, 2214.5, 1693.5, 3027, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
+polygon = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
-polygon = PackedVector2Array(809, -342, 1423, 42, 1070.5, 629.5, 221.5, 458.5, 72, -225)
+visible = false
+polygon = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
 
 [node name="Grass" type="Line2D" parent="Ground/ShapeA"]
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(809, -342, 1423, 42, 1070.5, 629.5, 221.5, 458.5, 72, -225)
+points = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
 closed = true
 width = 5.0
 default_color = Color(0, 0.00784314, 1, 1)
@@ -156,17 +164,16 @@ texture = ExtResource("4_daol6")
 polygon = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 572, -410.5, 390.5, -409.89)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeB"]
-polygon = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1803, 427.5, 1676, -492, 2078.5, -449.5)
+visible = false
+polygon = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 572, -410.5, 390.5, -409.89)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeB"]
-modulate = Color(0, 0.615686, 0, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1803, 427.5, 1676, -492, 2078.5, -449.5)
+points = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 572, -410.5, 390.5, -409.89)
 closed = true
-width = 106.78
-texture = ExtResource("4_xu3bi")
-texture_mode = 1
+width = 5.0
+default_color = Color(0, 0.00784314, 1, 1)
 
 [node name="ShapeC" type="StaticBody2D" parent="Ground"]
 z_index = 1
@@ -176,16 +183,17 @@ script = ExtResource("3_qma0l")
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeC"]
 texture_repeat = 2
 texture = ExtResource("4_daol6")
-polygon = PackedVector2Array(-42.5, -764.5, 574, -947, 2681.5, 68, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
+polygon = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeC"]
-polygon = PackedVector2Array(460, -265.5, 607.5, -270, 538.5, -173.5)
+visible = false
+polygon = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeC"]
 modulate = Color(0, 0.615686, 0, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1982.5, 267, 1676, -492, 2078.5, -449.5)
+points = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
 closed = true
 width = 106.78
 texture = ExtResource("4_xu3bi")
@@ -194,10 +202,14 @@ texture_mode = 1
 [node name="Stuff" type="Node2D" parent="."]
 
 [node name="Finish" parent="Stuff" instance=ExtResource("5_wc7mk")]
-position = Vector2(4720, -1272)
+position = Vector2(7710, 5761)
+rotation = 3.14159
+
+[node name="Finish2" parent="Stuff" instance=ExtResource("5_wc7mk")]
+position = Vector2(6008, 5945)
 
 [node name="Spikes" type="StaticBody2D" parent="Stuff"]
-position = Vector2(-1110, 3575)
+position = Vector2(11813, 7170)
 rotation = -3.14108
 metadata/_edit_group_ = true
 
@@ -255,13 +267,13 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spikes2" type="StaticBody2D" parent="Stuff"]
-position = Vector2(-930, 3345)
-rotation = -3.14108
+position = Vector2(13094, 4120)
+rotation = 1.5708
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes2"]
-position = Vector2(236.511, 20.5)
-shape = SubResource("RectangleShape2D_jihuv")
+position = Vector2(-119.242, 20.5)
+shape = SubResource("RectangleShape2D_xnm65")
 
 [node name="Spike4" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
@@ -312,87 +324,192 @@ rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
+[node name="Spike11" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-397.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike12" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-332.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike13" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-266.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike14" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-211.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike15" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-146.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike16" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-80.7998, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike17" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-20.7998, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike19" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-653.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike20" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-588.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike21" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-522.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike22" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(-462.8, 24.7998)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
 [node name="Spikes3" type="StaticBody2D" parent="Stuff"]
-position = Vector2(7377, 2448)
-rotation = 6.84959
+position = Vector2(7655, 3764)
+rotation = 3.14159
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes3"]
-position = Vector2(138, 20.5)
-shape = SubResource("RectangleShape2D_jihuv")
+position = Vector2(263.999, 20.4998)
+shape = SubResource("RectangleShape2D_7g70q")
 
 [node name="Spike" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(-145, 24)
+position = Vector2(-148, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike2" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(-80, 24)
+position = Vector2(-83, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike3" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(-14, 24)
+position = Vector2(-17, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike4" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(46, 24)
+position = Vector2(43, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike11" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(486.8, 24.8009)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike12" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(551.8, 24.8009)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike13" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(617.8, 24.8009)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("6_t3a2v")
+
+[node name="Spike14" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(677.8, 24.8009)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike5" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(111, 24)
+position = Vector2(108, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike6" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(177, 24)
+position = Vector2(174, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike7" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(232, 24)
+position = Vector2(229, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike8" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(297, 24)
+position = Vector2(294, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike9" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(363, 24)
+position = Vector2(360, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Spike10" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
-position = Vector2(423, 24)
+position = Vector2(420, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_t3a2v")
 
 [node name="Collect" type="Area2D" parent="Stuff"]
-position = Vector2(3963, -923)
+position = Vector2(7425, 2969)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
@@ -404,6 +521,22 @@ position = Vector2(-17, 26)
 shape = SubResource("CircleShape2D_etor8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Collect2" type="Area2D" parent="Stuff"]
+position = Vector2(6137, 6080)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect2"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("7_gr36y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect2"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect2"]
 position = Vector2(-7, -10)
 shape = SubResource("CircleShape2D_8860t")
 
@@ -425,16 +558,16 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.138703
+frame_progress = 0.850144
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_b3t7x")
 texture = ExtResource("13_bb31c")
 lifetime = 3.08824
 preprocess = 3.08824
 visibility_rect = Rect2(-60, -140, 1635, 288)
+process_material = SubResource("ParticleProcessMaterial_b3t7x")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
 stream = ExtResource("14_gsdy0")
@@ -548,10 +681,9 @@ scale = Vector2(8.12891, 7.93403)
 texture = ExtResource("24_1ykw5")
 
 [node name="ScaleBgSunset" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
-position = Vector2(9249.5, 3043.5)
-scale = Vector2(6.88672, 6.41806)
+position = Vector2(7986, 1724)
+scale = Vector2(17.1734, 15.8889)
 texture = ExtResource("25_m6ek2")
 
 [node name="ScaleBg" type="Sprite2D" parent="."]
