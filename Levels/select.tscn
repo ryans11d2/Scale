@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b8u15dq5fhl2h"]
+[gd_scene load_steps=21 format=3 uid="uid://b8u15dq5fhl2h"]
 
 [ext_resource type="Script" uid="uid://bneybkwhpltyn" path="res://Levels/select.gd" id="1_2h88q"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="2_vf574"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_46aab"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="4_df3qd"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="4_te2ku"]
+[ext_resource type="AudioStream" uid="uid://b5802shng83nc" path="res://Sounds/select_005.ogg" id="9_hfr88"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhjht"]
 texture = ExtResource("4_te2ku")
@@ -177,8 +178,8 @@ tracks/1/path = NodePath("Title:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 3.5),
-"transitions": PackedFloat32Array(2.46229, 1),
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Vector2(556, 288), Vector2(556, 1074)]
 }
@@ -189,10 +190,10 @@ tracks/2/path = NodePath("Select:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 3.9),
-"transitions": PackedFloat32Array(7.72748, 1),
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(4.14105, 1),
 "update": 0,
-"values": [Vector2(576, -848), Vector2(576, 296)]
+"values": [Vector2(576, -848), Vector2(576, 282.33)]
 }
 
 [sub_resource type="Animation" id="Animation_3e338"]
@@ -679,9 +680,9 @@ vertical_alignment = 1
 
 [node name="Level11" type="TextureButton" parent="Select/Levels"]
 layout_mode = 2
-offset_left = -119.277
+offset_left = -123.855
 offset_top = 320.482
-offset_right = 200.723
+offset_right = 196.145
 offset_bottom = 470.482
 scale = Vector2(0.925, 0.925)
 texture_normal = ExtResource("2_vf574")
@@ -789,10 +790,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_6uugp")
 }
 
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hfr88")
+
 [connection signal="button_down" from="Title/Button/Start" to="." method="grow"]
 [connection signal="mouse_entered" from="Title/Button/Start" to="." method="deflate"]
 [connection signal="mouse_exited" from="Title/Button/Start" to="." method="inflate"]
 [connection signal="pressed" from="Title/Button/Start" to="." method="shrink"]
+[connection signal="pressed" from="Title/Button/Start" to="Button" method="play"]
 [connection signal="button_down" from="Select/Levels/Level1" to="." method="open_level" binds= ["res://main.tscn"]]
 [connection signal="button_down" from="Select/Levels/Level2" to="." method="open_level" binds= ["res://Levels/level_6.tscn"]]
 [connection signal="button_down" from="Select/Levels/Level3" to="." method="open_level" binds= ["res://Levels/level_3.tscn"]]

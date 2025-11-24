@@ -18,8 +18,8 @@ mass = 150.0
 physics_material_override = SubResource("PhysicsMaterial_5nhwr")
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 15)
-max_contacts_reported = 2
 contact_monitor = true
+max_contacts_reported = 2
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -35,4 +35,4 @@ polygon = PackedVector2Array(-19.921, 127.126, 17.4757, 128.428, 40.6555, 93.084
 stream = SubResource("AudioStreamRandomizer_35030")
 attenuation = 0.466517
 
-[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="play"]
+[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="play" unbinds=1]

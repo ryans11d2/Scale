@@ -204,8 +204,8 @@ emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 70, 1)
 spread = 0.0
-initial_velocity_min = 255.0
-initial_velocity_max = 255.0
+initial_velocity_min = 178.5
+initial_velocity_max = 178.5
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh8ms"]
@@ -441,7 +441,7 @@ shape = SubResource("CircleShape2D_x3bum")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="Ball" parent="." instance=ExtResource("2_slcba")]
-position = Vector2(31459, 17730)
+position = Vector2(178, 133)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.5, 0.5)
@@ -583,8 +583,8 @@ texture = ExtResource("25_6f73v")
 
 [node name="ScaleBg" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(13517.3, 3520.75)
-scale = Vector2(23.8918, 18.6896)
+position = Vector2(13517.3, 2754.25)
+scale = Vector2(23.8918, 16.5604)
 texture = ExtResource("26_e1bpi")
 
 [node name="Grounds" type="Node2D" parent="."]
@@ -669,7 +669,7 @@ shape = SubResource("RectangleShape2D_0n1qg")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_etpbq")
 animation = &"new_animation"
-frame_progress = 0.786236
+frame_progress = 0.455763
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -903,12 +903,12 @@ texture_repeat = 2
 position = Vector2(2815.78, 783.78)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_0n1qg")
-polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 119.69, 782, 121.78, 2248.22, -259.72, 2243.22, -261.5, 782, -262, -1990.5)
+polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 119.69, 782, 121.327, 1930.36, -260.107, 1925.52, -261.5, 782, -262, -1990.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Grounds/Ground2"]
 position = Vector2(2815.78, 783.78)
 scale = Vector2(-1, 1)
-polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 117.28, 781.72, 125.28, 2242.72, -254.72, 2243.72, -261.5, 782, -262, -1990.5)
+polygon = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 117.28, 781.72, 123.548, 1926.32, -256.209, 1922.77, -261.5, 782, -262, -1990.5)
 
 [node name="Grass2" type="Line2D" parent="Grounds/Ground2"]
 modulate = Color(0, 0.615686, 0, 1)
@@ -916,7 +916,7 @@ z_index = 1
 texture_repeat = 2
 position = Vector2(2815.78, 783.78)
 scale = Vector2(-1, 1)
-points = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 118.655, 782, 123.28, 2241.72, -254.72, 2239.22, -261.5, 782, -262, -1990.5)
+points = PackedVector2Array(44, -1990.5, 44, 56, 291.5, 179, 291.5, 335.5, 2291.5, 332.5, 2294.5, 782, 118.655, 782, 122.293, 1930.36, -256.175, 1926.43, -261.5, 782, -262, -1990.5)
 width = 106.78
 texture = ExtResource("4_etpbq")
 texture_mode = 1
@@ -939,7 +939,7 @@ shape = SubResource("RectangleShape2D_etpbq")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ur52g")
 animation = &"new_animation"
-frame_progress = 0.225802
+frame_progress = 0.89533
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan"]
 position = Vector2(-52.9999, 53)
@@ -972,7 +972,7 @@ shape = SubResource("RectangleShape2D_etpbq")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ur52g")
 animation = &"new_animation"
-frame_progress = 0.225802
+frame_progress = 0.89533
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -1006,7 +1006,7 @@ shape = SubResource("RectangleShape2D_etpbq")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ur52g")
 animation = &"new_animation"
-frame_progress = 0.225802
+frame_progress = 0.89533
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan2"]
 position = Vector2(-52.9999, 53)
@@ -1295,7 +1295,7 @@ position = Vector2(14145, 7685)
 mass = 40.0
 
 [node name="Ground3" type="StaticBody2D" parent="Grounds"]
-position = Vector2(15215, 11321)
+position = Vector2(15215, 10686)
 scale = Vector2(2, 2)
 collision_layer = 3
 
@@ -1303,23 +1303,23 @@ collision_layer = 3
 texture_repeat = 2
 color = Color(0.207843, 0.45098, 0.803922, 1)
 texture = ExtResource("3_0n1qg")
-polygon = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4855.5, 1102, 5127.5, 1102.5, 5575.64, 955.935, 5492, 1387.5, 5358, 1388.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
+polygon = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4856, 1064, 5147.5, 1073, 5583.5, 1120, 5585, 1277.5, 5342, 1577.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grounds/Ground3"]
 visible = false
-polygon = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4855.5, 1102, 5127.5, 1102.5, 5575.64, 955.935, 5492, 1387.5, 5358, 1388.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
+polygon = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4856, 1064, 5147.5, 1073, 5583.5, 1120, 5585, 1277.5, 5342, 1577.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
 
 [node name="Grass" type="Line2D" parent="Grounds/Ground3"]
 modulate = Color(0.298039, 0.537255, 0.67451, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4855.5, 1102, 5127.5, 1102.5, 5575.64, 955.935, 5492, 1387.5, 5358, 1388.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
+points = PackedVector2Array(44, -1019, 44, -520, 44, -54, 274.145, 22.7151, 312.5, 48.6108, 312.5, 174.5, 562.5, 174.5, 562.5, 69.5, 884, 97.5, 884, 174.5, 1224.5, 174.5, 1224.5, 69.5, 1542.5, 99, 1542.5, 174.5, 1800, 174.5, 1800.5, -11, 2191, 51, 2459.5, 134, 2659, 279.5, 2881.97, 567.242, 3095, 908, 3234, 1028, 3377.5, 1086.5, 3515.5, 1086.5, 3515.5, 1272.5, 3809, 1273.5, 3809, 1129, 4139, 1129, 4139, 1271, 4394.5, 1271.5, 4394.5, 1128, 4615, 1129, 4615, 1271.5, 4855.5, 1271.5, 4856, 1064, 5147.5, 1073, 5583.5, 1120, 5585, 1277.5, 5342, 1577.5, 5320, 2220, -257.5, 2232, -255.5, -1021.5)
 width = 106.78
 texture = ExtResource("4_etpbq")
 texture_mode = 1
 
 [node name="Ground4" type="StaticBody2D" parent="Grounds"]
-position = Vector2(15215, 11321)
+position = Vector2(15215, 10686)
 scale = Vector2(2, 2)
 collision_layer = 3
 
@@ -1342,7 +1342,7 @@ texture = ExtResource("4_etpbq")
 texture_mode = 1
 
 [node name="Spikes4" type="StaticBody2D" parent="Grounds"]
-position = Vector2(22713, 13848)
+position = Vector2(22713, 13213)
 rotation = 3.14159
 metadata/_edit_group_ = true
 
@@ -1414,7 +1414,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_ej14d")
 
 [node name="Spikes5" type="StaticBody2D" parent="Grounds"]
-position = Vector2(23957, 13847)
+position = Vector2(23957, 13212)
 rotation = 3.14159
 metadata/_edit_group_ = true
 
@@ -1479,7 +1479,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_ej14d")
 
 [node name="Spikes6" type="StaticBody2D" parent="Grounds"]
-position = Vector2(24923, 13842)
+position = Vector2(24923, 13207)
 rotation = -3.14159
 metadata/_edit_group_ = true
 
@@ -1537,7 +1537,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("6_ej14d")
 
 [node name="Collect2" type="Area2D" parent="Grounds"]
-position = Vector2(21886, 12346)
+position = Vector2(21886, 11711)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Grounds/Collect2"]
@@ -1556,8 +1556,8 @@ shape = SubResource("CircleShape2D_ur52g")
 modulate = Color(0.337255, 0.47451, 0.733333, 1)
 z_index = -10
 z_as_relative = false
-position = Vector2(21954.5, 13210)
-scale = Vector2(42.1094, 18.7063)
+position = Vector2(21954.5, 11629.5)
+scale = Vector2(42.1094, 24.6157)
 texture = ExtResource("16_l7wqc")
 
 [node name="Ground5" type="StaticBody2D" parent="Grounds"]
@@ -1589,7 +1589,7 @@ texture_mode = 1
 z_index = 1
 texture_repeat = 2
 scale = Vector2(-1, 1)
-points = PackedVector2Array(-266.5, 71, -835, 77.5, -801.5, 574.5, -484.5, 767.5, -99.5, 767.5, -99, 995, -1204, 988, -1226, -302.5, -1217.5, -904.5, -44, -904.5, -44, -434, -267.5, -252.5)
+points = PackedVector2Array(-266.5, 71, -835, 77.5, -801.5, 574.5, -484.5, 767.5, -99.5, 767.5, -99, 995, -1204, 988, -1226, -302.5, -1196, -1959, -431.5, -1954.5, -50, -1219.5, -44, -904.5, -44, -434, -267.5, -252.5)
 closed = true
 width = 106.78
 default_color = Color(0.298039, 0.537255, 0.67451, 1)
@@ -1598,12 +1598,13 @@ texture_mode = 1
 
 [node name="Polygon2D2" type="Polygon2D" parent="Grounds/Ground5"]
 texture_repeat = 2
+position = Vector2(2, -3.5)
 color = Color(0.207843, 0.45098, 0.803922, 1)
 texture = ExtResource("3_0n1qg")
-polygon = PackedVector2Array(266.5, 71, 835, 77.5, 801.5, 574.5, 484.5, 767.5, 99.5, 767.5, 99, 995, 1204, 988, 1226, -302.5, 1217.5, -904.5, 44, -904.5, 44, -434, 267.5, -252.5)
+polygon = PackedVector2Array(266.5, 71, 835, 77.5, 801.5, 574.5, 484.5, 767.5, 99.5, 767.5, 99, 995, 1204, 988, 1226, -302.5, 1217.5, -904.5, 1195.5, -1957.5, 428.5, -1952.5, 45, -1219, 44, -904.5, 44, -434, 267.5, -252.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Grounds/Ground5"]
-polygon = PackedVector2Array(266.5, 71, 835, 77.5, 801.5, 574.5, 484.5, 767.5, 99.5, 767.5, 99, 995, 1204, 988, 1226, -302.5, 1217.5, -904.5, 44, -904.5, 44, -434, 267.5, -252.5)
+polygon = PackedVector2Array(266.5, 71, 835, 77.5, 801.5, 574.5, 484.5, 767.5, 99.5, 767.5, 99, 995, 1204, 988, 1226, -302.5, 1217.5, -904.5, 1196.5, -1960, 431, -1955.5, 47.5, -1218, 44, -904.5, 44, -434, 267.5, -252.5)
 
 [node name="Fan4" type="Area2D" parent="Grounds"]
 position = Vector2(27798, 13454)
@@ -1614,7 +1615,7 @@ gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1000.0
 script = ExtResource("8_eynfe")
-power = 1000
+power = 700
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grounds/Fan4"]
@@ -1625,14 +1626,14 @@ shape = SubResource("RectangleShape2D_ur52g")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan4"]
 position = Vector2(-52.9999, 53)
 amount = 60
 texture = ExtResource("13_xym5m")
-lifetime = 3.97255
-preprocess = 3.97255
+lifetime = 5.67507
+preprocess = 5.67507
 visibility_rect = Rect2(-60, -140, 1073, 288)
 process_material = SubResource("ParticleProcessMaterial_qsrat")
 
@@ -1660,7 +1661,7 @@ shape = SubResource("RectangleShape2D_wh8ms")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -1695,7 +1696,7 @@ shape = SubResource("RectangleShape2D_teklp")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan6"]
 position = Vector2(-52.9999, 53)
@@ -1730,7 +1731,7 @@ shape = SubResource("RectangleShape2D_khs5m")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan7"]
 position = Vector2(-52.9999, 53)
@@ -1765,7 +1766,7 @@ shape = SubResource("RectangleShape2D_as7y8")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan8"]
 position = Vector2(-52.9999, 53)
@@ -1800,7 +1801,7 @@ shape = SubResource("RectangleShape2D_khs5m")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ej14d")
 animation = &"new_animation"
-frame_progress = 0.100456
+frame_progress = 0.769985
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Fan9"]
 position = Vector2(-52.9999, 53)
@@ -2540,7 +2541,7 @@ shape = SubResource("RectangleShape2D_yu7ka")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan"]
 position = Vector2(-52.9999, 53)
@@ -2574,7 +2575,7 @@ shape = SubResource("RectangleShape2D_i4oqr")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan2"]
 position = Vector2(-52.9999, 53)
@@ -2609,7 +2610,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -2643,7 +2644,7 @@ shape = SubResource("RectangleShape2D_ojvwq")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan4"]
 position = Vector2(-52.9999, 53)
@@ -2678,7 +2679,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -2713,7 +2714,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_as7y8")
 animation = &"new_animation"
-frame_progress = 0.558235
+frame_progress = 0.22776
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff2/Fan6"]
 position = Vector2(-52.9999, 53)
@@ -2865,7 +2866,7 @@ shape = SubResource("RectangleShape2D_42kuj")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_xecuf")
 animation = &"new_animation"
-frame_progress = 0.219326
+frame_progress = 0.888854
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Grounds/Stuff3/Fan"]
 position = Vector2(-52.9999, 53)

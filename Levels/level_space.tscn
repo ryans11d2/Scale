@@ -317,7 +317,7 @@ shape = SubResource("RectangleShape2D_ioau5")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_hlc6u")
 animation = &"new_animation"
-frame_progress = 0.137727
+frame_progress = 0.204902
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)

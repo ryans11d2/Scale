@@ -8,12 +8,17 @@ var yellow = preload("res://Sprites/Scale_Button_UI_Yellow.png")
 var grow_button = true
 @export var shrink_button = false
 
+var cheat_code: Array = "nerdiscool".to_upper().split()
+var code_idx: int = 0
+var cheated: bool = false
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	#if true:
 		#var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
 		#file.store_string("000000000000")
+		##sfile.store_string("222222222110")
 		#file = null
 	
 	if !FileAccess.file_exists("user://save.txt"):
@@ -44,8 +49,27 @@ func _ready():
 	
 	var file_stuff = load_from_file()
 	$Select/Levels/Level10.visible = "222222222" in file_stuff
-	$Select/Levels/Level11.visible = "2222222221" in file_stuff
-	$Select/Levels/Level12.visible = "22222222222" in file_stuff
+	$Select/Levels/Level11.visible = int(file_stuff[9]) > 0
+	$Select/Levels/Level12.visible = int(file_stuff[10]) > 0
+	
+	$Select/SFX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and !cheated:#Show all levels if cheat code is inputted
+		var letter = event.as_text()
+		
+		if letter == cheat_code[code_idx]: code_idx += 1
+		elif letter == cheat_code[0]: code_idx = 1
+		else: code_idx = 0
+		
+		if code_idx == cheat_code.size():
+			cheated = true
+			
+			for i in $Select/Levels.get_children(): i.visible = true
+			
+		
+		
 	
 
 func close():
@@ -71,6 +95,7 @@ func _on_volume_value_changed(value):
 	else:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+		
 	
 
 func deflate():

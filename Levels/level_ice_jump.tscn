@@ -1,0 +1,792 @@
+[gd_scene load_steps=28 format=3 uid="uid://5t05pljex7ah"]
+
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_4b05j"]
+[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_b2jqx"]
+[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_164x7"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_l51os"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="5_hrujb"]
+[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://ice.tres" id="6_ge73m"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="7_vretj"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="8_dta8p"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="9_dqvvs"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="10_c1fs1"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="11_as2w8"]
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="12_4poyk"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="13_6sswt"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="14_cp34i"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="15_vggb0"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="16_soocu"]
+[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="17_n3sxa"]
+[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="18_4fdaq"]
+[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="19_b45jf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3bum"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
+radius = 29.2746
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
+texture = ExtResource("13_6sswt")
+texture_margin_top = 72.0
+texture_margin_bottom = 7.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84h1g"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
+streams_count = 2
+stream_0/stream = ExtResource("17_n3sxa")
+stream_1/stream = ExtResource("18_4fdaq")
+stream_1/weight = 2.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_4b05j")
+level = -1
+scales = 4
+
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(16357.7, 5399.87)
+scale = Vector2(30.3676, 27.4587)
+texture = ExtResource("2_b2jqx")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(9249.5, 3043.5)
+scale = Vector2(6.88672, 6.41806)
+texture = ExtResource("3_164x7")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(17724.6, 8144)
+scale = Vector2(29.3787, 31.5611)
+texture = ExtResource("4_l51os")
+
+[node name="Size Reference" type="Node2D" parent="."]
+position = Vector2(2640, -673)
+
+[node name="Max" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_77423")
+debug_color = Color(0, 0.701961, 0.0352941, 0.419608)
+
+[node name="Min" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_x3bum")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Ball" parent="." instance=ExtResource("5_hrujb")]
+position = Vector2(956, -2951)
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -450
+limit_top = -2065
+limit_right = 36485
+limit_bottom = 14535
+position_smoothing_enabled = true
+position_smoothing_speed = 24.0
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+
+[node name="ShapeIce" type="StaticBody2D" parent="Ground"]
+z_index = 1
+position = Vector2(-1595, 99)
+collision_layer = 3
+physics_material_override = ExtResource("6_ge73m")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeIce"]
+modulate = Color(0, 0.470588, 1, 1)
+texture_repeat = 2
+texture = ExtResource("7_vretj")
+polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 1881.5, 7280.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeIce"]
+polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 379.5, 7733, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+
+[node name="Grass2" type="Line2D" parent="Ground/ShapeIce"]
+modulate = Color(0.364706, 1, 1, 1)
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 7433, 7340.5, 1273, 7489.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+closed = true
+width = 106.78
+texture = ExtResource("8_dta8p")
+texture_mode = 1
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Finish" parent="Stuff" instance=ExtResource("9_dqvvs")]
+position = Vector2(33637, 12381)
+
+[node name="Collect" type="Area2D" parent="Stuff"]
+position = Vector2(22629, 10002)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("10_c1fs1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Collect2" type="Area2D" parent="Stuff"]
+position = Vector2(11385, 1089)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect2"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("10_c1fs1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect2"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect2"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Collect3" type="Area2D" parent="Stuff"]
+position = Vector2(4223, -92)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect3"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("10_c1fs1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect3"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect3"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Collect4" type="Area2D" parent="Stuff"]
+position = Vector2(7943, 1597)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect4"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("10_c1fs1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect4"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect4"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Pins" type="Node2D" parent="Stuff"]
+
+[node name="Pin" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25687, 12813)
+mass = 50.0
+
+[node name="Pin2" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26274, 12562)
+mass = 50.0
+
+[node name="Pin3" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28146, 12695)
+mass = 50.0
+
+[node name="Pin4" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27263, 12954)
+mass = 50.0
+
+[node name="Pin5" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27709, 12658)
+mass = 50.0
+
+[node name="Pin6" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27398, 12710)
+mass = 50.0
+
+[node name="Pin7" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28291, 12325)
+mass = 50.0
+
+[node name="Pin8" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26833, 12540)
+mass = 50.0
+
+[node name="Pin9" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26559, 12895)
+mass = 50.0
+
+[node name="Pin10" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25651, 12510)
+mass = 50.0
+
+[node name="Pin11" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26657, 12628)
+mass = 50.0
+
+[node name="Pin12" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27131, 12465)
+mass = 50.0
+
+[node name="Pin13" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26731, 12546)
+mass = 50.0
+
+[node name="Pin14" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26228, 12894)
+mass = 50.0
+
+[node name="Pin15" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25902, 12864)
+mass = 50.0
+
+[node name="Pin16" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25865, 12871)
+mass = 50.0
+
+[node name="Pin17" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25796, 12471)
+mass = 50.0
+
+[node name="Pin18" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25604, 12195)
+mass = 50.0
+
+[node name="Pin19" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25603, 12640)
+mass = 50.0
+
+[node name="Pin20" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25956, 12822)
+mass = 50.0
+
+[node name="Pin21" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26543, 12571)
+mass = 50.0
+
+[node name="Pin22" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28415, 12704)
+mass = 50.0
+
+[node name="Pin23" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27532, 12963)
+mass = 50.0
+
+[node name="Pin24" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27978, 12667)
+mass = 50.0
+
+[node name="Pin25" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27667, 12719)
+mass = 50.0
+
+[node name="Pin26" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28560, 12334)
+mass = 50.0
+
+[node name="Pin27" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27102, 12549)
+mass = 50.0
+
+[node name="Pin28" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26828, 12904)
+mass = 50.0
+
+[node name="Pin29" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25920, 12519)
+mass = 50.0
+
+[node name="Pin30" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26926, 12637)
+mass = 50.0
+
+[node name="Pin31" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27400, 12474)
+mass = 50.0
+
+[node name="Pin32" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27000, 12555)
+mass = 50.0
+
+[node name="Pin33" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26497, 12903)
+mass = 50.0
+
+[node name="Pin34" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26171, 12873)
+mass = 50.0
+
+[node name="Pin35" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26134, 12880)
+mass = 50.0
+
+[node name="Pin36" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26065, 12480)
+mass = 50.0
+
+[node name="Pin37" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25483, 12367)
+mass = 50.0
+
+[node name="Pin38" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(25872, 12649)
+mass = 50.0
+
+[node name="Pin39" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27057, 12804)
+mass = 50.0
+
+[node name="Pin40" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27644, 12553)
+mass = 50.0
+
+[node name="Pin41" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29516, 12686)
+mass = 50.0
+
+[node name="Pin42" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28633, 12945)
+mass = 50.0
+
+[node name="Pin43" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29079, 12649)
+mass = 50.0
+
+[node name="Pin44" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28768, 12701)
+mass = 50.0
+
+[node name="Pin45" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29683, 13019)
+mass = 50.0
+
+[node name="Pin46" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28203, 12531)
+mass = 50.0
+
+[node name="Pin47" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27929, 12886)
+mass = 50.0
+
+[node name="Pin48" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27021, 12501)
+mass = 50.0
+
+[node name="Pin49" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28027, 12619)
+mass = 50.0
+
+[node name="Pin50" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28501, 12456)
+mass = 50.0
+
+[node name="Pin51" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28101, 12537)
+mass = 50.0
+
+[node name="Pin52" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27598, 12885)
+mass = 50.0
+
+[node name="Pin53" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27272, 12855)
+mass = 50.0
+
+[node name="Pin54" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27235, 12862)
+mass = 50.0
+
+[node name="Pin55" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(27166, 12462)
+mass = 50.0
+
+[node name="Pin56" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26584, 12349)
+mass = 50.0
+
+[node name="Pin57" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(26973, 12631)
+mass = 50.0
+
+[node name="Pin58" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29625, 12473)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin59" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30624, 12762)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin60" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28655, 12895)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin61" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31201, 12614)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin62" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31647, 12318)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin63" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31748, 12910)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin64" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(32251, 12688)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin65" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30793, 12903)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin66" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30497, 12555)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin67" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29611, 12873)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin68" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30617, 12991)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin69" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31091, 12828)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin70" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30691, 12909)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin71" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30166, 12554)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin72" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29840, 12524)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin73" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30193, 12368)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin74" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29756, 12834)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin75" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29174, 12721)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin76" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29563, 13003)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin77" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29894, 12482)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin78" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30893, 12771)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin79" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(28924, 12904)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin80" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31470, 12623)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin81" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31916, 12327)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin82" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31995, 12216)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin83" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31713, 12889)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin84" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31062, 12912)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin85" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30766, 12564)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin86" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29880, 12882)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin87" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30886, 13000)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin88" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31360, 12837)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin89" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31350, 12755)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin90" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30435, 12563)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin91" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30109, 12533)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin92" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30462, 12377)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin93" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30025, 12843)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin94" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29443, 12730)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin95" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29832, 13012)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin96" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30995, 12464)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin97" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31972, 12050)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin99" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31764, 12797)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin103" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(32163, 12894)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin104" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31867, 12546)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin105" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30981, 12864)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin106" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31965, 12279)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin107" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(29010, 12656)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin108" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(32061, 12900)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin109" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31536, 12545)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin110" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31210, 12515)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin111" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31563, 12359)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin112" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(31126, 12825)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin113" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30544, 12712)
+rotation = -0.137477
+mass = 50.0
+
+[node name="Pin114" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
+position = Vector2(30933, 12994)
+rotation = -0.137477
+mass = 50.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scale" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -519.0
+offset_top = 23.0
+offset_right = 427.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("12_4poyk")
+theme_override_icons/grabber_highlight = ExtResource("12_4poyk")
+theme_override_icons/grabber_disabled = ExtResource("12_4poyk")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
+min_value = 1.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -147.0
+offset_right = 124.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("14_cp34i")
+theme_override_font_sizes/normal_font_size = 26
+text = "    Level Complete
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("14_cp34i")
+theme_override_font_sizes/normal_font_size = 20
+text = "Time
+"
+fit_content = true
+
+[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("14_cp34i")
+theme_override_font_sizes/normal_font_size = 20
+text = "Rotation
+"
+fit_content = true
+
+[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("14_cp34i")
+theme_override_font_sizes/normal_font_size = 20
+text = "Collect
+"
+fit_content = true
+
+[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
+layout_mode = 2
+texture_normal = ExtResource("15_vggb0")
+texture_pressed = ExtResource("15_vggb0")
+texture_hover = ExtResource("15_vggb0")
+
+[node name="Reset" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 329.0
+grow_horizontal = 0
+scale = Vector2(0.32, 0.32)
+texture_normal = ExtResource("16_soocu")
+texture_pressed = ExtResource("16_soocu")
+texture_hover = ExtResource("16_soocu")
+
+[node name="AudioUI" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_myk1j")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_b45jf")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
+[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
+[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
+[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]

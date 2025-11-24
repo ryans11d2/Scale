@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://n4grphmib3wa"]
+[gd_scene load_steps=40 format=3 uid="uid://n4grphmib3wa"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_lwjpr"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_stxb2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="3_ydmjx"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_frcbl"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="6_ko6s2"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="6_o8jkb"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="7_kc247"]
 [ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="8_c0ren"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="8_y7apx"]
@@ -95,6 +96,24 @@ stream_1/weight = 2.0
 script = ExtResource("1_lwjpr")
 level = 6
 
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3111, 890)
+scale = Vector2(8.12891, 7.93403)
+texture = ExtResource("16_redoa")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(9249.5, 3043.5)
+scale = Vector2(6.88672, 6.41806)
+texture = ExtResource("17_6yhga")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2451, 5269)
+scale = Vector2(5.87578, 5.59861)
+texture = ExtResource("18_kjxq3")
+
 [node name="Size Reference" type="Node2D" parent="."]
 position = Vector2(2640, -673)
 
@@ -121,24 +140,26 @@ scale = Vector2(2, 2)
 [node name="ShapeA" type="StaticBody2D" parent="Ground"]
 z_index = 1
 collision_layer = 3
-
-[node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
-texture_repeat = 2
-texture = ExtResource("3_ydmjx")
-polygon = PackedVector2Array(809, -342, 1423, 42, 1070.5, 629.5, 221.5, 458.5, 72, -225)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
-polygon = PackedVector2Array(809, -342, 1423, 42, 1070.5, 629.5, 221.5, 458.5, 72, -225)
+script = ExtResource("6_o8jkb")
+live_edit = true
 
 [node name="Grass" type="Line2D" parent="Ground/ShapeA"]
 modulate = Color(0, 0.615686, 0, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(809, -342, 1423, 42, 1070.5, 629.5, 221.5, 458.5, 72, -225)
+points = PackedVector2Array(807.5, -218, 1181.5, -296.5, 1070.5, 629.5, 221.5, 458.5, 72, -225)
 closed = true
 width = 106.78
 texture = ExtResource("5_frcbl")
 texture_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
+polygon = PackedVector2Array(807.5, -218, 1181.5, -296.5, 1070.5, 629.5, 221.5, 458.5, 72, -225)
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
+texture_repeat = 2
+texture = ExtResource("3_ydmjx")
+polygon = PackedVector2Array(807.5, -218, 1181.5, -296.5, 1070.5, 629.5, 221.5, 458.5, 72, -225)
 
 [node name="ShapeB" type="StaticBody2D" parent="Ground"]
 z_index = 1
@@ -396,7 +417,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.821275
+frame_progress = 0.214817
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -509,24 +530,6 @@ stream = SubResource("AudioStreamRandomizer_myk1j")
 stream = ExtResource("3_5d7k0")
 volume_db = -10.0
 autoplay = true
-
-[node name="ScaleBgNight" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(3111, 890)
-scale = Vector2(8.12891, 7.93403)
-texture = ExtResource("16_redoa")
-
-[node name="ScaleBgSunset" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(9249.5, 3043.5)
-scale = Vector2(6.88672, 6.41806)
-texture = ExtResource("17_6yhga")
-
-[node name="ScaleBg" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(2451, 5269)
-scale = Vector2(5.87578, 5.59861)
-texture = ExtResource("18_kjxq3")
 
 [connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
 [connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djaytk62f5dpi"]
+[gd_scene load_steps=8 format=3 uid="uid://djaytk62f5dpi"]
 
 [ext_resource type="Script" uid="uid://csbia3w8yaic1" path="res://Ball.gd" id="1_avn6n"]
 [ext_resource type="Texture2D" uid="uid://c8tukbjkpsu67" path="res://Sprites/Scale_Player_2.png" id="2_qoxab"]
 [ext_resource type="Shape2D" uid="uid://bigoh18q82h3i" path="res://ball.tres" id="3_pb8mk"]
 [ext_resource type="AudioStream" uid="uid://btn2tlc3nyqh4" path="res://Sounds/footstep_grass_001.ogg" id="4_x1uje"]
+[ext_resource type="AudioStream" uid="uid://b5802shng83nc" path="res://Sounds/select_005.ogg" id="5_n5601"]
+[ext_resource type="AudioStream" uid="uid://cacjo3r8r1lsk" path="res://Sounds/error_007.ogg" id="6_gchj4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_76tum"]
 bounce = 0.9
@@ -23,9 +25,11 @@ scale = Vector2(0.166, 0.166)
 texture = ExtResource("2_qoxab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = ExtResource("3_pb8mk")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(0.9, 0.9)
@@ -35,9 +39,18 @@ shape = ExtResource("3_pb8mk")
 stream = ExtResource("4_x1uje")
 attenuation = 7.51432e-05
 
-[node name="Bounce" type="AudioStreamPlayer2D" parent="."]
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x1uje")
-attenuation = 7.51432e-05
+
+[node name="Collect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n5601")
+
+[node name="Damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gchj4")
+
+[node name="Offsets" type="Node2D" parent="."]
+visible = false
+z_index = -1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
