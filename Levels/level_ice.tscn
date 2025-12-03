@@ -1,12 +1,12 @@
 [gd_scene load_steps=30 format=3 uid="uid://dx45mbtk2es7b"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_o0ptq"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_o0ptq"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_pr6vh"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="3_xf1hr"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="4_j53nj"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="5_83483"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="5_83483"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="6_k7s2k"]
-[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://ice.tres" id="6_tw2h2"]
+[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://GroundTypes/GroundMaterials/ice.tres" id="6_tw2h2"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="7_htkd4"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="16_foqf0"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="17_p1dv7"]
@@ -56,14 +56,14 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o0ptq")
-level = 11
+level = 3
 scales = 4
+level_name = "Slippy Steppe"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
-position = Vector2(3111, 890)
-scale = Vector2(8.12891, 7.93403)
+position = Vector2(14834.6, 6314.69)
+scale = Vector2(24.0725, 22.7259)
 texture = ExtResource("24_7ffap")
 
 [node name="ScaleBgSunset" type="Sprite2D" parent="."]
@@ -74,6 +74,7 @@ scale = Vector2(6.88672, 6.41806)
 texture = ExtResource("25_x4alp")
 
 [node name="ScaleBg" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(17724.6, 8144)
 scale = Vector2(29.3787, 31.5611)

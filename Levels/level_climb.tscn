@@ -1,12 +1,12 @@
 [gd_scene load_steps=41 format=3 uid="uid://db1lse8enqx2k"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_81l1e"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_81l1e"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_pfbn4"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="3_4jun7"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="4_32gxx"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="5_i2as8"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="5_i2as8"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="7_l1gq4"]
-[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="8_bnphv"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="8_bnphv"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="9_tmbmo"]
 [ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="10_mcxi7"]
 [ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="11_0coe5"]
@@ -142,6 +142,7 @@ stream_1/weight = 2.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_81l1e")
 level = 7
+level_name = "Ascent"
 
 [node name="Size Reference" type="Node2D" parent="."]
 position = Vector2(-3388, -4210)
@@ -257,7 +258,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -291,7 +292,7 @@ shape = SubResource("RectangleShape2D_0whfr")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)
@@ -326,7 +327,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -360,7 +361,7 @@ shape = SubResource("RectangleShape2D_kg0s3")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
@@ -395,7 +396,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -430,7 +431,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.881885
+frame_progress = 0.605848
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)

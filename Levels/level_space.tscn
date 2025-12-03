@@ -1,16 +1,16 @@
 [gd_scene load_steps=35 format=3 uid="uid://7qw68tgft6vs"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_lrrcu"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_lrrcu"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_qb75v"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_kkrul"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_kl0t8"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_uqw5o"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="6_2qqxk"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="6_2qqxk"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="7_vwru7"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="8_noh3j"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="9_j02gq"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="10_gmxjc"]
-[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="10_tp6yt"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="10_tp6yt"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="11_8o2cj"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_g56qy"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="12_33ead"]
@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="15_p85fk"]
 [ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="15_q8183"]
 [ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="16_jros8"]
-[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="17_o0o5n"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="17_o0o5n"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="25_njere"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24poe"]
@@ -86,11 +86,12 @@ stream_1/weight = 2.0
 [node name="Level Space" type="Node2D"]
 script = ExtResource("1_lrrcu")
 level = 8
+level_name = "In Space"
 
 [node name="Ball" parent="." instance=ExtResource("2_qb75v")]
 position = Vector2(193, 524)
 gravity_scale = 0.0
-linear_damp_mode = 1
+linear_damp = 0.0
 angular_damp_mode = 1
 bus = &"Space"
 
@@ -317,7 +318,7 @@ shape = SubResource("RectangleShape2D_ioau5")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_hlc6u")
 animation = &"new_animation"
-frame_progress = 0.204902
+frame_progress = 0.817267
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -340,84 +341,98 @@ position = Vector2(1430, -1720)
 rotation = 0.592593
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin2" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(1638, -1506)
 rotation = -0.0841455
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin3" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(1771, -1805)
 rotation = 1.08738
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin4" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(1926, -1517)
 rotation = -1.15838
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin5" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2027, -1293)
 rotation = -2.46592
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin6" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2134, -1480)
 rotation = 2.3977
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin7" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2428, -1539)
 rotation = -0.53301
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin8" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2417, -1229)
 rotation = 1.71339
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin9" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2567, -962)
 rotation = -2.27544
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin10" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2834, -967)
 rotation = 0.121116
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin11" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2765, -1399)
 rotation = -2.22922
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin12" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3038, -1201)
 rotation = -2.59005
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin13" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3017, -849)
 rotation = -0.106591
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin14" parent="Stuff/Pins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3231, -1121)
 rotation = 1.0518
 mass = 20.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="BigPins" type="Node2D" parent="Stuff/Pins"]
 modulate = Color(0.72549, 0.72549, 0.72549, 1)
@@ -429,60 +444,70 @@ position = Vector2(3189.33, -3018.67)
 rotation = 0.427528
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin16" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2975.33, -3109.33)
 rotation = 1.14898
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin17" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3215, -2683)
 rotation = -2.46698
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin18" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3438.67, -2746.67)
 rotation = -0.729899
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin19" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3650.67, -2856)
 rotation = -1.96631
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin20" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3462, -2468.67)
 rotation = 1.01879
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin21" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3796.67, -2228)
 rotation = -0.961866
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin22" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3926.67, -2449.33)
 rotation = -1.74297
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin23" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(3774.67, -2630)
 rotation = 0.750759
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin24" parent="Stuff/Pins/BigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(2939, -2864)
 rotation = -1.46825
 mass = 35.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="VeryBigPins" type="Node2D" parent="Stuff/Pins"]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
@@ -492,60 +517,70 @@ position = Vector2(4024, -4924)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin15" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(4395, -4724)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin16" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(4572, -4323)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin17" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(5042, -4339)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin18" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(5389, -4049)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin19" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(4024, -4924)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin20" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(4395, -4724)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin21" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(4827, -4694)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin22" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(5042, -4339)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="Pin23" parent="Stuff/Pins/VeryBigPins" instance=ExtResource("17_o0o5n")]
 position = Vector2(5389, -4049)
 rotation = 0.572836
 mass = 60.0
 gravity_scale = 0.0
+linear_damp_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -635,9 +670,8 @@ texture_normal = ExtResource("13_0hefd")
 texture_pressed = ExtResource("13_0hefd")
 texture_hover = ExtResource("13_0hefd")
 
-[node name="AudioUI" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioUI" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_s0uue")
-attenuation = 2.7504e-05
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
 z_index = -1

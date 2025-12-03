@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://deuhuwroj2r0s"]
+[gd_scene load_steps=8 format=3 uid="uid://deuhuwroj2r0s"]
 
 [ext_resource type="Texture2D" uid="uid://bl7w23ucm10e6" path="res://Sprites/Scale_Bowling_Pin.png" id="1_u7x8f"]
 [ext_resource type="AudioStream" uid="uid://ma08op675twl" path="res://Sounds/impactMetal_heavy_002.ogg" id="2_ucpnn"]
@@ -11,6 +11,17 @@ absorbent = true
 random_pitch = 1.2
 streams_count = 1
 stream_0/stream = ExtResource("2_ucpnn")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gflbs"]
+radius = 38.151
+height = 131.99
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4t62"]
+radius = 23.1949
+height = 125.924
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gflbs"]
+size = Vector2(28.9824, 238.751)
 
 [node name="Pin" type="RigidBody2D"]
 rotation = -0.0348154
@@ -30,9 +41,22 @@ texture = ExtResource("1_u7x8f")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.775, 0.775)
 polygon = PackedVector2Array(-19.921, 127.126, 17.4757, 128.428, 40.6555, 93.0845, 55.5271, 36.7938, 50.6065, -7.27514, 34.0351, -50.4588, 25.6371, -68.8267, 22.8015, -98.6209, 31.0458, -149.978, 24.0271, -170.88, 12.6908, -179.022, -13.1001, -179.92, -25.0652, -170.008, -32.1867, -150.889, -23.7118, -97.6587, -25.9895, -69.3338, -33.1109, -50.2152, -51.3571, -8.24426, -55.3734, 32.9312, -40.6754, 92.834)
+disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_35030")
 attenuation = 0.466517
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.04425, 29.9818)
+shape = SubResource("CapsuleShape2D_gflbs")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.352746, -76.0583)
+shape = SubResource("CapsuleShape2D_h4t62")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(0.19647, -20.2961)
+shape = SubResource("RectangleShape2D_gflbs")
 
 [connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="play" unbinds=1]

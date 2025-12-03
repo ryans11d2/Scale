@@ -1,14 +1,14 @@
 [gd_scene load_steps=29 format=3 uid="uid://bxeos2k7544su"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_g6hp1"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_g6hp1"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_g2qbq"]
 [ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_4sjny"]
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_6giiq"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="5_n6esb"]
-[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://ice.tres" id="6_txuxf"]
+[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://GroundTypes/GroundMaterials/ice.tres" id="6_txuxf"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="7_x2uky"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="8_xpmni"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="9_gi2vf"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="9_gi2vf"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="10_uoa3l"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="11_l0ncj"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="12_2rrid"]
@@ -53,8 +53,9 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g6hp1")
-level = -1
+level = 2
 scales = 4
+level_name = "Ice Climbing"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
 visible = false
@@ -110,8 +111,8 @@ collision_layer = 3
 physics_material_override = ExtResource("6_txuxf")
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeIce"]
-modulate = Color(0, 0.470588, 1, 1)
 texture_repeat = 2
+color = Color(0, 0.470588, 1, 1)
 texture = ExtResource("7_x2uky")
 polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 
@@ -120,12 +121,12 @@ visible = false
 polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeIce"]
-modulate = Color(0.364706, 1, 1, 1)
 z_index = 1
 texture_repeat = 2
 points = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 closed = true
 width = 106.78
+default_color = Color(0.364706, 1, 1, 1)
 texture = ExtResource("8_xpmni")
 texture_mode = 1
 

@@ -1,16 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://5t05pljex7ah"]
+[gd_scene load_steps=29 format=3 uid="uid://5t05pljex7ah"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_4b05j"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_4b05j"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_b2jqx"]
 [ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_164x7"]
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_l51os"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="5_hrujb"]
-[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://ice.tres" id="6_ge73m"]
+[ext_resource type="PhysicsMaterial" uid="uid://djyyyk8eaedfa" path="res://GroundTypes/GroundMaterials/ice.tres" id="6_ge73m"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="7_b2jqx"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="7_vretj"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="8_dta8p"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="9_dqvvs"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="9_dqvvs"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="10_c1fs1"]
-[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="11_as2w8"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="11_as2w8"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="12_4poyk"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="13_6sswt"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="14_cp34i"]
@@ -50,8 +51,8 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4b05j")
-level = -1
-scales = 4
+level = 10
+level_name = "Ball Pit"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
 visible = false
@@ -61,10 +62,9 @@ scale = Vector2(30.3676, 27.4587)
 texture = ExtResource("2_b2jqx")
 
 [node name="ScaleBgSunset" type="Sprite2D" parent="."]
-visible = false
 z_index = -1
-position = Vector2(9249.5, 3043.5)
-scale = Vector2(6.88672, 6.41806)
+position = Vector2(18369.3, 6428.75)
+scale = Vector2(28.9605, 25.009)
 texture = ExtResource("3_164x7")
 
 [node name="ScaleBg" type="Sprite2D" parent="."]
@@ -106,21 +106,23 @@ z_index = 1
 position = Vector2(-1595, 99)
 collision_layer = 3
 physics_material_override = ExtResource("6_ge73m")
+script = ExtResource("7_b2jqx")
+live_edit = true
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeIce"]
 modulate = Color(0, 0.470588, 1, 1)
 texture_repeat = 2
 texture = ExtResource("7_vretj")
-polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 1881.5, 7280.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17259.2, 6401.5, 17385.6, 6247.26, 19802, 6248.5, 19210.5, 7275.5, 1881.5, 7280.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeIce"]
-polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 379.5, 7733, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+polygon = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17259.2, 6401.5, 17385.6, 6247.26, 19802, 6248.5, 19210.5, 7275.5, 1881.5, 7280.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeIce"]
 modulate = Color(0.364706, 1, 1, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17698.5, 6401.5, 17901.4, 6147.71, 19815, 6145.5, 19210.5, 7275.5, 7433, 7340.5, 1273, 7489.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
+points = PackedVector2Array(2163.5, 453, 2254.5, 948, 2419, 1475, 2584, 1988, 2860.5, 2473.5, 3157.5, 2957.5, 3485.5, 3372.5, 3832, 3732.5, 4127, 4015, 4556.5, 4390.5, 5075.5, 4824, 5733, 5262, 6328.59, 5599.49, 6689.5, 5804, 7153.5, 6035.5, 7712.5, 6264, 8298, 6428.5, 8989.5, 6542, 9890.5, 6545, 10670.5, 6437.5, 11378.5, 6260.5, 12021, 6057.5, 12565, 5723, 13004.5, 5375.5, 13110.5, 5248.5, 13874, 5249, 14409, 6401.5, 17259.2, 6401.5, 17385.6, 6247.26, 19802, 6248.5, 19210.5, 7275.5, 1881.5, 7280.5, 1536.5, 4254.5, 1343.5, -1931.5, 2003.5, -2473, 2008.5, -1389.5, 2077.5, -485.5)
 closed = true
 width = 106.78
 texture = ExtResource("8_dta8p")
@@ -129,7 +131,7 @@ texture_mode = 1
 [node name="Stuff" type="Node2D" parent="."]
 
 [node name="Finish" parent="Stuff" instance=ExtResource("9_dqvvs")]
-position = Vector2(33637, 12381)
+position = Vector2(32011, 12585)
 
 [node name="Collect" type="Area2D" parent="Stuff"]
 position = Vector2(22629, 10002)
@@ -144,54 +146,6 @@ position = Vector2(-17, 26)
 shape = SubResource("CircleShape2D_etor8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
-position = Vector2(-7, -10)
-shape = SubResource("CircleShape2D_8860t")
-
-[node name="Collect2" type="Area2D" parent="Stuff"]
-position = Vector2(11385, 1089)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect2"]
-scale = Vector2(0.38, 0.38)
-texture = ExtResource("10_c1fs1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect2"]
-position = Vector2(-17, 26)
-shape = SubResource("CircleShape2D_etor8")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect2"]
-position = Vector2(-7, -10)
-shape = SubResource("CircleShape2D_8860t")
-
-[node name="Collect3" type="Area2D" parent="Stuff"]
-position = Vector2(4223, -92)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect3"]
-scale = Vector2(0.38, 0.38)
-texture = ExtResource("10_c1fs1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect3"]
-position = Vector2(-17, 26)
-shape = SubResource("CircleShape2D_etor8")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect3"]
-position = Vector2(-7, -10)
-shape = SubResource("CircleShape2D_8860t")
-
-[node name="Collect4" type="Area2D" parent="Stuff"]
-position = Vector2(7943, 1597)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect4"]
-scale = Vector2(0.38, 0.38)
-texture = ExtResource("10_c1fs1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect4"]
-position = Vector2(-17, 26)
-shape = SubResource("CircleShape2D_etor8")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect4"]
 position = Vector2(-7, -10)
 shape = SubResource("CircleShape2D_8860t")
 
@@ -440,26 +394,6 @@ position = Vector2(28655, 12895)
 rotation = -0.137477
 mass = 50.0
 
-[node name="Pin61" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31201, 12614)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin62" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31647, 12318)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin63" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31748, 12910)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin64" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(32251, 12688)
-rotation = -0.137477
-mass = 50.0
-
 [node name="Pin65" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
 position = Vector2(30793, 12903)
 rotation = -0.137477
@@ -477,11 +411,6 @@ mass = 50.0
 
 [node name="Pin68" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
 position = Vector2(30617, 12991)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin69" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31091, 12828)
 rotation = -0.137477
 mass = 50.0
 
@@ -535,31 +464,6 @@ position = Vector2(28924, 12904)
 rotation = -0.137477
 mass = 50.0
 
-[node name="Pin80" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31470, 12623)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin81" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31916, 12327)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin82" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31995, 12216)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin83" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31713, 12889)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin84" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31062, 12912)
-rotation = -0.137477
-mass = 50.0
-
 [node name="Pin85" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
 position = Vector2(30766, 12564)
 rotation = -0.137477
@@ -572,16 +476,6 @@ mass = 50.0
 
 [node name="Pin87" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
 position = Vector2(30886, 13000)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin88" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31360, 12837)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin89" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31350, 12755)
 rotation = -0.137477
 mass = 50.0
 
@@ -615,68 +509,8 @@ position = Vector2(29832, 13012)
 rotation = -0.137477
 mass = 50.0
 
-[node name="Pin96" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(30995, 12464)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin97" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31972, 12050)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin99" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31764, 12797)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin103" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(32163, 12894)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin104" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31867, 12546)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin105" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(30981, 12864)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin106" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31965, 12279)
-rotation = -0.137477
-mass = 50.0
-
 [node name="Pin107" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
 position = Vector2(29010, 12656)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin108" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(32061, 12900)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin109" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31536, 12545)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin110" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31210, 12515)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin111" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31563, 12359)
-rotation = -0.137477
-mass = 50.0
-
-[node name="Pin112" parent="Stuff/Pins" instance=ExtResource("11_as2w8")]
-position = Vector2(31126, 12825)
 rotation = -0.137477
 mass = 50.0
 

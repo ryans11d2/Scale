@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GroundSettings" load_steps=4 format=3 uid="uid://rffx4e4iwsf4"]
+
+[ext_resource type="Texture2D" uid="uid://df2go2l0xediw" path="res://Sprites/Scale_Dirt_V4_Smooth.png" id="1_88upk"]
+[ext_resource type="Script" uid="uid://clsuu3bd2uf6w" path="res://Scripts/ground_type.gd" id="1_nwxby"]
+[ext_resource type="PhysicsMaterial" uid="uid://bycv6amj3a816" path="res://GroundTypes/GroundMaterials/bounce.tres" id="2_v768w"]
+
+[resource]
+script = ExtResource("1_nwxby")
+physics = ExtResource("2_v768w")
+fill_colour = Color(0, 0.77, 0.385, 1)
+fill_texture = ExtResource("1_88upk")
+edge_colour = Color(0, 0.93, 0.0929999, 1)
+edge_width = 8.5
+metadata/_custom_type_script = "uid://clsuu3bd2uf6w"

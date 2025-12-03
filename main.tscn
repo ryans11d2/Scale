@@ -1,28 +1,23 @@
-[gd_scene load_steps=36 format=3 uid="uid://d21k602dsoytu"]
+[gd_scene load_steps=27 format=3 uid="uid://d21k602dsoytu"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_inu8w"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_inu8w"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_gcg1u"]
+[ext_resource type="PhysicsMaterial" uid="uid://ckyro8x1w6ba6" path="res://GroundTypes/GroundMaterials/grass.tres" id="3_cegan"]
 [ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="5_uobqr"]
-[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Fan.gd" id="6_ayont"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="6_ayont"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="7_b2h8c"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="7_thy33"]
-[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="7_ttbnv"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="7_ttbnv"]
 [ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="8_i467y"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="9_h034g"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="9_h034g"]
 [ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="9_m0b2g"]
-[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="9_nemht"]
 [ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="10_rlwds"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="11_h0a7u"]
 [ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="12_wf50u"]
 [ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="13_hd725"]
-[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="13_wdpo3"]
-[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="14_xecv1"]
-[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="15_hlfwq"]
-[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="15_pq53v"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_r3nxn"]
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="16_5rsny"]
-[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="16_12io1"]
-[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="16_s1qir"]
+[ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="19_cegan"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="19_p2y7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgcqa"]
@@ -70,44 +65,24 @@ radius = 25.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_qaaml"]
 radius = 29.2746
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vy0mf"]
-texture = ExtResource("9_nemht")
-texture_margin_top = 72.0
-texture_margin_bottom = 7.0
-draw_center = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj2r7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqp1i"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s0uue"]
-streams_count = 2
-stream_0/stream = ExtResource("16_s1qir")
-stream_1/stream = ExtResource("16_12io1")
-stream_1/weight = 2.0
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_inu8w")
 level = 1
+level_name = "First Bounce"
 
 [node name="Ball" parent="." instance=ExtResource("2_gcg1u")]
+position = Vector2(296, 16)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.5, 0.5)
 limit_left = -450
 limit_right = 2930
 
-[node name="Music" type="AudioStreamPlayer2D" parent="Ball"]
-position = Vector2(-156, -216)
-stream = ExtResource("15_pq53v")
-volume_db = -10.0
-autoplay = true
-attenuation = 7.51432e-05
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 126)
 scale = Vector2(2, 2)
 collision_layer = 3
+physics_material_override = ExtResource("3_cegan")
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
@@ -133,6 +108,7 @@ texture = ExtResource("5_uobqr")
 polygon = PackedVector2Array(-256.5, 153, 368, 150, 369, 658.5, 983.5, 837, 983.5, 915, 1211.5, 914, 1211.5, 837, 1272.5, 760, 1487, 760, 1493.5, 1853.5, -273.5, 1638.5)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Ground"]
+visible = false
 polygon = PackedVector2Array(-256.5, 153, 368, 150, 369, 658.5, 983.5, 837, 982, 918, 1213, 917, 1211.5, 837, 1272.5, 760, 1487, 760, 1487, 1033.5, -259, 1033)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -189,7 +165,7 @@ shape = SubResource("RectangleShape2D_w2xoe")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.235277
+frame_progress = 0.937077
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -340,114 +316,6 @@ theme_override_font_sizes/normal_font_size = 23
 text = "Reach the flag
 to finish the level"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Scale" type="HSlider" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -519.0
-offset_top = 23.0
-offset_right = 427.0
-offset_bottom = 102.0
-grow_horizontal = 2
-theme_override_icons/grabber = ExtResource("15_hlfwq")
-theme_override_icons/grabber_highlight = ExtResource("15_hlfwq")
-theme_override_icons/grabber_disabled = ExtResource("15_hlfwq")
-theme_override_styles/slider = SubResource("StyleBoxTexture_vy0mf")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_nj2r7")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_yqp1i")
-min_value = 1.0
-max_value = 10.0
-step = 0.01
-value = 1.0
-
-[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -147.0
-offset_right = 124.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 26
-text = "    Level Complete
-"
-fit_content = true
-
-[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 20
-text = "Time
-"
-fit_content = true
-
-[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 20
-text = "Rotation
-"
-fit_content = true
-
-[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 20
-text = "Collect
-"
-fit_content = true
-
-[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
-layout_mode = 2
-texture_normal = ExtResource("13_wdpo3")
-texture_pressed = ExtResource("13_wdpo3")
-texture_hover = ExtResource("13_wdpo3")
-
-[node name="Reset" type="TextureButton" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_top = 9.0
-offset_right = 192.0
-offset_bottom = 329.0
-grow_horizontal = 0
-scale = Vector2(0.32, 0.32)
-texture_normal = ExtResource("14_xecv1")
-texture_pressed = ExtResource("14_xecv1")
-texture_hover = ExtResource("14_xecv1")
-
-[node name="Hint1" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 108.0
-offset_top = 80.0
-offset_right = 533.0
-offset_bottom = 241.0
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 21
-text = "Slide to change size, mass, and bounce"
-
-[node name="Hint2" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 990.0
-offset_top = 58.0
-offset_right = 1415.0
-offset_bottom = 219.0
-theme_override_fonts/normal_font = ExtResource("19_p2y7e")
-theme_override_font_sizes/normal_font_size = 21
-text = "Press once to 
-reset, twice to
-exit the level"
-
 [node name="ScaleBg" type="Sprite2D" parent="."]
 modulate = Color(0.658824, 0.772549, 1, 1)
 z_index = -1
@@ -455,12 +323,6 @@ position = Vector2(2052, 181.44)
 scale = Vector2(5.89766, 5.78178)
 texture = ExtResource("16_5rsny")
 
-[node name="AudioUI" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_s0uue")
-attenuation = 2.7504e-05
+[node name="GameHUD" parent="." instance=ExtResource("19_cegan")]
 
 [connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
-[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
-[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
-[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
-[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]

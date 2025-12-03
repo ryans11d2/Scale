@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GroundSettings" load_steps=4 format=3 uid="uid://cunph6slbe2ga"]
+
+[ext_resource type="Texture2D" uid="uid://btwijh3e6fy82" path="res://Sprites/Scale_Dirt_V4_Hard.png" id="1_7a3v7"]
+[ext_resource type="Script" uid="uid://clsuu3bd2uf6w" path="res://Scripts/ground_type.gd" id="1_13oaq"]
+[ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://GroundTypes/GroundMaterials/dull.tres" id="2_30ph0"]
+
+[resource]
+script = ExtResource("1_13oaq")
+physics = ExtResource("2_30ph0")
+fill_colour = Color(0.381259, 0.08641, 0.277879, 1)
+fill_texture = ExtResource("1_7a3v7")
+edge_colour = Color(0, 0.00784314, 1, 1)
+edge_width = 5.0
+metadata/_custom_type_script = "uid://clsuu3bd2uf6w"

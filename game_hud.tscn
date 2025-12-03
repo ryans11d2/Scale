@@ -1,0 +1,134 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxnla8n6oly6w"]
+
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="1_kllk0"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="2_gsa5p"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="3_6k4gu"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_wh55g"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="5_gcpjs"]
+[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="6_x82ca"]
+[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="7_3uot2"]
+[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="8_jfwq6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
+texture = ExtResource("2_gsa5p")
+texture_margin_top = 72.0
+texture_margin_bottom = 7.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84h1g"]
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_kllk0"]
+button_mask = 4
+position = Vector2(210, 13)
+global_position = Vector2(219, 61)
+button_index = 3
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_gsa5p"]
+events = [SubResource("InputEventMouseButton_kllk0")]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
+streams_count = 2
+stream_0/stream = ExtResource("6_x82ca")
+stream_1/stream = ExtResource("7_3uot2")
+stream_1/weight = 2.0
+
+[node name="GameHUD" type="CanvasLayer"]
+process_mode = 3
+
+[node name="Scale" type="HSlider" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -519.0
+offset_top = 23.0
+offset_right = 427.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("1_kllk0")
+theme_override_icons/grabber_highlight = ExtResource("1_kllk0")
+theme_override_icons/grabber_disabled = ExtResource("1_kllk0")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
+min_value = 1.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="Finish" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -147.0
+offset_right = 124.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_6k4gu")
+theme_override_font_sizes/normal_font_size = 26
+text = "    Level Complete
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_6k4gu")
+theme_override_font_sizes/normal_font_size = 20
+text = "Time
+"
+fit_content = true
+
+[node name="Rotation" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_6k4gu")
+theme_override_font_sizes/normal_font_size = 20
+text = "Rotation
+"
+fit_content = true
+
+[node name="Collect" type="RichTextLabel" parent="Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_6k4gu")
+theme_override_font_sizes/normal_font_size = 20
+text = "Collect
+"
+fit_content = true
+
+[node name="Back" type="TextureButton" parent="Finish"]
+layout_mode = 2
+texture_normal = ExtResource("4_wh55g")
+texture_pressed = ExtResource("4_wh55g")
+texture_hover = ExtResource("4_wh55g")
+
+[node name="Reset" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 329.0
+grow_horizontal = 0
+scale = Vector2(0.32, 0.32)
+shortcut = SubResource("Shortcut_gsa5p")
+texture_normal = ExtResource("5_gcpjs")
+texture_pressed = ExtResource("5_gcpjs")
+texture_hover = ExtResource("5_gcpjs")
+
+[node name="AudioUI" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_myk1j")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jfwq6")
+volume_db = -10.0
+autoplay = true

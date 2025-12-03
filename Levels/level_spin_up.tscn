@@ -1,34 +1,33 @@
-[gd_scene load_steps=44 format=3 uid="uid://bm6rge2rsadfg"]
+[gd_scene load_steps=43 format=3 uid="uid://c1tgdyv81bshk"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_6xcue"]
-[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_02bft"]
-[ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://GroundTypes/GroundMaterials/dull.tres" id="3_75d7b"]
-[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="3_qma0l"]
-[ext_resource type="Texture2D" uid="uid://btwijh3e6fy82" path="res://Sprites/Scale_Dirt_V4_Hard.png" id="4_c3j4n"]
-[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_daol6"]
-[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="4_xu3bi"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="5_wc7mk"]
-[ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="6_t3a2v"]
-[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="7_gr36y"]
-[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="8_jps6u"]
-[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="9_46sc1"]
-[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="10_4hsip"]
-[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="11_2j82p"]
-[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="12_pbd48"]
-[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="13_bb31c"]
-[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="14_gsdy0"]
-[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="15_klpta"]
-[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="16_xj84w"]
-[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="17_1ahdr"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="18_s5te5"]
-[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="19_4nso1"]
-[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="20_npikw"]
-[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="21_1fgyx"]
-[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="22_ya8ac"]
-[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="23_u3pv0"]
-[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="24_1ykw5"]
-[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="25_m6ek2"]
-[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="26_rktx5"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_ofoog"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_vkdi3"]
+[ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://GroundTypes/GroundMaterials/dull.tres" id="3_y67ei"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_61lfx"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="5_brqkw"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="6_tgqtu"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="7_ll1f4"]
+[ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="8_e84we"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="9_5tdi2"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="10_hpj5u"]
+[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="11_67bbu"]
+[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="12_df4c3"]
+[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="13_gqkud"]
+[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="14_bqkrr"]
+[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="15_3imuq"]
+[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="16_8rwrr"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="17_comfr"]
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="18_y5xvk"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="19_g3nc1"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="20_eehm8"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="21_v8afy"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="22_yxmur"]
+[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="23_kfatm"]
+[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="24_sqjew"]
+[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="25_d3116"]
+[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="26_ekvdn"]
+[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="27_v47n0"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="28_se5i2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
 radius = 200.0
@@ -58,16 +57,16 @@ size = Vector2(1675, 285)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_46sc1")
+"texture": ExtResource("11_67bbu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_4hsip")
+"texture": ExtResource("12_df4c3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_2j82p")
+"texture": ExtResource("13_gqkud")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_pbd48")
+"texture": ExtResource("14_bqkrr")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -85,7 +84,7 @@ initial_velocity_max = 510.0
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
-texture = ExtResource("17_1ahdr")
+texture = ExtResource("19_g3nc1")
 texture_margin_top = 72.0
 texture_margin_bottom = 7.0
 draw_center = false
@@ -96,15 +95,35 @@ draw_center = false
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
 streams_count = 2
-stream_0/stream = ExtResource("21_1fgyx")
-stream_1/stream = ExtResource("22_ya8ac")
+stream_0/stream = ExtResource("23_kfatm")
+stream_1/stream = ExtResource("24_sqjew")
 stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_6xcue")
+script = ExtResource("1_ofoog")
 level = 4
 scales = 2
-level_name = "Spin To Win"
+level_name = "Spin Up"
+
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(3111, 890)
+scale = Vector2(8.12891, 7.93403)
+texture = ExtResource("26_ekvdn")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(7986, 1724)
+scale = Vector2(17.1734, 15.8889)
+texture = ExtResource("27_v47n0")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2512, 4096)
+scale = Vector2(5.87578, 5.59861)
+texture = ExtResource("28_se5i2")
 
 [node name="Size Reference" type="Node2D" parent="."]
 position = Vector2(12440, 4573)
@@ -117,8 +136,8 @@ debug_color = Color(0, 0.701961, 0.0352941, 0.419608)
 shape = SubResource("CircleShape2D_x3bum")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
-[node name="Ball" parent="." instance=ExtResource("2_02bft")]
-position = Vector2(885, -1917)
+[node name="Ball" parent="." instance=ExtResource("2_vkdi3")]
+position = Vector2(-488, -2336)
 
 [node name="Camera2D" type="Camera2D" parent="Ball"]
 zoom = Vector2(0.5, 0.5)
@@ -132,23 +151,25 @@ scale = Vector2(2, 2)
 
 [node name="ShapeA" type="StaticBody2D" parent="Ground"]
 z_index = 1
+position = Vector2(-792, -739)
 collision_layer = 3
-physics_material_override = ExtResource("3_75d7b")
+physics_material_override = ExtResource("3_y67ei")
+script = ExtResource("5_brqkw")
+live_edit = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
+modulate = Color(0.301961, 0.129412, 0.4, 1)
 texture_repeat = 2
-color = Color(0.381259, 0.08641, 0.277879, 1)
-texture = ExtResource("4_c3j4n")
-polygon = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
+texture = ExtResource("4_61lfx")
+polygon = PackedVector2Array(2088, -116, 2825.13, 289, 3360, 289, 3372, 285, 3381, 278.5, 3388, 269, 3392, 257, 3392, -3, 4156, 373, 3756, 1241, 672, 784, 528, 152, 824, -28)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
 visible = false
-polygon = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
+polygon = PackedVector2Array(2088, -116, 2825.13, 289, 3360, 289, 3372, 285, 3381, 278.5, 3388, 269, 3392, 257, 3392, -3, 4156, 373, 3756, 1241, 672, 784, 528, 152, 824, -28)
 
 [node name="Grass" type="Line2D" parent="Ground/ShapeA"]
-z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(369, -440, 369, -20, 369.5, -10, 370, 0, 371, 10, 373, 20, 376, 30, 380, 40, 385, 50, 391, 60, 398, 70, 406, 80, 415, 90, 425, 100, 436, 110, 448, 120, 461, 130, 475, 140, 490, 150, 490, 600, 1170.87, 600, 1855.5, 497, 2194.21, 497, 3476.26, 1322.22, 3476.5, 1823, 3915, 1823, 3915, 1604, 4862.5, 2214.5, 6205.35, 2214.5, 6205, 2338.5, 5681.5, 2547.5, 3922.19, 2543.94, 3882.5, 2695.5, 3827, 2695.5, 3748.56, 2543.58, 1988.74, 2540.02, 1989, 3020.5, 5771.5, 3020.5, 5771.5, 4966, -549, 4922.5, -521.5, 1500, -523, -440, -564.5, -1617.5, -450.5, -1619, -450.5, -440)
+points = PackedVector2Array(2088, -116, 2825.13, 289, 3360, 289, 3372, 285, 3381, 278.5, 3388, 269, 3392, 257, 3392, -3, 4156, 373, 3756, 1241, 672, 784, 528, 152, 824, -28)
 closed = true
 width = 5.0
 default_color = Color(0, 0.00784314, 1, 1)
@@ -157,13 +178,13 @@ texture_mode = 1
 [node name="ShapeB" type="StaticBody2D" parent="Ground"]
 z_index = 1
 collision_layer = 3
-physics_material_override = ExtResource("3_75d7b")
-script = ExtResource("3_qma0l")
+physics_material_override = ExtResource("3_y67ei")
+script = ExtResource("5_brqkw")
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeB"]
 modulate = Color(0.329412, 0.12549, 0.529412, 1)
 texture_repeat = 2
-texture = ExtResource("4_daol6")
+texture = ExtResource("4_61lfx")
 polygon = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 572, -410.5, 390.5, -409.89)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeB"]
@@ -181,34 +202,35 @@ default_color = Color(0, 0.00784314, 1, 1)
 [node name="ShapeC" type="StaticBody2D" parent="Ground"]
 z_index = 1
 collision_layer = 3
-script = ExtResource("3_qma0l")
+script = ExtResource("5_brqkw")
+live_edit = true
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeC"]
 texture_repeat = 2
-texture = ExtResource("4_daol6")
-polygon = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
+texture = ExtResource("4_61lfx")
+polygon = PackedVector2Array(-468, -1415, -392, -1287, -224, -1183, -48, -1143, 168, -1167, 292, -1239, 364, -1331, 468, -1175, 1296, -855, 1292, 45, 168, -375, -896, -635, -468, -2239)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeC"]
 visible = false
-polygon = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
+polygon = PackedVector2Array(-468, -1415, -392, -1287, -224, -1183, -48, -1143, 168, -1167, 292, -1239, 364, -1331, 468, -1175, 1296, -855, 1292, 45, 168, -375, -896, -635, -468, -2239)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeC"]
 modulate = Color(0, 0.615686, 0, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(-42.5, -764.5, 574, -947, 7459.5, -1370.5, 7458, 1650, 7462, 2342, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 6428.13, 2737.04, 6242.5, 2340.5, 6242.5, 2223.5, 6550.46, 2223.5, 6550.46, 1647, 4452.5, 1647, 2374, 303.5, 573.5, -644, -42.5, -644.5)
+points = PackedVector2Array(-468, -1415, -392, -1287, -224, -1183, -48, -1143, 168, -1167, 292, -1239, 364, -1331, 468, -1175, 1296, -855, 1292, 45, 168, -375, -896, -635, -468, -2239)
 closed = true
 width = 106.78
-texture = ExtResource("4_xu3bi")
+texture = ExtResource("6_tgqtu")
 texture_mode = 1
 
 [node name="Stuff" type="Node2D" parent="."]
 
-[node name="Finish" parent="Stuff" instance=ExtResource("5_wc7mk")]
+[node name="Finish" parent="Stuff" instance=ExtResource("7_ll1f4")]
 position = Vector2(7710, 5761)
 rotation = 3.14159
 
-[node name="Finish2" parent="Stuff" instance=ExtResource("5_wc7mk")]
+[node name="Finish2" parent="Stuff" instance=ExtResource("7_ll1f4")]
 position = Vector2(6008, 5945)
 
 [node name="Spikes" type="StaticBody2D" parent="Stuff"]
@@ -225,49 +247,49 @@ texture_repeat = 2
 position = Vector2(-145, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike2" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(-80, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike3" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(-14, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike4" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(46, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike5" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(111, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike6" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(177, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike7" type="Sprite2D" parent="Stuff/Spikes"]
 texture_repeat = 2
 position = Vector2(232, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spikes2" type="StaticBody2D" parent="Stuff"]
 position = Vector2(13094, 4120)
@@ -283,126 +305,126 @@ texture_repeat = 2
 position = Vector2(46, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike5" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(111, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike6" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(177, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike7" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(232, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike8" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(297, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike9" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(363, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike10" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(423, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike11" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-397.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike12" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-332.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike13" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-266.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike14" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-211.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike15" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-146.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike16" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-80.7998, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike17" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-20.7998, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike19" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-653.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike20" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-588.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike21" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-522.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike22" type="Sprite2D" parent="Stuff/Spikes2"]
 texture_repeat = 2
 position = Vector2(-462.8, 24.7998)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spikes3" type="StaticBody2D" parent="Stuff"]
 position = Vector2(7655, 3764)
@@ -418,98 +440,98 @@ texture_repeat = 2
 position = Vector2(-148, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike2" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(-83, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike3" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(-17, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike4" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(43, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike11" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(486.8, 24.8009)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike12" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(551.8, 24.8009)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike13" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(617.8, 24.8009)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike14" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(677.8, 24.8009)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike5" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(108, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike6" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(174, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike7" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(229, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike8" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(294, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike9" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(360, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Spike10" type="Sprite2D" parent="Stuff/Spikes3"]
 texture_repeat = 2
 position = Vector2(420, 24)
 rotation = 3.14159
 scale = Vector2(0.22, 0.22)
-texture = ExtResource("6_t3a2v")
+texture = ExtResource("8_e84we")
 
 [node name="Collect" type="Area2D" parent="Stuff"]
 position = Vector2(7425, 2969)
@@ -517,7 +539,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
 scale = Vector2(0.38, 0.38)
-texture = ExtResource("7_gr36y")
+texture = ExtResource("9_5tdi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
 position = Vector2(-17, 26)
@@ -533,7 +555,7 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect2"]
 scale = Vector2(0.38, 0.38)
-texture = ExtResource("7_gr36y")
+texture = ExtResource("9_5tdi2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect2"]
 position = Vector2(-17, 26)
@@ -550,7 +572,7 @@ collision_mask = 4
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1000.0
-script = ExtResource("8_jps6u")
+script = ExtResource("10_hpj5u")
 power = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
@@ -561,26 +583,27 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.818096
+frame_progress = 0.725166
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
-texture = ExtResource("13_bb31c")
+texture = ExtResource("15_3imuq")
 lifetime = 3.08824
 preprocess = 3.08824
 visibility_rect = Rect2(-60, -140, 1635, 288)
 process_material = SubResource("ParticleProcessMaterial_b3t7x")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
-stream = ExtResource("14_gsdy0")
+stream = ExtResource("16_8rwrr")
 attenuation = 1e-05
 
-[node name="Pin" parent="Stuff" instance=ExtResource("15_klpta")]
+[node name="Pin" parent="Stuff" instance=ExtResource("17_comfr")]
 position = Vector2(-1303, 3007)
 mass = 20.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Scale" type="HSlider" parent="CanvasLayer"]
 anchors_preset = 5
@@ -591,9 +614,9 @@ offset_top = 23.0
 offset_right = 427.0
 offset_bottom = 102.0
 grow_horizontal = 2
-theme_override_icons/grabber = ExtResource("16_xj84w")
-theme_override_icons/grabber_highlight = ExtResource("16_xj84w")
-theme_override_icons/grabber_disabled = ExtResource("16_xj84w")
+theme_override_icons/grabber = ExtResource("18_y5xvk")
+theme_override_icons/grabber_highlight = ExtResource("18_y5xvk")
+theme_override_icons/grabber_disabled = ExtResource("18_y5xvk")
 theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
@@ -618,7 +641,7 @@ grow_vertical = 2
 
 [node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("18_s5te5")
+theme_override_fonts/normal_font = ExtResource("20_eehm8")
 theme_override_font_sizes/normal_font_size = 26
 text = "    Level Complete
 "
@@ -626,7 +649,7 @@ fit_content = true
 
 [node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("18_s5te5")
+theme_override_fonts/normal_font = ExtResource("20_eehm8")
 theme_override_font_sizes/normal_font_size = 20
 text = "Time
 "
@@ -634,7 +657,7 @@ fit_content = true
 
 [node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("18_s5te5")
+theme_override_fonts/normal_font = ExtResource("20_eehm8")
 theme_override_font_sizes/normal_font_size = 20
 text = "Rotation
 "
@@ -642,7 +665,7 @@ fit_content = true
 
 [node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("18_s5te5")
+theme_override_fonts/normal_font = ExtResource("20_eehm8")
 theme_override_font_sizes/normal_font_size = 20
 text = "Collect
 "
@@ -650,9 +673,9 @@ fit_content = true
 
 [node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
 layout_mode = 2
-texture_normal = ExtResource("19_4nso1")
-texture_pressed = ExtResource("19_4nso1")
-texture_hover = ExtResource("19_4nso1")
+texture_normal = ExtResource("21_v8afy")
+texture_pressed = ExtResource("21_v8afy")
+texture_hover = ExtResource("21_v8afy")
 
 [node name="Reset" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 1
@@ -664,37 +687,17 @@ offset_right = 192.0
 offset_bottom = 329.0
 grow_horizontal = 0
 scale = Vector2(0.32, 0.32)
-texture_normal = ExtResource("20_npikw")
-texture_pressed = ExtResource("20_npikw")
-texture_hover = ExtResource("20_npikw")
+texture_normal = ExtResource("22_yxmur")
+texture_pressed = ExtResource("22_yxmur")
+texture_hover = ExtResource("22_yxmur")
 
 [node name="AudioUI" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_myk1j")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_u3pv0")
+stream = ExtResource("25_d3116")
 volume_db = -10.0
 autoplay = true
-
-[node name="ScaleBgNight" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(3111, 890)
-scale = Vector2(8.12891, 7.93403)
-texture = ExtResource("24_1ykw5")
-
-[node name="ScaleBgSunset" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(7986, 1724)
-scale = Vector2(17.1734, 15.8889)
-texture = ExtResource("25_m6ek2")
-
-[node name="ScaleBg" type="Sprite2D" parent="."]
-visible = false
-z_index = -1
-position = Vector2(2451, 5269)
-scale = Vector2(5.87578, 5.59861)
-texture = ExtResource("26_rktx5")
 
 [connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
 [connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]

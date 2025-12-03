@@ -1,13 +1,13 @@
 [gd_scene load_steps=25 format=3 uid="uid://b2xw5r7i4t01k"]
 
-[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://main.gd" id="1_81pjf"]
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_81pjf"]
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="2_si7mk"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_y4tq7"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_rbgyn"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_5b27w"]
-[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://pin.tscn" id="6_2s3xs"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="6_2s3xs"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="12_78jpe"]
-[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://finish.tscn" id="14_ycloq"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="14_ycloq"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_3r0bk"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="16_0rdn5"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="17_cp4ui"]
@@ -46,6 +46,7 @@ stream_1/weight = 2.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_81pjf")
 level = 2
+level_name = "Bouncing Smackerel"
 
 [node name="Ball" parent="." instance=ExtResource("2_si7mk")]
 position = Vector2(181, 189)
@@ -70,17 +71,17 @@ collision_layer = 3
 [node name="Polygon2D" type="Polygon2D" parent="Ground"]
 texture_repeat = 2
 texture = ExtResource("4_rbgyn")
-polygon = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3348, -719, 3967, -719, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
+polygon = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3352.35, -626.654, 3968.5, -627, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground"]
 visible = false
-polygon = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3348, -719, 3967, -719, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
+polygon = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3352.35, -626.654, 3968.5, -627, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
 
 [node name="Grass" type="Line2D" parent="Ground"]
 modulate = Color(0, 0.615686, 0, 1)
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3348, -719, 3967, -719, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
+points = PackedVector2Array(44, -1019, 47, 56, 259, 99.5, 259, 279.5, 696, 220, 696, 503.5, 1147, 439.5, 1148.5, 567.5, 1810.5, 614.5, 1810, 412, 2393.5, 477.5, 2393.5, 191.5, 2883.5, 288, 2883.5, -115, 3376.5, -114.5, 3650.96, -55.969, 3826.5, -55.5, 3827, -285, 3655, -334, 3536.97, -244.198, 3370.41, -243.736, 3352.35, -626.654, 3968.5, -627, 3958, 1587, -278.5, 1570.5, -255.5, -1021.5)
 width = 106.78
 texture = ExtResource("5_5b27w")
 texture_mode = 1
@@ -95,7 +96,7 @@ mass = 50.0
 position = Vector2(7427, -244)
 
 [node name="Finish2" parent="Stuff" instance=ExtResource("14_ycloq")]
-position = Vector2(7006, -1567)
+position = Vector2(7004, -1379)
 
 [node name="Spikes" type="StaticBody2D" parent="Stuff"]
 position = Vector2(-1722, 948)
@@ -176,7 +177,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("15_3r0bk")
 
 [node name="Collect" type="Area2D" parent="Stuff"]
-position = Vector2(6787, -1396)
+position = Vector2(6834, -1216)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
@@ -279,16 +280,15 @@ texture_normal = ExtResource("20_jn7wh")
 texture_pressed = ExtResource("20_jn7wh")
 texture_hover = ExtResource("20_jn7wh")
 
+[node name="AudioUI" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = SubResource("AudioStreamRandomizer_uvhyc")
+
 [node name="ScaleBg" type="Sprite2D" parent="."]
 modulate = Color(0.658824, 0.772549, 1, 1)
 z_index = -1
 position = Vector2(3686.62, -424.64)
 scale = Vector2(6.60684, 10.5038)
 texture = ExtResource("21_5mhwo")
-
-[node name="AudioUI" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_uvhyc")
-attenuation = 2.7504e-05
 
 [connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
 [connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]

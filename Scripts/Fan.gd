@@ -59,6 +59,7 @@ func _process(delta):
 	
 
 func area_changed():
+	if !Engine.is_editor_hint(): return
 	print("Fan Changed")
 	#-100 Area Size
 	#-60 Viewbox

@@ -1,0 +1,298 @@
+[gd_scene load_steps=28 format=3 uid="uid://b02i1p8m4ct70"]
+
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_a2qf2"]
+[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_d5ipo"]
+[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_ngmy0"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_mn47l"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="5_kkkaw"]
+[ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://GroundTypes/GroundMaterials/dull.tres" id="6_spg7f"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="7_yrn5y"]
+[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="8_x8vmt"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="9_kk0ge"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="10_au157"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="12_n631a"]
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="21_d6m2y"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="22_hbwxo"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="23_crlb5"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="24_wnsyy"]
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="25_ihiys"]
+[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="26_fxvbo"]
+[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="27_3uanx"]
+[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="28_iu5gh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3bum"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
+radius = 29.2746
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
+texture = ExtResource("22_hbwxo")
+texture_margin_top = 72.0
+texture_margin_bottom = 7.0
+draw_center = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7lr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84h1g"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
+streams_count = 2
+stream_0/stream = ExtResource("26_fxvbo")
+stream_1/stream = ExtResource("27_3uanx")
+stream_1/weight = 2.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_a2qf2")
+level = 6
+level_name = "Halfpipe"
+
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(3111, 890)
+scale = Vector2(8.12891, 7.93403)
+texture = ExtResource("2_d5ipo")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2977.5, -4911.5)
+scale = Vector2(9.61484, 26.8542)
+texture = ExtResource("3_ngmy0")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(5817.25, -698.75)
+scale = Vector2(10.498, 6.40208)
+texture = ExtResource("4_mn47l")
+
+[node name="Size Reference" type="Node2D" parent="."]
+position = Vector2(4644, 923)
+
+[node name="Max" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_77423")
+debug_color = Color(0, 0.701961, 0.0352941, 0.419608)
+
+[node name="Min" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_x3bum")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Ball" parent="." instance=ExtResource("5_kkkaw")]
+position = Vector2(-437, 1875)
+power_force = true
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -965
+limit_top = -14405
+limit_right = 13440
+limit_bottom = 7180
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+
+[node name="ShapeA" type="StaticBody2D" parent="Ground"]
+z_index = 1
+collision_layer = 3
+physics_material_override = ExtResource("6_spg7f")
+script = ExtResource("7_yrn5y")
+live_edit = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
+modulate = Color(0.301961, 0.129412, 0.4, 1)
+texture_repeat = 2
+texture = ExtResource("8_x8vmt")
+polygon = PackedVector2Array(-437.5, -165.5, -408, 123, -371, 378.5, -326.5, 621, -271, 818.5, -210, 991, -110, 1152.5, 11.5, 1295.5, 170.5, 1415, 333.5, 1521.5, 503.5, 1606.5, 703, 1667, 900, 1698.5, 1166.5, 1699, 1376.5, 1689.5, 1578.5, 1661.5, 1731, 1626, 1872.5, 1578, 2025, 1514.5, 2172, 1441, 2316.5, 1356.5, 2449.5, 1264.5, 2574, 1153.5, 2677.5, 1038.5, 2771, 915.5, 2841, 774, 2903, 596, 2939.5, 415, 2947, 254, 2947, -10000, 4606, -9582.5, 5316, -156.5, 3032.5, 2276, -1062, 2404.5, -2638, -9532.5, -450.5, -10625, -450.5, -440)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
+polygon = PackedVector2Array(-437.5, -165.5, -408, 123, -371, 378.5, -326.5, 621, -271, 818.5, -210, 991, -110, 1152.5, 11.5, 1295.5, 170.5, 1415, 333.5, 1521.5, 503.5, 1606.5, 703, 1667, 900, 1698.5, 1166.5, 1699, 1376.5, 1689.5, 1578.5, 1661.5, 1731, 1626, 1872.5, 1578, 2025, 1514.5, 2172, 1441, 2316.5, 1356.5, 2449.5, 1264.5, 2574, 1153.5, 2677.5, 1038.5, 2771, 915.5, 2841, 774, 2903, 596, 2939.5, 415, 2947, 254, 2947, -10000, 4606, -9582.5, 5316, -156.5, 3032.5, 2276, -1062, 2404.5, -2638, -9532.5, -450.5, -10625, -450.5, -440)
+
+[node name="Grass" type="Line2D" parent="Ground/ShapeA"]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(-437.5, -165.5, -408, 123, -371, 378.5, -326.5, 621, -271, 818.5, -210, 991, -110, 1152.5, 11.5, 1295.5, 170.5, 1415, 333.5, 1521.5, 503.5, 1606.5, 703, 1667, 900, 1698.5, 1166.5, 1699, 1376.5, 1689.5, 1578.5, 1661.5, 1731, 1626, 1872.5, 1578, 2025, 1514.5, 2172, 1441, 2316.5, 1356.5, 2449.5, 1264.5, 2574, 1153.5, 2677.5, 1038.5, 2771, 915.5, 2841, 774, 2903, 596, 2939.5, 415, 2947, 254, 2947, -10000, 4606, -9582.5, 5316, -156.5, 3032.5, 2276, -1062, 2404.5, -2638, -9532.5, -450.5, -10625, -450.5, -440)
+closed = true
+width = 5.0
+default_color = Color(0, 0.00784314, 1, 1)
+texture_mode = 1
+
+[node name="ShapeB" type="StaticBody2D" parent="Ground"]
+z_index = 1
+position = Vector2(4222, 320.5)
+collision_layer = 3
+physics_material_override = ExtResource("6_spg7f")
+script = ExtResource("7_yrn5y")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeB"]
+modulate = Color(0.329412, 0.12549, 0.529412, 1)
+texture_repeat = 2
+texture = ExtResource("8_x8vmt")
+polygon = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 482.5, -545)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeB"]
+visible = false
+polygon = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 482.5, -545)
+
+[node name="Grass2" type="Line2D" parent="Ground/ShapeB"]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(390.5, -644.13, 572.5, -644.5, 482.5, -545)
+closed = true
+width = 5.0
+default_color = Color(0, 0.00784314, 1, 1)
+
+[node name="ShapeC" type="StaticBody2D" parent="Ground"]
+z_index = 1
+collision_layer = 3
+script = ExtResource("7_yrn5y")
+live_edit = true
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeC"]
+texture_repeat = 2
+texture = ExtResource("8_x8vmt")
+polygon = PackedVector2Array(7446.5, 1253.5, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 4452.5, 1647)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeC"]
+visible = false
+polygon = PackedVector2Array(7446.5, 1253.5, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 4452.5, 1647)
+
+[node name="Grass2" type="Line2D" parent="Ground/ShapeC"]
+modulate = Color(0, 0.615686, 0, 1)
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(7446.5, 1253.5, 7434, 4972.5, 6003, 4952.5, 6002, 3020.5, 4452.5, 1647)
+closed = true
+width = 106.78
+texture = ExtResource("9_kk0ge")
+texture_mode = 1
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Finish" parent="Stuff" instance=ExtResource("10_au157")]
+position = Vector2(5651, -10801)
+rotation = -1.5708
+
+[node name="Collect" type="Area2D" parent="Stuff"]
+position = Vector2(-772, -12164)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("12_n631a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scale" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -519.0
+offset_top = 23.0
+offset_right = 427.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("21_d6m2y")
+theme_override_icons/grabber_highlight = ExtResource("21_d6m2y")
+theme_override_icons/grabber_disabled = ExtResource("21_d6m2y")
+theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
+min_value = 1.0
+max_value = 10.0
+step = 0.01
+value = 1.0
+
+[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -147.0
+offset_right = 124.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("23_crlb5")
+theme_override_font_sizes/normal_font_size = 26
+text = "    Level Complete
+"
+fit_content = true
+
+[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("23_crlb5")
+theme_override_font_sizes/normal_font_size = 20
+text = "Time
+"
+fit_content = true
+
+[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("23_crlb5")
+theme_override_font_sizes/normal_font_size = 20
+text = "Rotation
+"
+fit_content = true
+
+[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("23_crlb5")
+theme_override_font_sizes/normal_font_size = 20
+text = "Collect
+"
+fit_content = true
+
+[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
+layout_mode = 2
+texture_normal = ExtResource("24_wnsyy")
+texture_pressed = ExtResource("24_wnsyy")
+texture_hover = ExtResource("24_wnsyy")
+
+[node name="Reset" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 329.0
+grow_horizontal = 0
+scale = Vector2(0.32, 0.32)
+texture_normal = ExtResource("25_ihiys")
+texture_pressed = ExtResource("25_ihiys")
+texture_hover = ExtResource("25_ihiys")
+
+[node name="AudioUI" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_myk1j")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_iu5gh")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
+[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
+[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
+[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]
