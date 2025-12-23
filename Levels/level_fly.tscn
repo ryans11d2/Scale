@@ -180,6 +180,7 @@ stream_1/weight = 2.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gd61g")
 level = 6
+scales = null
 level_name = "Flight"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
@@ -347,7 +348,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -381,7 +382,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
@@ -414,7 +415,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -448,7 +449,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)
@@ -481,7 +482,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan7"]
 position = Vector2(-52.9999, 53)
@@ -516,7 +517,7 @@ shape = SubResource("RectangleShape2D_366li")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 z_index = 1
@@ -550,7 +551,7 @@ shape = SubResource("RectangleShape2D_gd61g")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -584,7 +585,7 @@ shape = SubResource("RectangleShape2D_54usd")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.89438
+frame_progress = 0.707466
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan8"]
 position = Vector2(-52.9999, 53)

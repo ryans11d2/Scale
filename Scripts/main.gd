@@ -3,9 +3,9 @@ extends Node2D
 var last_value = 1
 var changing = false
 var last_change = false
-@export var level = 0##Ordering of current level
-@export var scales: int = 1
-@export var level_name: String = ""
+@export var level = 0##Ordering of current level on it's page
+@export var scales: int = 1##Number of scales in level
+@export var level_name: String = ""#Level display name
 
 var hud: CanvasLayer
 
@@ -49,8 +49,10 @@ func level_complete(stats: Array, collect, damaged):
 		Select.super_duper_run = false
 	#write_progress(state)#Write new state to file
 	
-	if state > Select.get_level_status(level):
+	var current: int = Select.get_level_status(level)
+	if state > current:
 		Select.set_level_status(state, level)
+		Select.add_points(state - current, level)
 	Select.finish_level()
 	
 

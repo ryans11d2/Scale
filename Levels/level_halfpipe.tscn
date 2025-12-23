@@ -50,7 +50,8 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_a2qf2")
-level = 6
+level = 11
+scales = null
 level_name = "Halfpipe"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+class_name GameMain
+
 var red = preload("res://Sprites/Scale_Button_UI_Red.png")
 var green = preload("res://Sprites/Scale_Button_UI_Green.png")
 var yellow = preload("res://Sprites/Scale_Button_UI_Yellow.png")
@@ -14,7 +16,12 @@ var blue = preload("res://Sprites/Scale_Button_UI_Blue_Select.png")
 	preload("res://GroundTypes/rubber.tres"),
 	preload("res://GroundTypes/glue.tres"),
 	preload("res://GroundTypes/kill.tres"),
+	preload("res://GroundTypes/boost.tres"),
+	preload("res://GroundTypes/cave.tres"),
 ]
+
+var debug_mode: bool = true
+var debug_file: String = "res://ball_path.txt"
 
 @export var fall: bool = false
 var grow_button: bool = true
@@ -26,9 +33,15 @@ var level_path: String = ""
 var level
 var level_name: String = ""
 var game_ready: bool = false
+var starting_level: bool = false
 
-var cheat_code: Array = "nerdiscool".to_upper().split()
-var code_idx: int = 0
+var cheat_codes: Array[Array] = [
+	"nerdiscool".to_upper().split(),
+	"nerdisdumb".to_upper().split(),
+	"pentatonicarpeggio".to_upper().split(),
+	"aer".to_upper().split(),
+]
+var code_idx: Array[int] = []
 var cheated: bool = false
 
 var super_mode: bool = false
@@ -67,32 +80,60 @@ func _ready():
 	else:
 		validate.close()
 	
+	code_idx.resize(cheat_codes.size())
+	code_idx.fill(0)
+	
 	open_page(0)
 	
 	$AnimationPlayer.play("start")
-		
 	
 	$Select/SFX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
-	
+	$Select/PointPath.curve.set_point_position(
+		1, 
+		$Select/NextPage.position
+	)
 	
 
 func _input(event: InputEvent) -> void:
-	if event.is_pressed() and !cheated:#Show all levels if cheat code is inputted
+	
+	if event.is_pressed():#Show all levels if cheat code is inputted
 		var letter = event.as_text()
 		
-		if letter == cheat_code[code_idx]: code_idx += 1
-		elif letter == cheat_code[0]: code_idx = 1
-		else: code_idx = 0
+		var valid: bool = false
+		for code in cheat_codes.size():
+			if code_idx[code] < cheat_codes[code].size():
+				if letter == cheat_codes[code][code_idx[code]]: code_idx[code] += 1
+				elif letter == cheat_codes[code][0]: code_idx[code] = 1
+				else: code_idx[code] = 0
+				
+				if code_idx[code] == cheat_codes[code].size():
+					enter_code(code)
+					
+					
+					
 		
-		if code_idx == cheat_code.size():
-			cheated = true
-			
-			for i in $Select/Levels.get_children(): 
+		
+		
+	
+
+func enter_code(code: int):
+	
+	if code == 0:
+		for i in $Select/Levels.get_children(): 
 				for j in i.get_children():
 					j.visible = true
-			
-		
+	elif code == 1:
+		for i in 12:
+			set_level_status(0, i + 1)
+		open_page(page)
+	elif code == 2:
+		for i in 12:
+			set_level_status(2, i + 1)
+		open_page(page)
+	elif code == 3:
+		if level_path != "": 
+			open_level(level_path)
 		
 	
 
@@ -115,6 +156,15 @@ func set_level_status(value: int, level: int, on_page: int = -1):
 	file.seek(((on_page * 12) + level - 1) * 12)
 	file.store_var(value)
 	file.close()
+	
+
+func add_points(amount: int, from_level: int):
+	$Select/PointPath.curve.set_point_position(
+		0, 
+		$Select/Levels.get_child(from_level - 1).position
+	)
+	
+	print("Add", amount)
 	
 
 func next_page():
@@ -159,7 +209,7 @@ func open_page(new_page: int):
 	this_page.get_child(10).visible = gold >= 9 and get_level_status(9 > 0) or cheated
 	this_page.get_child(11).visible = gold >= 9 and get_level_status(10 > 0) or cheated
 	
-	$Select/Super.visible = gold > 9#== 12
+	$Select/Super.visible = gold >= 12
 	
 	$Select/LastPage.visible = new_page > 0
 	$Select/NextPage.visible = new_page < $Select/Levels.get_child_count() - 1
@@ -167,6 +217,8 @@ func open_page(new_page: int):
 	var point_need = (9 * (page + 1)) + (3 * (page))
 	$Select/NextPage.disabled = finish_points < point_need
 	$Select/NextPage.tooltip_text = str(finish_points) + "/" + str(point_need)
+	
+	#end_super()
 	
 
 func close():
@@ -183,6 +235,8 @@ func open_level(file: String):
 	#$Select.visible = false
 	#$Title.visible = false
 	#$BG.visible = false
+	if starting_level: return
+	starting_level = true
 	$Music.stop()
 	$Button.play()
 	game_ready = false
@@ -198,6 +252,7 @@ func open_level(file: String):
 
 func to_level():
 	game_ready = true
+	starting_level = false
 
 func back_to_menu():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -272,9 +327,11 @@ func end_super():
 	$Select/Super.set_pressed_no_signal(false)
 
 func _on_super_toggled(toggled_on: bool) -> void:
+	if starting_level: return
+	
 	super_mode = toggled_on
-	super_run = true
-	super_duper_run = true
+	super_run = toggled_on
+	super_duper_run = toggled_on
 	super_level = 0
 	super_scale = false
 	

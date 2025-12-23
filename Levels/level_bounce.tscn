@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://do6x5j0yw0h87"]
+[gd_scene load_steps=20 format=3 uid="uid://do6x5j0yw0h87"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_kabba"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_q2npg"]
@@ -8,9 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="6_06pj0"]
 [ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="7_7t2v5"]
 [ext_resource type="PhysicsMaterial" uid="uid://bycv6amj3a816" path="res://GroundTypes/GroundMaterials/bounce.tres" id="7_q2npg"]
-[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="8_46lea"]
 [ext_resource type="Texture2D" uid="uid://df2go2l0xediw" path="res://Sprites/Scale_Dirt_V4_Smooth.png" id="9_pqyf0"]
-[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="9_s8wel"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="10_rskwu"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="11_2expr"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="12_0hjgq"]
@@ -96,13 +94,14 @@ collision_layer = 3
 physics_material_override = ExtResource("7_q2npg")
 script = ExtResource("7_7t2v5")
 live_edit = true
+type = 3
 
 [node name="Grass" type="Line2D" parent="Ground/ShapeABounce"]
 z_index = 1
 texture_repeat = 2
 points = PackedVector2Array(956, -321.872, 956, -1155.2, 744, -1263, 516, -1523, 956, -1598.61, 956, -2115, 1408, -2115, 1408, -1841.44, 1544, -1591, 1408, -1475, 1409.83, -888.046, 1560, -887, 1410.19, -770.94, 1411.68, -294.097, 1728, -111, 2060, -43, 2416, 5, 2821.35, 5, 3092, 361, 3956, 357, 4280, 37, 4548.16, 36.6726, 5414.77, 369, 6892, 369, 6892, 77, 7712, 77, 7712, -1503, 8404, -1547, 8408, 929, -580, 929, -556, -1823, -552, -3035, 132, -3023, 1400, -3023, 4596, -2335, 7748, -2091, 7704, -371, 4280, -371, 3536, -731, 2780, -299, 2228, -423, 2472, -899, 2140, -1295, 2364, -2199, 1524, -2431, 740, -2527, 72, -2631, -196, -2411, -196, -2238.14, -156, -1991, -196, -1710.57, -196, -1164.24, -112, -1075, -196, -849.05, -196, -418.033, -63.1852, -234.399)
 closed = true
-width = 8.845
+width = 8.5
 default_color = Color(0, 0.93, 0.0929999, 1)
 texture_mode = 1
 
@@ -114,31 +113,6 @@ texture_repeat = 2
 color = Color(0, 0.77, 0.385, 1)
 texture = ExtResource("9_pqyf0")
 polygon = PackedVector2Array(956, -321.872, 956, -1155.2, 744, -1263, 516, -1523, 956, -1598.61, 956, -2115, 1408, -2115, 1408, -1841.44, 1544, -1591, 1408, -1475, 1409.83, -888.046, 1560, -887, 1410.19, -770.94, 1411.68, -294.097, 1728, -111, 2060, -43, 2416, 5, 2821.35, 5, 3092, 361, 3956, 357, 4280, 37, 4548.16, 36.6726, 5414.77, 369, 6892, 369, 6892, 77, 7712, 77, 7712, -1503, 8404, -1547, 8408, 929, -580, 929, -556, -1823, -552, -3035, 132, -3023, 1400, -3023, 4596, -2335, 7748, -2091, 7704, -371, 4280, -371, 3536, -731, 2780, -299, 2228, -423, 2472, -899, 2140, -1295, 2364, -2199, 1524, -2431, 740, -2527, 72, -2631, -196, -2411, -196, -2238.14, -156, -1991, -196, -1710.57, -196, -1164.24, -112, -1075, -196, -849.05, -196, -418.033, -63.1852, -234.399)
-
-[node name="ShapeB" type="StaticBody2D" parent="Ground"]
-z_index = 1
-position = Vector2(-3600, -995)
-collision_layer = 3
-script = ExtResource("7_7t2v5")
-live_edit = true
-
-[node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeB"]
-texture_repeat = 2
-texture = ExtResource("9_s8wel")
-polygon = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1803, 427.5, 1676, -492, 2078.5, -449.5)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeB"]
-polygon = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1803, 427.5, 1676, -492, 2078.5, -449.5)
-
-[node name="Grass2" type="Line2D" parent="Ground/ShapeB"]
-modulate = Color(0, 0.615686, 0, 1)
-z_index = 1
-texture_repeat = 2
-points = PackedVector2Array(2112.5, -712.5, 2646.5, -509, 1803, 427.5, 1676, -492, 2078.5, -449.5)
-closed = true
-width = 106.78
-texture = ExtResource("8_46lea")
-texture_mode = 1
 
 [node name="Stuff" type="Node2D" parent="."]
 

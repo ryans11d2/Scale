@@ -1,0 +1,337 @@
+[gd_scene load_steps=30 format=3 uid="uid://dxtegdu2p3ep2"]
+
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_6wt0k"]
+[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_dh5bb"]
+[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_a7a7f"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_onnph"]
+[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="5_rh0rh"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="6_ixx5a"]
+[ext_resource type="PhysicsMaterial" uid="uid://ckyro8x1w6ba6" path="res://GroundTypes/GroundMaterials/grass.tres" id="7_artsx"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="8_8l8a8"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="9_bqnxl"]
+[ext_resource type="Texture2D" uid="uid://btwijh3e6fy82" path="res://Sprites/Scale_Dirt_V4_Hard.png" id="10_7pbdx"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="11_pmj8u"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="13_0bvrv"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="14_lajej"]
+[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="15_560r7"]
+[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="16_284p0"]
+[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="17_o18jh"]
+[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="18_hbqve"]
+[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="19_myaen"]
+[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="20_ruocl"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="21_b50rk"]
+[ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="22_i238f"]
+[ext_resource type="PackedScene" uid="uid://b4er4mc4amfws" path="res://Objects/ball_path.tscn" id="23_e4uey"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3bum"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
+radius = 29.2746
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8778"]
+size = Vector2(3285, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ne40b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_560r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_284p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_o18jh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hbqve")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_necj2"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.34, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 70, 1)
+spread = 0.0
+initial_velocity_min = 637.5
+initial_velocity_max = 637.5
+gravity = Vector3(0, 0, 0)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6wt0k")
+level = 11
+level_name = "Rage"
+
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(3111, 890)
+scale = Vector2(8.12891, 7.93403)
+texture = ExtResource("2_dh5bb")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(9249.5, 3043.5)
+scale = Vector2(6.88672, 6.41806)
+texture = ExtResource("3_a7a7f")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+modulate = Color(0.66, 1, 0.988667, 1)
+z_index = -1
+position = Vector2(5180.5, 202)
+scale = Vector2(7.87578, 7.66667)
+texture = ExtResource("4_onnph")
+
+[node name="ScaleDirtV2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.337255, 0.47451, 0.733333, 1)
+z_index = -1
+position = Vector2(6329, 1317.5)
+scale = Vector2(39.5438, 14.3469)
+texture = ExtResource("5_rh0rh")
+
+[node name="Size Reference" type="Node2D" parent="."]
+position = Vector2(2640, -673)
+metadata/_edit_group_ = true
+
+[node name="Max" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_77423")
+debug_color = Color(0, 0.701961, 0.0352941, 0.419608)
+
+[node name="Min" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_x3bum")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Ball" parent="." instance=ExtResource("6_ixx5a")]
+position = Vector2(451, -1000)
+power_force = true
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = 205
+limit_top = -2495
+limit_right = 10125
+limit_bottom = 1910
+position_smoothing_enabled = true
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+
+[node name="ShapeA" type="StaticBody2D" parent="Ground"]
+z_index = 1
+collision_layer = 3
+physics_material_override = ExtResource("7_artsx")
+script = ExtResource("8_8l8a8")
+live_edit = true
+
+[node name="Grass" type="Line2D" parent="Ground/ShapeA"]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(640, -223, 696, -91, 768, 17, 860, 105, 972, 181, 1076, 221, 1200, 253, 1324, 273, 1464, 273, 1553.28, 252.398, 1560, 241, 1568, 249, 1644, 489, 1872, 693, 4294.95, 693, 4533.5, 487.5, 4594, 199, 4468.5, -444.5, 3438.5, -1044.5, 2165, -1335.5, 1894.5, -1759, 4290, -2312, 6344, -91, 5455.5, 1471.5, -1022.5, 1406.5, -593.5, -1650.5, 1914, -1724.5, 2162.5, -1337.5, 786, -1262, 115.5, -881.5, 119.866, -484.962)
+closed = true
+width = 105.0
+default_color = Color(0.176236, 0.652086, 0.171562, 1)
+texture = ExtResource("9_bqnxl")
+texture_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
+polygon = PackedVector2Array(640, -223, 696, -91, 768, 17, 860, 105, 972, 181, 1076, 221, 1200, 253, 1324, 273, 1464, 273, 1553.28, 252.398, 1560, 241, 1568, 249, 1644, 489, 1872, 693, 4294.95, 693, 4533.5, 487.5, 4594, 199, 4468.5, -444.5, 3438.5, -1044.5, 2165, -1335.5, 1894.5, -1759, 4290, -2312, 6344, -91, 5455.5, 1471.5, -1022.5, 1406.5, -593.5, -1650.5, 1914, -1724.5, 2162.5, -1337.5, 786, -1262, 115.5, -881.5, 119.866, -484.962)
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
+texture_repeat = 2
+color = Color(1, 0.623, 0.42, 1)
+texture = ExtResource("10_7pbdx")
+polygon = PackedVector2Array(640, -223, 696, -91, 768, 17, 860, 105, 972, 181, 1076, 221, 1200, 253, 1324, 273, 1464, 273, 1553.28, 252.398, 1560, 241, 1568, 249, 1644, 489, 1872, 693, 4294.95, 693, 4533.5, 487.5, 4594, 199, 4468.5, -444.5, 3438.5, -1044.5, 2165, -1335.5, 1894.5, -1759, 4290, -2312, 6344, -91, 5455.5, 1471.5, -1022.5, 1406.5, -593.5, -1650.5, 1914, -1724.5, 2162.5, -1337.5, 786, -1262, 115.5, -881.5, 119.866, -484.962)
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Finish" parent="Stuff" instance=ExtResource("11_pmj8u")]
+position = Vector2(6197, 1367)
+
+[node name="Collect" type="Area2D" parent="Stuff"]
+position = Vector2(6221, 809)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("13_0bvrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Fan" type="Area2D" parent="Stuff"]
+position = Vector2(1480, -2657)
+rotation = 1.5708
+collision_layer = 5
+collision_mask = 4
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1000.0
+script = ExtResource("14_lajej")
+power = 2500
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
+visible = false
+position = Vector2(1489.5, 58.9998)
+shape = SubResource("RectangleShape2D_c8778")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
+position = Vector2(-2, 63)
+sprite_frames = SubResource("SpriteFrames_ne40b")
+animation = &"new_animation"
+frame_progress = 0.440325
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
+position = Vector2(-52.9999, 53)
+amount = 120
+texture = ExtResource("19_myaen")
+lifetime = 4.99608
+preprocess = 4.99608
+visibility_rect = Rect2(-60, -140, 3245, 288)
+process_material = SubResource("ParticleProcessMaterial_necj2")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
+stream = ExtResource("20_ruocl")
+attenuation = 1e-05
+
+[node name="Pins" type="Node2D" parent="Stuff"]
+
+[node name="Pin" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6266, 1395)
+mass = 20.0
+
+[node name="Pin2" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6522, 1395)
+mass = 20.0
+
+[node name="Pin3" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6370, 1235)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin4" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6482, 1111)
+mass = 20.0
+
+[node name="Pin5" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6737, 1108)
+mass = 20.0
+
+[node name="Pin6" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6588, 953)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin7" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6674, 1403)
+mass = 20.0
+
+[node name="Pin8" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6930, 1403)
+mass = 20.0
+
+[node name="Pin9" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6780, 1247)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin10" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5488, 1395)
+mass = 20.0
+
+[node name="Pin11" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5744, 1395)
+mass = 20.0
+
+[node name="Pin12" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5592, 1235)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin13" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5704, 1111)
+mass = 20.0
+
+[node name="Pin14" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5959, 1108)
+mass = 20.0
+
+[node name="Pin19" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6102, 1122)
+mass = 20.0
+
+[node name="Pin20" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6324, 1095)
+mass = 20.0
+
+[node name="Pin21" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6185, 939)
+rotation = 1.48305
+mass = 20.0
+
+[node name="Pin15" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5810, 953)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin22" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5973, 889)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin24" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6079, 766)
+mass = 20.0
+
+[node name="Pin26" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6202, 690)
+rotation = 1.58064
+mass = 20.0
+
+[node name="Pin25" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6371, 750)
+mass = 20.0
+
+[node name="Pin23" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6412, 889)
+rotation = 1.5708
+mass = 20.0
+
+[node name="Pin16" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(5896, 1403)
+mass = 20.0
+
+[node name="Pin17" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6152, 1403)
+mass = 20.0
+
+[node name="Pin18" parent="Stuff/Pins" instance=ExtResource("21_b50rk")]
+position = Vector2(6002, 1247)
+rotation = 1.5708
+mass = 20.0
+
+[node name="GameHUD" parent="." instance=ExtResource("22_i238f")]
+
+[node name="BallPath" parent="." instance=ExtResource("23_e4uey")]
+points = PackedVector2Array(536, -712, 536, -711.728, 536, -711.184, 536, -710.369, 536, -709.282, 536, -707.926, 536, -706.299, 536, -704.403, 536, -702.238, 536, -699.804, 536, -697.102, 536, -694.133, 536, -690.896, 536, -687.392, 536, -683.622, 536, -679.586, 536, -675.285, 536, -670.718, 536, -665.887, 536, -660.792, 536, -655.432, 536, -649.81, 536, -643.925, 536, -637.777, 536, -631.368, 536, -624.696, 536.232, -617.764, 536.694, -610.571, 537.387, -603.118, 538.311, -595.405, 539.464, -587.433, 540.848, -579.201, 542.46, -570.712, 544.301, -561.964, 546.37, -552.958, 548.668, -543.696, 551.193, -534.176, 553.946, -524.4, 556.925, -514.369, 560.131, -504.081, 563.563, -493.539, 567.221, -482.742, 571.104, -471.691, 575.212, -460.386, 579.545, -448.827, 584.102, -437.016, 588.883, -424.952, 593.887, -412.636, 599.115, -400.068, 604.565, -387.249, 610.238, -374.179, 616.133, -360.859, 622.249, -347.289, 628.587, -333.469, 633.091, -337.922, 637.785, -338.779, 642.696, -339.187, 647.579, -339.14, 652.685, -339.093, 658.01, -339.042, 663.558, -338.989, 669.322, -338.934, 675.309, -338.882, 681.507, -338.823, 687.927, -338.764)
+
+[connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]

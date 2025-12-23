@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("1_0kgpl")
 physics = ExtResource("1_v25rw")
-fill_colour = Color(1, 0.623, 0.42, 1)
+fill_colour = Color(0.355, 0.502917, 0.71, 1)
 fill_texture = ExtResource("2_ttgvg")
 edge_colour = Color(0.176236, 0.652086, 0.171562, 1)
 edge_texture = ExtResource("1_vpu6a")

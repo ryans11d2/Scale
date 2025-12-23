@@ -10,12 +10,14 @@ var col: CollisionPolygon2D
 var lin: Line2D
 
 enum ground_type {
-	GRASS = 0,
-	DULL = 1,
-	ICE = 2,
-	BOUNCE = 3,
-	STICK = 4,
-	KILL = 5
+	GRASS = 0,##The Default Surface
+	DULL = 1,##Absorbs All Bounce
+	ICE = 2,##Very Low Friction
+	BOUNCE = 3,##Very Bouncey
+	STICK = 4,##Pulls The Ball Towards The Ground
+	KILL = 5,##Kills On Contact
+	BOOST= 6,##Bouncey And Gives An Extra Boost When Pushing Off
+	CAVE = 7,##Recoloured Grass
 }
 @export var type: ground_type = ground_type.GRASS
 var current_type: ground_type

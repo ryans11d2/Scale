@@ -7,6 +7,8 @@ var contacts = []##Overlap amount with physics bodies
 var stuck: bool = false##Is on a sticky surface
 var ground_dir: Vector2 = Vector2.ZERO
 var ground_pos: Vector2 = Vector2.ZERO
+var stick_pos: Vector2 = Vector2.ZERO
+var stick_pow: float = 0
 var in_ground: int = 0
 var max_speed: float = 24000
 
@@ -38,6 +40,8 @@ var tone_dir: bool = false##Shift tone up or down on bounce
 @export var trail_lag: float = 0.02##Trail update intercal
 @onready var trail: Node2D = $Offsets##Trail parent object
 var trail_lag_time: float = 0##Timer to update trail
+
+var debug_path: Array = []
 
 func _ready():
 	$Audio.bus = bus
@@ -97,6 +101,26 @@ func _physics_process(delta):
 		print("MAX SPEED")
 		linear_velocity = linear_velocity.normalized() * max_speed
 	
+	#The rays are disabled btw
+	$CamRay.global_rotation = 0
+	$PanRay.global_rotation = 0
+	$PanRay.global_rotation = 0
+	$CamRay.target_position = linear_velocity.normalized() * 1000
+	$CloseRay.target_position = linear_velocity.normalized() * 500
+	$PanRay.target_position = linear_velocity.normalized() * 600
+	if $CamRay.is_colliding() and !$CloseRay.is_colliding():
+		$Camera2D.position_smoothing_speed = 0.5
+	else: $Camera2D.position_smoothing_speed = 5.0
+	
+	if $PanRay.is_colliding():
+		var hit_pos: Vector2 = $PanRay.get_collision_point()
+		var off = hit_pos.direction_to(global_position) * 150
+		$Camera2D.global_position = hit_pos + off
+	else:
+		$Camera2D.position = Vector2.ZERO
+	
+	if Select.debug_mode: debug_path.push_back(global_position)
+	
 
 func _on_scale_value_changed(value):
 	full = value
@@ -146,6 +170,8 @@ func _integrate_forces(state):
 		linear_velocity -= push_force * growth
 		
 	
+	stick_pow = lerp(stick_pow, 0.0, get_process_delta_time())
+	if global_position.distance_to(stick_pos) > aer * 20 + 64: stick_pow = 0
 	
 	stuck = false
 	for i in state.get_contact_count():
@@ -153,6 +179,8 @@ func _integrate_forces(state):
 		if ground is Ground:
 			if ground.type == ground.ground_type.STICK:
 				stuck = true
+				stick_pow = 1.0
+				stick_pos = ground_pos
 				var dir: Vector2 = -state.get_contact_local_normal(i)
 				var along: float = linear_velocity.dot(dir)
 				var reduce: Vector2 = dir * along
@@ -160,10 +188,19 @@ func _integrate_forces(state):
 			elif ground.type == ground.ground_type.BOUNCE:
 				var dir = state.get_contact_local_normal(i)
 				linear_velocity += dir * (350.0 / ((mass - 2.5) * 2))
+			elif ground.type == ground.ground_type.BOOST:
+				var dir = state.get_contact_local_normal(i)
+				var boost = clamp((growth + 1) * 6, 1, max_speed)
+				if power: boost *= 1.5
+				linear_velocity += dir * (mass + 5) * boost 
 			elif ground.type == ground.ground_type.KILL:
 				damage(state.get_contact_local_normal(i))
 			
 	#print(linear_velocity.length())
+	
+	var stick_force: Vector2 = global_position.direction_to(stick_pos) * 2400.0 * (mass / 2.0)
+	#prints(stick_pow, stick_force.length() * stick_pow)
+	apply_central_force(stick_force * stick_pow)
 	
 
 func damage(dir: Vector2 = Vector2.ZERO):
@@ -204,13 +241,24 @@ func damage(dir: Vector2 = Vector2.ZERO):
 	
 
 func reset():
+	
+	if Select.debug_mode and time > 1:
+		store_debug()
+	
 	if !finished:#Hasn't won
-		if (time <= 1) or Select.super_run:#If only 1 second has passed, return to menu
+		if time <= 1 or Select.super_run:#If only 1 second has passed, return to menu
 			if Select.super_run and !finished: Select.end_super()
 			Select.back_to_menu()
 		else:#Reload level
 			Select.reset_level()
 
+func store_debug():
+	print("Store Debug")
+	var file = FileAccess.open(Select.debug_file, FileAccess.WRITE)
+	var save_data: Dictionary = {"path":debug_path}
+	file.store_string(JSON.stringify(save_data))
+	file.close()
+	debug_path.clear()
 
 func _on_body_entered(_body):
 	if dead: return#Don't trigger a bunch of times
@@ -259,6 +307,9 @@ func _on_area_2d_area_entered(area):
 		#Trigger level complete function
 		var stats = [int(time), int(total_rotation), max_spin, max_jump]
 		if Select.super_run and power: Select.super_scale = true
+		
+		if Select.debug_mode: store_debug()
+		
 		get_parent().level_complete(stats, collect, damaged)
 		
 	elif "Collect" in area.name:#Hit scale

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d2wprc8hdra05"]
+[gd_scene load_steps=32 format=3 uid="uid://d2wprc8hdra05"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_tfbec"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_i0jqd"]
@@ -9,7 +9,6 @@
 [ext_resource type="PhysicsMaterial" uid="uid://b752oirktwt6w" path="res://GroundTypes/GroundMaterials/dull.tres" id="7_03bae"]
 [ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="7_tsvdr"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="8_e3q82"]
-[ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="9_72nn8"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="10_2uhwq"]
 [ext_resource type="Texture2D" uid="uid://df2go2l0xediw" path="res://Sprites/Scale_Dirt_V4_Smooth.png" id="10_03bae"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="11_mtv82"]
@@ -42,7 +41,7 @@ radius = 25.0
 radius = 29.2746
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8778"]
-size = Vector2(1452, 288)
+size = Vector2(1608, 288)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ne40b"]
 animations = [{
@@ -70,8 +69,8 @@ emission_shape_scale = Vector3(1, 1.34, 1)
 emission_shape = 3
 emission_box_extents = Vector3(1, 70, 1)
 spread = 0.0
-initial_velocity_min = 637.5
-initial_velocity_max = 637.5
+initial_velocity_min = 1147.5
+initial_velocity_max = 1147.5
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03bae"]
@@ -80,7 +79,7 @@ size = Vector2(2775.7, 288)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tfbec")
 level = 7
-level_name = "Unfortunate Situation"
+level_name = "Tough Situation"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
 visible = false
@@ -141,25 +140,26 @@ collision_layer = 3
 physics_material_override = ExtResource("7_03bae")
 script = ExtResource("7_tsvdr")
 live_edit = true
+type = 4
 
 [node name="Grass" type="Line2D" parent="Ground/ShapeAStick"]
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(864.847, -230.037, 1172.16, -294.539, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 127.5, -585, 133.881, -224.411, 746.288, -218.583)
+points = PackedVector2Array(736, -415, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 128, -587, 128, -415)
 closed = true
-width = 106.78
+width = 105.0
 default_color = Color(1, 0.419608, 1, 1)
 texture = ExtResource("8_e3q82")
 texture_mode = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeAStick"]
-polygon = PackedVector2Array(864.847, -230.037, 1172.16, -294.539, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 127.5, -585, 133.881, -224.411, 746.288, -218.583)
+polygon = PackedVector2Array(736, -415, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 128, -587, 128, -415)
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeAStick"]
 texture_repeat = 2
 color = Color(0.86, 0, 0.43, 1)
 texture = ExtResource("10_03bae")
-polygon = PackedVector2Array(864.847, -230.037, 1172.16, -294.539, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 127.5, -585, 133.881, -224.411, 746.288, -218.583)
+polygon = PackedVector2Array(736, -415, 1182.5, -296.5, 1191.5, -293.5, 1198, -286.5, 1200, -276.5, 1205.77, 1003.93, 1210, 1058, 1221.5, 1105.5, 1252, 1155.5, 1295, 1205, 1355.5, 1251.5, 1422, 1289, 1500, 1315.5, 1587.5, 1340.5, 1670.5, 1356.5, 1734.5, 1361, 2760.7, 1359.15, 2792, 1360.5, 2823.5, 1363, 2858.5, 1367.5, 2889.5, 1377, 2915.5, 1391, 4118.5, 2357.5, 4142, 2384.5, 4157.5, 2415, 4163, 2456, 4160, 3521, 4156, 3569, 4148, 3593, 4132, 3609, 4108, 3621, 4072, 3625, 4024, 3625, 3439.07, 3441, 3452, 4677, 61.5, 2378.5, -339.5, -572, 128, -587, 128, -415)
 
 [node name="ShapeBStick" type="StaticBody2D" parent="Ground"]
 z_index = 1
@@ -167,11 +167,12 @@ collision_layer = 3
 physics_material_override = ExtResource("7_03bae")
 script = ExtResource("7_tsvdr")
 live_edit = true
+type = 4
 
 [node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeBStick"]
 texture_repeat = 2
-color = Color(1, 0, 1, 1)
-texture = ExtResource("9_72nn8")
+color = Color(0.86, 0, 0.43, 1)
+texture = ExtResource("10_03bae")
 polygon = PackedVector2Array(2112.5, -712.5, 3608.5, -397, 6220, 1209, 6024, 3349, 5468, 4661, 3452, 4677, 3448, 4161, 4269.7, 4164.92, 5124, 4169, 5136.82, 3420.97, 4568, 3629, 4508, 3625, 4468, 3613, 4440, 3597, 4428, 3573, 4424, 3521, 4425.5, 2817, 4690, 2817.5, 4860, 2617, 4853.25, 2544.97, 3703.58, 1586.86, 3475, 1683.5, 3306.5, 1546, 3358.27, 1305.85, 3036.5, 1044, 2987.5, 1012.5, 2937.5, 989, 2832.5, 962.5, 2732, 951.5, 2619, 952.133, 1791, 951, 1758, 946, 1729.5, 934.5, 1702.5, 913.5, 1686, 880.5, 1678, 840, 1676, -492, 2078.5, -449.5)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeBStick"]
@@ -183,7 +184,7 @@ z_index = 1
 texture_repeat = 2
 points = PackedVector2Array(2112.5, -712.5, 3608.5, -397, 6220, 1209, 6024, 3349, 5468, 4661, 3452, 4677, 3448, 4161, 4269.7, 4164.92, 5124, 4169, 5136.82, 3420.97, 4568, 3629, 4508, 3625, 4468, 3613, 4440, 3597, 4428, 3573, 4424, 3521, 4425.5, 2817, 4690, 2817.5, 4860, 2617, 4853.25, 2544.97, 3703.58, 1586.86, 3475, 1683.5, 3306.5, 1546, 3358.27, 1305.85, 3036.5, 1044, 2987.5, 1012.5, 2937.5, 989, 2832.5, 962.5, 2732, 951.5, 2619, 952.133, 1791, 951, 1758, 946, 1729.5, 934.5, 1702.5, 913.5, 1686, 880.5, 1678, 840, 1676, -492, 2078.5, -449.5)
 closed = true
-width = 106.78
+width = 105.0
 default_color = Color(1, 0.419608, 1, 1)
 texture = ExtResource("8_e3q82")
 texture_mode = 1
@@ -748,7 +749,7 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("11_mtv82")
 
 [node name="Collect" type="Area2D" parent="Stuff"]
-position = Vector2(4623, 2147)
+position = Vector2(4152, 2144)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
@@ -764,32 +765,32 @@ position = Vector2(-7, -10)
 shape = SubResource("CircleShape2D_8860t")
 
 [node name="Fan" type="Area2D" parent="Stuff"]
-position = Vector2(421, -532)
+position = Vector2(409, -920)
 collision_layer = 5
 collision_mask = 4
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)
 gravity = 1000.0
 script = ExtResource("13_4isk0")
-power = 2500
+power = 4500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
-position = Vector2(573, 58.9999)
+position = Vector2(651, 58.9999)
 shape = SubResource("RectangleShape2D_c8778")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.119958
+frame_progress = 0.736386
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
 amount = 120
 texture = ExtResource("18_ahorc")
-lifetime = 2.12078
-preprocess = 2.12078
-visibility_rect = Rect2(-60, -140, 1412, 288)
+lifetime = 1.31416
+preprocess = 1.31416
+visibility_rect = Rect2(-60, -140, 1568, 288)
 process_material = SubResource("ParticleProcessMaterial_b3t7x")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
@@ -815,7 +816,7 @@ shape = SubResource("RectangleShape2D_03bae")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.119958
+frame_progress = 0.736386
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)

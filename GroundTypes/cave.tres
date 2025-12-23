@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GroundSettings" load_steps=5 format=3 uid="uid://d2bwmcretv74r"]
+
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="1_e41s8"]
+[ext_resource type="Texture2D" uid="uid://btwijh3e6fy82" path="res://Sprites/Scale_Dirt_V4_Hard.png" id="2_gdkoq"]
+[ext_resource type="PhysicsMaterial" uid="uid://ckyro8x1w6ba6" path="res://GroundTypes/GroundMaterials/grass.tres" id="3_hbs8g"]
+[ext_resource type="Script" uid="uid://clsuu3bd2uf6w" path="res://Scripts/ground_type.gd" id="4_y60ie"]
+
+[resource]
+script = ExtResource("4_y60ie")
+physics = ExtResource("3_hbs8g")
+fill_colour = Color(0.355, 0.502917, 0.71, 1)
+fill_texture = ExtResource("2_gdkoq")
+edge_colour = Color(0.298039, 0.537255, 0.67451, 1)
+edge_texture = ExtResource("1_e41s8")
+edge_width = 105.0
+metadata/_custom_type_script = "uid://clsuu3bd2uf6w"

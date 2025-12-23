@@ -165,7 +165,7 @@ shape = SubResource("RectangleShape2D_w2xoe")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.937077
+frame_progress = 0.256563
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -324,5 +324,25 @@ scale = Vector2(5.89766, 5.78178)
 texture = ExtResource("16_5rsny")
 
 [node name="GameHUD" parent="." instance=ExtResource("19_cegan")]
+
+[node name="Hint1" type="RichTextLabel" parent="GameHUD"]
+offset_left = 117.0
+offset_top = 73.0
+offset_right = 776.0
+offset_bottom = 172.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 28
+text = "Slide to change size, weight, and bounce"
+
+[node name="Hint2" type="RichTextLabel" parent="GameHUD"]
+offset_left = 982.0
+offset_top = 60.0
+offset_right = 1139.0
+offset_bottom = 208.0
+theme_override_fonts/normal_font = ExtResource("19_p2y7e")
+theme_override_font_sizes/normal_font_size = 24
+text = "Press once to Reset,
+Twice to Exit"
+scroll_active = false
 
 [connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
