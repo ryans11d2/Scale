@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://b8u15dq5fhl2h"]
+[gd_scene load_steps=30 format=3 uid="uid://b8u15dq5fhl2h"]
 
 [ext_resource type="Script" uid="uid://bneybkwhpltyn" path="res://Levels/select.gd" id="1_2h88q"]
+[ext_resource type="Theme" uid="uid://c464d2wngy2ip" path="res://UI/main_theme.tres" id="2_o8ycb"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="2_vf574"]
 [ext_resource type="AudioStream" uid="uid://dil45qhrw2f6u" path="res://Sounds/(Scaliball Menu) resonant-victory-glbml-22044.mp3" id="3_foct5"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="3_frxo6"]
@@ -347,6 +348,7 @@ _data = {
 process_mode = 3
 layer = 4
 script = ExtResource("1_2h88q")
+main_theme = ExtResource("2_o8ycb")
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -450,6 +452,7 @@ offset_top = -948.0
 offset_bottom = -948.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_o8ycb")
 
 [node name="Levels" type="Control" parent="Select"]
 anchors_preset = 0
@@ -485,9 +488,9 @@ offset_bottom = -9.11755
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.941283, 0.573358, 0.801444, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "1"
 horizontal_alignment = 1
@@ -518,7 +521,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "2"
 horizontal_alignment = 1
@@ -549,7 +551,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "3"
 horizontal_alignment = 1
@@ -587,7 +588,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "4"
 horizontal_alignment = 1
@@ -625,7 +625,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "5"
 horizontal_alignment = 1
@@ -663,7 +662,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "6"
 horizontal_alignment = 1
@@ -694,7 +692,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "7"
 horizontal_alignment = 1
@@ -725,7 +722,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "8"
 horizontal_alignment = 1
@@ -756,7 +752,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "9"
 horizontal_alignment = 1
@@ -787,7 +782,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "?"
 horizontal_alignment = 1
@@ -818,7 +812,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "??"
 horizontal_alignment = 1
@@ -849,7 +842,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.498039, 0.247059, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 86
 text = "???"
 horizontal_alignment = 1
@@ -1433,6 +1425,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_o8ycb")
+
+[node name="Settings" type="VBoxContainer" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -260.0
+offset_right = 192.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Settings/Settings"]
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="PanelContainer" parent="Settings/Settings"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Settings/Settings"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back
+"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_foct5")
@@ -1455,6 +1480,30 @@ libraries = {
 [connection signal="mouse_exited" from="Title/Button/Start" to="." method="inflate"]
 [connection signal="pressed" from="Title/Button/Start" to="." method="shrink"]
 [connection signal="pressed" from="Title/Button/Start" to="Button" method="play"]
+[connection signal="button_down" from="Select/Levels/Basic/Level1" to="." method="open_level" binds= ["res://main.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level2" to="." method="open_level" binds= ["res://Levels/level_6.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level3" to="." method="open_level" binds= ["res://Levels/level_3.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level4" to="." method="open_level" binds= ["res://Levels/level_2.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level5" to="." method="open_level" binds= ["res://Levels/level_4.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level6" to="." method="open_level" binds= ["res://Levels/level_7.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level7" to="." method="open_level" binds= ["res://Levels/level_climb.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level8" to="." method="open_level" binds= ["res://Levels/level_space.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level9" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level10" to="." method="open_level" binds= ["res://Levels/level_godot.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level11" to="." method="open_level" binds= ["res://Levels/level_rage.tscn"]]
+[connection signal="button_down" from="Select/Levels/Basic/Level12" to="." method="open_level" binds= ["res://Levels/level_marathon.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level1" to="." method="open_level" binds= ["res://Levels/level_ice_start.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level2" to="." method="open_level" binds= ["res://Levels/level_ice_platforms.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level3" to="." method="open_level" binds= ["res://Levels/level_ice.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level4" to="." method="open_level" binds= ["res://Levels/level_spin.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level5" to="." method="open_level" binds= ["res://Levels/level_raise.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level6" to="." method="open_level" binds= ["res://Levels/level_spin_up.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level7" to="." method="open_level" binds= ["res://Levels/level_sticky.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level8" to="." method="open_level" binds= ["res://Levels/level_bounce.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level9" to="." method="open_level" binds= ["res://Levels/level_inversion.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level10" to="." method="open_level" binds= ["res://Levels/level_ice_jump.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level11" to="." method="open_level" binds= ["res://Levels/level_halfpipe.tscn"]]
+[connection signal="button_down" from="Select/Levels/Surface/Level12" to="." method="open_level" binds= ["res://Levels/level_pinball.tscn"]]
 [connection signal="drag_ended" from="Select/SFX" to="Page" method="play" unbinds=1]
 [connection signal="value_changed" from="Select/SFX" to="." method="_on_volume_value_changed"]
 [connection signal="button_down" from="Select/LastPage" to="." method="last_page"]

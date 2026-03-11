@@ -23,7 +23,7 @@ var blue = preload("res://Sprites/Scale_Button_UI_Blue_Select.png")
 var debug_mode: bool = true
 var debug_file: String = "res://ball_path.txt"
 
-var main_theme: Theme = preload("res://UI/main_theme.tres")
+@export var main_theme: Theme
 
 @export var fall: bool = false
 var grow_button: bool = true
@@ -54,7 +54,13 @@ var super_scale: bool = false
 
 var finish_points: int = 0
 
+
 #Accessability
+
+var comic_text: bool = false
+
+var scale_length: float = 1024
+
 var sticky_scale: bool = false
 var scale_step: float = 0.01
 
@@ -101,7 +107,14 @@ func _ready():
 		$Select/NextPage.position
 	)
 	
-	main_theme.default_font_size = 96
+	
+	update_settings()
+	
+
+func update_settings():
+	
+	if comic_text: main_theme.default_font = preload("res://UI/Comic Sans MS.ttf")
+	else: main_theme.default_font = preload("res://UI/Matemasie-Regular.ttf")
 	
 
 func _input(event: InputEvent) -> void:

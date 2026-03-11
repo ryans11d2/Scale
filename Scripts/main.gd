@@ -34,6 +34,7 @@ func _ready():
 		$GameHUD/Finish/Back.connect("pressed", menu)
 		$GameHUD/Reset.connect("pressed", $Ball.reset)
 	
+	hud.get_node("Scale").size.x = Select.scale_length
 	hud.get_node("Scale").step = Select.scale_step
 	
 	hud.get_node("Reset").grab_focus()
