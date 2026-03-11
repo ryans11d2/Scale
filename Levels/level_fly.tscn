@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="19_42u4p"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="21_y54ty"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="22_1e5op"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="23_fk3y0"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="23_fk3y0"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="24_k07b6"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="25_nhbho"]
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="26_ehety"]

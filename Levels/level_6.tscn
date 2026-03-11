@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_rbgyn"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_5b27w"]
 [ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="6_2s3xs"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="12_78jpe"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="12_78jpe"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="14_ycloq"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_3r0bk"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="16_0rdn5"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bneybkwhpltyn" path="res://Levels/select.gd" id="1_2h88q"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="2_vf574"]
 [ext_resource type="AudioStream" uid="uid://dil45qhrw2f6u" path="res://Sounds/(Scaliball Menu) resonant-victory-glbml-22044.mp3" id="3_foct5"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="3_frxo6"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="3_frxo6"]
 [ext_resource type="Texture2D" uid="uid://vbjwww8jrh36" path="res://Sprites/Scale_BG_Menu.png" id="4_00gtk"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_46aab"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="4_df3qd"]
@@ -1425,6 +1425,15 @@ vertical_alignment = 1
 [node name="PointPath" type="Path2D" parent="Select"]
 curve = SubResource("Curve2D_nj8xm")
 
+[node name="Settings" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_foct5")
 volume_db = -20.0
@@ -1446,30 +1455,6 @@ libraries = {
 [connection signal="mouse_exited" from="Title/Button/Start" to="." method="inflate"]
 [connection signal="pressed" from="Title/Button/Start" to="." method="shrink"]
 [connection signal="pressed" from="Title/Button/Start" to="Button" method="play"]
-[connection signal="button_down" from="Select/Levels/Basic/Level1" to="." method="open_level" binds= ["res://main.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level2" to="." method="open_level" binds= ["res://Levels/level_6.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level3" to="." method="open_level" binds= ["res://Levels/level_3.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level4" to="." method="open_level" binds= ["res://Levels/level_2.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level5" to="." method="open_level" binds= ["res://Levels/level_4.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level6" to="." method="open_level" binds= ["res://Levels/level_7.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level7" to="." method="open_level" binds= ["res://Levels/level_climb.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level8" to="." method="open_level" binds= ["res://Levels/level_space.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level9" to="." method="open_level" binds= ["res://Levels/level_5.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level10" to="." method="open_level" binds= ["res://Levels/level_godot.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level11" to="." method="open_level" binds= ["res://Levels/level_rage.tscn"]]
-[connection signal="button_down" from="Select/Levels/Basic/Level12" to="." method="open_level" binds= ["res://Levels/level_marathon.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level1" to="." method="open_level" binds= ["res://Levels/level_ice_start.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level2" to="." method="open_level" binds= ["res://Levels/level_ice_platforms.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level3" to="." method="open_level" binds= ["res://Levels/level_ice.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level4" to="." method="open_level" binds= ["res://Levels/level_spin.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level5" to="." method="open_level" binds= ["res://Levels/level_raise.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level6" to="." method="open_level" binds= ["res://Levels/level_spin_up.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level7" to="." method="open_level" binds= ["res://Levels/level_sticky.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level8" to="." method="open_level" binds= ["res://Levels/level_bounce.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level9" to="." method="open_level" binds= ["res://Levels/level_inversion.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level10" to="." method="open_level" binds= ["res://Levels/level_ice_jump.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level11" to="." method="open_level" binds= ["res://Levels/level_halfpipe.tscn"]]
-[connection signal="button_down" from="Select/Levels/Surface/Level12" to="." method="open_level" binds= ["res://Levels/level_pinball.tscn"]]
 [connection signal="drag_ended" from="Select/SFX" to="Page" method="play" unbinds=1]
 [connection signal="value_changed" from="Select/SFX" to="." method="_on_volume_value_changed"]
 [connection signal="button_down" from="Select/LastPage" to="." method="last_page"]

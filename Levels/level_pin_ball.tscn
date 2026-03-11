@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="21_dce82"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="22_tee78"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="23_ic4cn"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="24_xo7ol"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="24_xo7ol"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="25_bvnxt"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="26_f8rbl"]
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="27_mdepi"]
@@ -240,7 +240,7 @@ shape = SubResource("RectangleShape2D_w2xoe")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.271053
+frame_progress = 0.919536
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)

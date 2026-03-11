@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_r3nxn"]
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="16_5rsny"]
 [ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="19_cegan"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="19_p2y7e"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="19_p2y7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgcqa"]
 size = Vector2(23.5, 393)

@@ -23,13 +23,15 @@ var blue = preload("res://Sprites/Scale_Button_UI_Blue_Select.png")
 var debug_mode: bool = true
 var debug_file: String = "res://ball_path.txt"
 
+var main_theme: Theme = preload("res://UI/main_theme.tres")
+
 @export var fall: bool = false
 var grow_button: bool = true
 @export var shrink_button: bool = false
 
 var page: int = 0
 
-var level_path: String = ""
+var level_path: String = "res://Levels/level_pinball.tscn"
 var level
 var level_name: String = ""
 var game_ready: bool = false
@@ -52,8 +54,13 @@ var super_scale: bool = false
 
 var finish_points: int = 0
 
+#Accessability
+var sticky_scale: bool = false
+var scale_step: float = 0.01
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	
 	#var files = FileAccess.open("user://save.txt", FileAccess.WRITE)
 	#for i in 12 * $Select/Levels.get_child_count():
@@ -94,6 +101,8 @@ func _ready():
 		$Select/NextPage.position
 	)
 	
+	main_theme.default_font_size = 96
+	
 
 func _input(event: InputEvent) -> void:
 	
@@ -109,6 +118,7 @@ func _input(event: InputEvent) -> void:
 				
 				if code_idx[code] == cheat_codes[code].size():
 					enter_code(code)
+					code_idx[code] = 0
 					
 					
 					
@@ -159,12 +169,13 @@ func set_level_status(value: int, level: int, on_page: int = -1):
 	
 
 func add_points(amount: int, from_level: int):
-	$Select/PointPath.curve.set_point_position(
-		0, 
-		$Select/Levels.get_child(from_level - 1).position
-	)
-	
-	print("Add", amount)
+	if from_level - 1 < $Select/Levels.get_child_count() and $Select/Levels.get_child(from_level - 1) != null:
+		$Select/PointPath.curve.set_point_position(
+			0, 
+			$Select/Levels.get_child(from_level - 1).position
+		)
+		
+		print("Add", amount)
 	
 
 func next_page():
@@ -280,7 +291,7 @@ func _process(_delta):
 		$Select/Levels.get_child(page).get_child(super_level).visible = true
 		
 	
-	if game_ready and Input.is_action_just_pressed("main"):
+	if game_ready and Input.is_action_just_pressed("action"):
 		get_tree().paused = false
 	
 	if Input.is_action_pressed("main"): $AnimationPlayer.speed_scale = 3.0

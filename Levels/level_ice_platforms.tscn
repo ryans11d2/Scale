@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="11_l0ncj"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="12_2rrid"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="13_afc2v"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="14_8igm5"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="14_8igm5"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="15_ob867"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="16_xhhon"]
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="17_mtfj4"]
@@ -54,7 +54,6 @@ stream_1/weight = 2.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g6hp1")
 level = 2
-scales = 4
 level_name = "Ice Climbing"
 
 [node name="ScaleBgNight" type="Sprite2D" parent="."]
@@ -99,6 +98,7 @@ limit_right = 18650
 limit_bottom = 14535
 position_smoothing_enabled = true
 position_smoothing_speed = 24.0
+editor_draw_limits = true
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2(0, 126)

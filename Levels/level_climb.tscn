@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="14_xgyxx"]
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="16_fd371"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="17_l3gxf"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="18_jl6b5"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="18_jl6b5"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="19_whl7a"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="20_7tchb"]
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="21_ro2wj"]
@@ -141,7 +141,7 @@ stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_81l1e")
-level = 7
+level = 2
 level_name = "Ascent"
 
 [node name="Size Reference" type="Node2D" parent="."]
@@ -258,7 +258,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -292,7 +292,7 @@ shape = SubResource("RectangleShape2D_0whfr")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 position = Vector2(-52.9999, 53)
@@ -327,7 +327,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -361,7 +361,7 @@ shape = SubResource("RectangleShape2D_kg0s3")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
@@ -396,7 +396,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -431,7 +431,7 @@ disabled = true
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.605848
+frame_progress = 0.178248
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)

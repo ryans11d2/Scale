@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="3_lns20"]
 [ext_resource type="Texture2D" uid="uid://dmcnr8hngp4qh" path="res://Sprites/Scale_Dirt_V3.png" id="4_q5sk7"]
 [ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="5_46ig2"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_l00rb"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="11_l00rb"]
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="14_k8lpq"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="15_vyywh"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="16_wdowr"]

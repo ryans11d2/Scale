@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="10_bd1sd"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="10_e7yg0"]
 [ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="11_0h5qf"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="11_c5fk6"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="11_c5fk6"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="11_wxl2n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_24poe"]

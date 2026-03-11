@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="15_1df5v"]
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="16_3wgkp"]
 [ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="17_kt5x0"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="18_no6m2"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="18_no6m2"]
 [ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="23_aup42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58gut"]

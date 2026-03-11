@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://c464d2wngy2ip"]
+
+[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="1_8wpuh"]
+[ext_resource type="Texture2D" uid="uid://dpqyprmdeeqhj" path="res://Sprites/Scale_Button_UI_Focus.png" id="2_daddk"]
+[ext_resource type="Texture2D" uid="uid://bm7a8w3a0stf" path="res://Sprites/Scale_Button_UI_Blue_Select.png" id="3_431p2"]
+[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_ovyjt"]
+[ext_resource type="Texture2D" uid="uid://blni6ou5hqa7k" path="res://Sprites/Scale_Button_UI_Yellow.png" id="5_6lkj0"]
+[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="6_4jbj0"]
+[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="7_uu2f5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1i34x"]
+texture = ExtResource("1_8wpuh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yhfeq"]
+texture = ExtResource("2_daddk")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kida"]
+texture = ExtResource("3_431p2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u8nx"]
+texture = ExtResource("4_ovyjt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxip8"]
+texture = ExtResource("5_6lkj0")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58jnp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_466ly"]
+texture = ExtResource("7_uu2f5")
+texture_margin_top = 64.0
+texture_margin_bottom = 16.0
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_1i34x")
+Button/styles/focus = SubResource("StyleBoxTexture_yhfeq")
+Button/styles/hover = SubResource("StyleBoxTexture_0kida")
+Button/styles/normal = SubResource("StyleBoxTexture_2u8nx")
+Button/styles/pressed = SubResource("StyleBoxTexture_nxip8")
+HSlider/icons/grabber = ExtResource("6_4jbj0")
+HSlider/icons/grabber_highlight = ExtResource("6_4jbj0")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_58jnp")
+HSlider/styles/slider = SubResource("StyleBoxTexture_466ly")

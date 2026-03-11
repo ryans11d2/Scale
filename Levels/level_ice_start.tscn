@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="13_ih1i4"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="14_hljys"]
 [ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="14_ragv8"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="15_nvyom"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="15_nvyom"]
 [ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="15_t74i6"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="16_nmvp1"]
 [ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="16_yjruw"]

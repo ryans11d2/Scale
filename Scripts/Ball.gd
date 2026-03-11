@@ -2,7 +2,9 @@ extends RigidBody2D
 
 var aer: float = 1##Current Scale
 var full: float = 1##Target Scale
-var growth:float = 0##Change in scale since last physics
+var slider: float = 1
+var grow_speed: float = 100.0
+var growth: float = 0##Change in scale since last physics
 var contacts = []##Overlap amount with physics bodies
 var stuck: bool = false##Is on a sticky surface
 var ground_dir: Vector2 = Vector2.ZERO
@@ -29,6 +31,8 @@ var invulnerable: float = 0
 var power: bool = false##Scale power active (shield and dash)
 @export var power_shield: bool = false## Shield power
 @export var power_force: bool = false## Force power
+var no_grow: bool = false##Disable growth
+var no_shrink: bool = false##Disable shrink
 
 @onready var ball = preload("res://ball.tres")##Collision circle object
 @export var bus: StringName = "Master"##Name of audio bus to use
@@ -73,6 +77,8 @@ func _physics_process(delta):
 	time += delta
 	if invulnerable > 0: invulnerable = clamp(invulnerable - delta, 0, invulnerable)
 	
+	full = move_toward(full, slider, grow_speed * delta)
+	
 	#Stop if too slow
 	#if linear_velocity.length() < 0.01:
 	#	linear_velocity = Vector2.ZERO
@@ -102,28 +108,28 @@ func _physics_process(delta):
 		linear_velocity = linear_velocity.normalized() * max_speed
 	
 	#The rays are disabled btw
-	$CamRay.global_rotation = 0
-	$PanRay.global_rotation = 0
-	$PanRay.global_rotation = 0
-	$CamRay.target_position = linear_velocity.normalized() * 1000
-	$CloseRay.target_position = linear_velocity.normalized() * 500
-	$PanRay.target_position = linear_velocity.normalized() * 600
-	if $CamRay.is_colliding() and !$CloseRay.is_colliding():
-		$Camera2D.position_smoothing_speed = 0.5
-	else: $Camera2D.position_smoothing_speed = 5.0
-	
-	if $PanRay.is_colliding():
-		var hit_pos: Vector2 = $PanRay.get_collision_point()
-		var off = hit_pos.direction_to(global_position) * 150
-		$Camera2D.global_position = hit_pos + off
-	else:
-		$Camera2D.position = Vector2.ZERO
+	#$CamRay.global_rotation = 0
+	#$PanRay.global_rotation = 0
+	#$PanRay.global_rotation = 0
+	#$CamRay.target_position = linear_velocity.normalized() * 1000
+	#$CloseRay.target_position = linear_velocity.normalized() * 500
+	#$PanRay.target_position = linear_velocity.normalized() * 600
+	#if $CamRay.is_colliding() and !$CloseRay.is_colliding():
+		#$Camera2D.position_smoothing_speed = 0.5
+	#else: $Camera2D.position_smoothing_speed = 5.0
+	#
+	#if $PanRay.is_colliding():
+		#var hit_pos: Vector2 = $PanRay.get_collision_point()
+		#var off = hit_pos.direction_to(global_position) * 150
+		#$Camera2D.global_position = hit_pos + off
+	#else:
+		#$Camera2D.position = Vector2.ZERO
 	
 	if Select.debug_mode: debug_path.push_back(global_position)
 	
 
 func _on_scale_value_changed(value):
-	full = value
+	slider = value
 	#print(value)
 
 func _integrate_forces(state):
@@ -131,7 +137,7 @@ func _integrate_forces(state):
 	ball.radius = aer * 20.0# Set ball size
 	$Sprite2D.scale.x = 0.0083 * ball.radius
 	$Sprite2D.scale.y = $Sprite2D.scale.x
-	mass = aer * 3.0# Set ball mass 
+	mass = clamp(aer * 3.0, 1, 100)# Set ball mass 
 	physics_material_override.bounce = (10.0 - aer) / 10.0# Set ball bounce
 	
 	#Get overlapping colliders
@@ -156,7 +162,12 @@ func _integrate_forces(state):
 			var dist = global_position.distance_to(ground_pos) - ball.radius
 			global_position += ground_dir * dist
 		growth = 0
-	aer = full#Set scale to match set value
+	
+	#Set scale to match set value
+	if no_grow: aer = min(aer, full)
+	elif no_shrink: aer = max(aer, full)
+	elif !no_grow and !no_shrink:
+		aer = full
 	
 	
 	
@@ -184,7 +195,7 @@ func _integrate_forces(state):
 				var dir: Vector2 = -state.get_contact_local_normal(i)
 				var along: float = linear_velocity.dot(dir)
 				var reduce: Vector2 = dir * along
-				linear_velocity -= reduce * 1.9
+				linear_velocity -= reduce * 1.5
 			elif ground.type == ground.ground_type.BOUNCE:
 				var dir = state.get_contact_local_normal(i)
 				linear_velocity += dir * (350.0 / ((mass - 2.5) * 2))
@@ -198,7 +209,7 @@ func _integrate_forces(state):
 			
 	#print(linear_velocity.length())
 	
-	var stick_force: Vector2 = global_position.direction_to(stick_pos) * 2400.0 * (mass / 2.0)
+	var stick_force: Vector2 = global_position.direction_to(stick_pos) * 3600.0 * (mass / 2.0)
 	#prints(stick_pow, stick_force.length() * stick_pow)
 	apply_central_force(stick_force * stick_pow)
 	
@@ -253,7 +264,7 @@ func reset():
 			Select.reset_level()
 
 func store_debug():
-	print("Store Debug")
+	
 	var file = FileAccess.open(Select.debug_file, FileAccess.WRITE)
 	var save_data: Dictionary = {"path":debug_path}
 	file.store_string(JSON.stringify(save_data))

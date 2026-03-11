@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="1_kllk0"]
 [ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="2_gsa5p"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://Matemasie-Regular.ttf" id="3_6k4gu"]
+[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="3_6k4gu"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_wh55g"]
 [ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="5_gcpjs"]
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="6_x82ca"]
@@ -132,3 +132,8 @@ stream = SubResource("AudioStreamRandomizer_myk1j")
 stream = ExtResource("8_jfwq6")
 volume_db = -10.0
 autoplay = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 24.0
+text = "aer"
