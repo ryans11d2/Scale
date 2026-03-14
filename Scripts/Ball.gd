@@ -50,6 +50,8 @@ var debug_path: Array = []
 func _ready():
 	$Audio.bus = bus
 	
+	ball.radius = 20
+	
 	for i in trail_length:#Make trail
 		var new_trail = $Sprite2D.duplicate(0)
 		new_trail.scale = Vector2.ONE
@@ -261,6 +263,7 @@ func reset():
 			if Select.super_run and !finished: Select.end_super()
 			Select.back_to_menu()
 		else:#Reload level
+			Select.level_data.attemps += 1
 			Select.reset_level()
 
 func store_debug():

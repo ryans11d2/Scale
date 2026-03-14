@@ -24,6 +24,8 @@ var debug_mode: bool = true
 var debug_file: String = "res://ball_path.txt"
 
 @export var main_theme: Theme
+var save_data: Dictionary = {}
+var level_data: LevelData
 
 @export var fall: bool = false
 var grow_button: bool = true
@@ -31,7 +33,7 @@ var grow_button: bool = true
 
 var page: int = 0
 
-var level_path: String = "res://Levels/level_pinball.tscn"
+var level_path: String = "res://Levels/level_drop.tscn"
 var level
 var level_name: String = ""
 var game_ready: bool = false
@@ -67,31 +69,31 @@ var scale_step: float = 0.01
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	
 	#var files = FileAccess.open("user://save.txt", FileAccess.WRITE)
 	#for i in 12 * $Select/Levels.get_child_count():
 		#files.store_var(0)
 	#files.close()
 	#return
 	
-	if !FileAccess.file_exists("user://save.txt"):
-		var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-		for i in 12 * $Select/Levels.get_child_count():
-			file.store_var(0)
+	if FileAccess.file_exists("user://save.txt"):
+		var file = FileAccess.open("user://save.txt", FileAccess.READ)
+		if file.get_as_text().length() > 1:
+			save_data = JSON.parse_string(file.get_var()) as Dictionary
 		file.close()
 	
-	var validate = FileAccess.open("user://save.txt", FileAccess.READ)
-	if validate.get_as_text().length() > 1:
-		print("New File")
-		validate.close()
-		
-		var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-		for i in 12 * $Select/Levels.get_child_count():
-			file.store_var(0)
-		file.close()
-		
-	else:
-		validate.close()
+	#var validate = FileAccess.open("user://save.txt", FileAccess.READ)
+	#if validate.get_as_text().length() > 1:
+		#print("New File")
+		#validate.close()
+		#
+		#var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
+		##for i in 12 * $Select/Levels.get_child_count():
+		##	file.store_var(0)
+		#file.store_var(save_data)
+		#file.close()
+		#
+	#else:
+		#validate.close()
 	
 	code_idx.resize(cheat_codes.size())
 	code_idx.fill(0)
@@ -99,8 +101,6 @@ func _ready():
 	open_page(0)
 	
 	$AnimationPlayer.play("start")
-	
-	$Select/SFX.value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	
 	$Select/PointPath.curve.set_point_position(
 		1, 
@@ -115,6 +115,10 @@ func update_settings():
 	
 	if comic_text: main_theme.default_font = preload("res://UI/Comic Sans MS.ttf")
 	else: main_theme.default_font = preload("res://UI/Matemasie-Regular.ttf")
+	
+	
+	_on_music_volume_value_changed($Settings/Settings/Options/List/Music/MusicVolume.value)
+	_on_sfx_volume_value_changed($Settings/Settings/Options/List/SFX/SFXVolume.value)
 	
 
 func _input(event: InputEvent) -> void:
@@ -156,29 +160,34 @@ func enter_code(code: int):
 		open_page(page)
 	elif code == 3:
 		if level_path != "": 
-			open_level(level_path)
+			$AnimationPlayer.play("quick")
+			await $AnimationPlayer.animation_finished
+			#open_level(level_path)
 		
+	
+
+func quick_save():
+	save_data[level_path] = JSON.stringify(level_data.get_data())
+	
+	var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
+	file.store_var(JSON.stringify(save_data))
+	file.close()
 	
 
 func get_level_status(level: int, on_page: int = -1) -> int:
 	if on_page == -1: on_page = page
 	
-	var file = FileAccess.open("user://save.txt", FileAccess.READ)
-	#print(((on_page * 12) + level - 1))
-	file.seek(((on_page * 12) + level - 1) * 12)
-	var status: int = file.get_var()
-	file.close()
+	var file: String = $Select/Levels.get_child(on_page).levels[level]
 	
-	return status
+	if !save_data.has(file): return 0
+	else: return JSON.parse_string(save_data[file]).status
+	
 	
 
 func set_level_status(value: int, level: int, on_page: int = -1):
 	if on_page == -1: on_page = page
 	
-	var file = FileAccess.open("user://save.txt", FileAccess.READ_WRITE)
-	file.seek(((on_page * 12) + level - 1) * 12)
-	file.store_var(value)
-	file.close()
+	save_data[$Select/Levels.get_child(on_page).levels[level]].status = value
 	
 
 func add_points(amount: int, from_level: int):
@@ -189,6 +198,22 @@ func add_points(amount: int, from_level: int):
 		)
 		
 		print("Add", amount)
+	
+
+func open_settings():
+	$Page.play()
+	
+	$Settings.visible = true
+	$Title.visible = false
+	$Select.visible = false
+	
+
+func close_settings():
+	$Page.play()
+	
+	$Settings.visible = false
+	$Title.visible = true
+	$Select.visible = true
 	
 
 func next_page():
@@ -219,7 +244,7 @@ func open_page(new_page: int):
 	
 	var gold: int = 0
 	for i in 12:
-		var set_status = get_level_status(i + 1)
+		var set_status = get_level_status(i)
 		var set_texture = status_textures[set_status]
 		if set_status > 1: 
 			gold += 1
@@ -248,25 +273,35 @@ func open_page(new_page: int):
 func close():
 	get_tree().quit()
 
-func load_from_file():
-	var file = FileAccess.open("user://save.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	file = null
-	#print(content)
-	return content
-
-func open_level(file: String):
+func open_level():
 	#$Select.visible = false
 	#$Title.visible = false
 	#$BG.visible = false
+	
+	var select_idx: int = -1
+	for i in $Select/Levels.get_child(page).get_child_count():
+		if $Select/Levels.get_child(page).get_child(i).button_pressed:
+			select_idx = i
+			break
+	if select_idx == -1: return
+	
+	var file: String = $Select/Levels.get_child(page).levels[select_idx]
+	
 	if starting_level: return
 	starting_level = true
 	$Music.stop()
 	$Button.play()
 	game_ready = false
+	
+	var new_level: bool = !save_data.has(file)
+	level_data = LevelData.new()
+	if !new_level: level_data.set_data(JSON.parse_string(save_data[file]))
+	
+	
 	level_path = file
 	level = load(level_path).instantiate()
 	get_tree().root.add_child.call_deferred(level)
+	
 	await level.ready
 	$Select/LevelName.text = level_name
 	get_tree().paused = true
@@ -280,6 +315,9 @@ func to_level():
 
 func back_to_menu():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	quick_save()
+	
 	level.queue_free()
 	$Select.visible = true
 	$Title.visible = true
@@ -306,6 +344,7 @@ func _process(_delta):
 	
 	if game_ready and Input.is_action_just_pressed("action"):
 		get_tree().paused = false
+		
 	
 	if Input.is_action_pressed("main"): $AnimationPlayer.speed_scale = 3.0
 	else: $AnimationPlayer.speed_scale = 1.0
@@ -315,16 +354,6 @@ func finish_level(level: int = -1, got_scale: bool = false):
 	if super_mode: super_level += 1
 	
 
-func _on_volume_value_changed(value):
-	
-	if value == -20:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
-	else:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
-		
-	
-	
 
 func deflate():
 	if fall and grow_button: $AnimationPlayer.play("deflate")
@@ -365,4 +394,26 @@ func _on_super_toggled(toggled_on: bool) -> void:
 	if !super_mode:
 		for i in $Select/Levels.get_child(page).get_children():
 			i.visible = true
+	
+
+
+func _on_music_volume_value_changed(value: float) -> void:
+	
+	var slider := $Settings/Settings/Options/List/Music/MusicVolume
+	var bus: int = AudioServer.get_bus_index("Music")
+	
+	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
+	AudioServer.set_bus_volume_linear(bus, value)
+	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
+	
+
+
+func _on_sfx_volume_value_changed(value: float) -> void:
+	
+	var slider := $Settings/Settings/Options/List/Music/MusicVolume
+	var bus: int = AudioServer.get_bus_index("SFX")
+	
+	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
+	AudioServer.set_bus_volume_linear(bus, value)
+	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
 	

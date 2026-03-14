@@ -30,6 +30,10 @@ window/stretch/aspect="expand"
 
 movie_writer/movie_file="C:/Users/Owner/Documents/Scale/demo.avi"
 
+[gui]
+
+theme/custom="uid://c464d2wngy2ip"
+
 [input]
 
 aer={

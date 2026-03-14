@@ -17,9 +17,11 @@ var drag_value: float = 0
 
 
 func _ready():
-	#save_to_file("000000000000")
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	Select.level_name = level_name
+	Select.level_data.level_name = level_name
+	Select.level_data.level_scales = scales
+	Select.level_data.attemps += 1
 	$Ball/Camera2D.position_smoothing_enabled = true
 	
 	if get_node_or_null("GameHUD") == null:
@@ -103,6 +105,15 @@ func level_complete(stats: Array, collect, damaged):
 	hud.get_node("Finish/Collect").text += "Max Bounce: " + str(int(stats[3]))# + "\n" 
 	hud.get_node("Finish/Back").grab_focus
 	
+	Select.level_data.finishes += 1
+	Select.level_data.scales_found += stats[1]
+	Select.level_data.total_time += stats[0]
+	if collect == scales: Select.level_data.perfect_finishes += 1
+	if Select.level_data.first_time == -1: 
+		Select.level_data.first_time = stats[0]
+		Select.level_data.best_time = stats[0]
+	if stats[0] < Select.level_data.best_time: Select.level_data.best_time = stats[0]
+	
 	var state: int = 1#Set level to complete on file
 	if collect == scales and !damaged:#If all scales collected
 		state = 2#Set level to gold on file
@@ -113,42 +124,13 @@ func level_complete(stats: Array, collect, damaged):
 	elif Select.super_run:
 		state = 3
 		Select.super_duper_run = false
-	#write_progress(state)#Write new state to file
 	
-	var current: int = Select.get_level_status(level)
+	var current: int = Select.level_data.status
 	if state > current:
-		Select.set_level_status(state, level)
+		Select.level_data.status = state
+		#Select.set_level_status(state, level)
 		Select.add_points(state - current, level)
 	Select.finish_level()
-	
-
-func load_from_file():##Open file contents
-	var file = FileAccess.open("user://save.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	file.close()
-	#print(content)
-	return content
-	
-
-func save_to_file(content):##Write file contents
-	var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-	file.store_string(content)
-	file.close()
-	
-	
-
-func write_progress(state):##Update certain level state on file
-	var data = load_from_file().split()
-	if (state > int(data[level - 1])):
-		data[level - 1] = str(state)
-	var new_data = ""
-	for i in data:
-		new_data += i
-	
-	#print("New Data: ", new_data)
-	#Refresh level display
-	save_to_file(new_data)
-	load_from_file()
 	
 
 
@@ -167,7 +149,7 @@ func _on_scale_drag_started():
 		dragging = true
 		scaling = true
 		slide_pos = hud.get_node("Scale").value
-		print("START")
+		#print("START")
 	
 	if get_node_or_null("AudioUI") == null:
 		hud.get_node("AudioUI").play()
@@ -180,5 +162,5 @@ func _on_scale_drag_ended(_value):
 	if Input.is_action_just_released("main"):
 		dragging = Select.sticky_scale
 		scaling = false
-		print("END")
+		#print("END")
 	

@@ -4,6 +4,7 @@ extends StaticBody2D
 class_name Ground
 
 @export var live_edit: bool = false
+@export var set_colour: bool = true
 
 var tex: Polygon2D
 var col: CollisionPolygon2D
@@ -51,11 +52,11 @@ func set_type():
 	
 	for i in get_children():
 		if i is Line2D:
-			i.default_color = new_settings.edge_colour
+			if set_colour: i.default_color = new_settings.edge_colour
 			i.texture = new_settings.edge_texture
 			i.width = new_settings.edge_width
 		elif i is Polygon2D:
-			i.color = new_settings.fill_colour
+			if set_colour: i.color = new_settings.fill_colour
 			i.texture = new_settings.fill_texture
 	
 

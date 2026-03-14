@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjdnuk52q3bss"]
+
+[ext_resource type="Script" uid="uid://blborvqlqabnq" path="res://Scripts/kill_switch.gd" id="1_17g1b"]
+[ext_resource type="Texture2D" uid="uid://qr1n8778bfo6" path="res://icon.svg" id="2_4vojg"]
+[ext_resource type="AudioStream" uid="uid://b5802shng83nc" path="res://Sounds/select_005.ogg" id="3_4vojg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfbxu"]
+radius = 24.0208
+
+[node name="KillSwitch" type="Area2D"]
+script = ExtResource("1_17g1b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_4vojg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jfbxu")
+
+[node name="Collect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4vojg")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

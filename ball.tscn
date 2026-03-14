@@ -44,12 +44,15 @@ attenuation = 7.51432e-05
 
 [node name="Bounce" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x1uje")
+bus = &"SFX"
 
 [node name="Collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_n5601")
+bus = &"SFX"
 
 [node name="Damage" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gchj4")
+bus = &"SFX"
 
 [node name="Offsets" type="Node2D" parent="."]
 visible = false

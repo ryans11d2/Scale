@@ -61,18 +61,19 @@ shape = SubResource("RectangleShape2D_6qj81")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_nri3v")
 animation = &"new_animation"
-frame_progress = 0.0339449
+frame_progress = 0.136264
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(-52.9999, 53)
 amount = 60
-process_material = SubResource("ParticleProcessMaterial_sh2yj")
 texture = ExtResource("6_i6jca")
 lifetime = 3.55
 visibility_rect = Rect2(-33, -150, 871, 298)
+process_material = SubResource("ParticleProcessMaterial_sh2yj")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_5dcj4")
 attenuation = 1e-05
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,535 @@
+[gd_scene load_steps=34 format=3 uid="uid://qacie28xvnki"]
+
+[ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_86f68"]
+[ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_6yb3y"]
+[ext_resource type="Texture2D" uid="uid://o3qv7ynpry20" path="res://Sprites/Scale_BG_Sunset.png" id="3_4dx6i"]
+[ext_resource type="Texture2D" uid="uid://xr275odroguo" path="res://Sprites/Scale_BG.png" id="4_2rdke"]
+[ext_resource type="Texture2D" uid="uid://c7a61h0ktp68e" path="res://Sprites/Scale_Dirt_V2.png" id="5_kf7vc"]
+[ext_resource type="PackedScene" uid="uid://djaytk62f5dpi" path="res://ball.tscn" id="6_0m7x0"]
+[ext_resource type="PhysicsMaterial" uid="uid://ckyro8x1w6ba6" path="res://GroundTypes/GroundMaterials/grass.tres" id="7_foko4"]
+[ext_resource type="Script" uid="uid://ds73i3pb2yu3" path="res://Levels/ground.gd" id="8_g0g14"]
+[ext_resource type="Texture2D" uid="uid://fkagg7c480d" path="res://Sprites/Scale_Grass_Greyscale.png" id="9_j2h7a"]
+[ext_resource type="Texture2D" uid="uid://btwijh3e6fy82" path="res://Sprites/Scale_Dirt_V4_Hard.png" id="10_n7rib"]
+[ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="11_u6jfl"]
+[ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="12_5w30v"]
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="13_ny73l"]
+[ext_resource type="Script" uid="uid://dhlmw650r176d" path="res://Scripts/Fan.gd" id="14_otu32"]
+[ext_resource type="Texture2D" uid="uid://cwsjtstnffio2" path="res://Sprites/wall fan/Scale_Fan_T1_F1.png" id="15_qfym2"]
+[ext_resource type="Texture2D" uid="uid://c7cmn43ka3anw" path="res://Sprites/wall fan/Scale_Fan_T1_F2.png" id="16_4c8in"]
+[ext_resource type="Texture2D" uid="uid://bratmrpxdnt1j" path="res://Sprites/wall fan/Scale_Fan_T1_F3.png" id="17_mtt1g"]
+[ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="18_7inr5"]
+[ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="19_nek5k"]
+[ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="20_5edn5"]
+[ext_resource type="PackedScene" uid="uid://deuhuwroj2r0s" path="res://Objects/pin.tscn" id="21_oo41q"]
+[ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="22_imkjq"]
+[ext_resource type="PackedScene" uid="uid://b4er4mc4amfws" path="res://Objects/ball_path.tscn" id="23_51weo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
+radius = 200.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3bum"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jihuv"]
+size = Vector2(414.008, 57)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
+radius = 29.2746
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yb3y"]
+size = Vector2(248, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ne40b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_qfym2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4c8in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mtt1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7inr5")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4dx6i"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.34, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 70, 1)
+spread = 0.0
+initial_velocity_min = 12750.0
+initial_velocity_max = 12750.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86f68"]
+size = Vector2(248, 288)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86f68"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1.34, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 70, 1)
+spread = 0.0
+initial_velocity_min = 51000.0
+initial_velocity_max = 51000.0
+gravity = Vector3(0, 0, 0)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_86f68")
+level = 6
+
+[node name="ScaleBgNight" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(3111, 890)
+scale = Vector2(8.12891, 7.93403)
+texture = ExtResource("2_6yb3y")
+
+[node name="ScaleBgSunset" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(9249.5, 3043.5)
+scale = Vector2(6.88672, 6.41806)
+texture = ExtResource("3_4dx6i")
+
+[node name="ScaleBg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(3638, 383)
+scale = Vector2(5.87578, 5.59861)
+texture = ExtResource("4_2rdke")
+
+[node name="ScaleDirtV2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.337255, 0.47451, 0.733333, 1)
+z_index = -1
+position = Vector2(6329, 1317.5)
+scale = Vector2(39.5438, 14.3469)
+texture = ExtResource("5_kf7vc")
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="Grow" type="Label" parent="Text"]
+offset_left = 631.0
+offset_top = -512.0
+offset_right = 671.0
+offset_bottom = -489.0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 46
+text = "Use The Slider To Grow And Shrink"
+
+[node name="ShrinkBounce" type="Label" parent="Text"]
+offset_left = 3100.0
+offset_top = 1076.0
+offset_right = 4391.0
+offset_bottom = 1234.0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 106
+text = "Shrink To Bounce More"
+
+[node name="GrowBounce" type="Label" parent="Text"]
+offset_left = 4044.0
+offset_top = 1268.0
+offset_right = 5335.0
+offset_bottom = 1426.0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 106
+text = "Grow To Bounce Less"
+
+[node name="GrowBounce2" type="Label" parent="Text"]
+offset_left = 7079.0
+offset_top = 3712.0
+offset_right = 8370.0
+offset_bottom = 3870.0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 106
+text = "Grow Fast To 'Jump'"
+
+[node name="Size Reference" type="Node2D" parent="."]
+position = Vector2(4803, 1681)
+metadata/_edit_group_ = true
+
+[node name="Max" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_77423")
+debug_color = Color(0, 0.701961, 0.0352941, 0.419608)
+
+[node name="Min" type="CollisionShape2D" parent="Size Reference"]
+shape = SubResource("CircleShape2D_x3bum")
+debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="Ball" parent="." instance=ExtResource("6_0m7x0")]
+position = Vector2(645, -354)
+
+[node name="Camera2D" type="Camera2D" parent="Ball"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -450
+limit_right = 13300
+position_smoothing_enabled = true
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2(0, 126)
+scale = Vector2(2, 2)
+
+[node name="ShapeA" type="StaticBody2D" parent="Ground"]
+z_index = 1
+collision_layer = 3
+physics_material_override = ExtResource("7_foko4")
+script = ExtResource("8_g0g14")
+live_edit = true
+
+[node name="Grass" type="Line2D" parent="Ground/ShapeA"]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(-83, 1052.5, -709, -1220.5, 298.5, -1329.5, 301.5, -675.5, 302.059, -222.81, 353, -223, 598, 25.5, 982, 197, 1458.5, 301.5, 1506.99, 714.75, 2181.5, 801, 2369, 809, 2365.5, 869, 2233, 1059, 2162.5, 1334, 2258, 1560, 2479, 1768, 2874, 1915.5, 3407.5, 2012.5, 4303.5, 2076.5, 4303, 2538, 4633.4, 2538, 4636, 1875, 5324.5, 1875, 5959, 3612.5, 1200, 3619)
+closed = true
+width = 105.0
+default_color = Color(0.176236, 0.652086, 0.171562, 1)
+texture = ExtResource("9_j2h7a")
+texture_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground/ShapeA"]
+polygon = PackedVector2Array(-83, 1052.5, -709, -1220.5, 298.5, -1329.5, 301.5, -675.5, 302.059, -222.81, 353, -223, 598, 25.5, 982, 197, 1458.5, 301.5, 1506.99, 714.75, 2181.5, 801, 2369, 809, 2365.5, 869, 2233, 1059, 2162.5, 1334, 2258, 1560, 2479, 1768, 2874, 1915.5, 3407.5, 2012.5, 4303.5, 2076.5, 4303, 2538, 4633.4, 2538, 4636, 1875, 5324.5, 1875, 5959, 3612.5, 1200, 3619)
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground/ShapeA"]
+texture_repeat = 2
+color = Color(1, 0.623, 0.42, 1)
+texture = ExtResource("10_n7rib")
+polygon = PackedVector2Array(-83, 1052.5, -709, -1220.5, 298.5, -1329.5, 301.5, -675.5, 302.059, -222.81, 353, -223, 598, 25.5, 982, 197, 1458.5, 301.5, 1506.99, 714.75, 2181.5, 801, 2369, 809, 2365.5, 869, 2233, 1059, 2162.5, 1334, 2258, 1560, 2479, 1768, 2874, 1915.5, 3407.5, 2012.5, 4303.5, 2076.5, 4303, 2538, 4633.4, 2538, 4636, 1875, 5324.5, 1875, 5959, 3612.5, 1200, 3619)
+
+[node name="ShapeB" type="StaticBody2D" parent="Ground"]
+z_index = 1
+collision_layer = 3
+physics_material_override = ExtResource("7_foko4")
+script = ExtResource("8_g0g14")
+live_edit = true
+type = 7
+
+[node name="Polygon2D2" type="Polygon2D" parent="Ground/ShapeB"]
+texture_repeat = 2
+color = Color(0.355, 0.502917, 0.71, 1)
+texture = ExtResource("10_n7rib")
+polygon = PackedVector2Array(2410.5, -384, 3637, -611.5, 5327, 377.5, 5389.5, 1186, 4757.68, 1172.17, 4159, 797, 3306, 1238.5, 2624.5, 1023, 2448, 869, 2437, 785, 2920.5, 770, 3062.5, 604, 3024.5, 385.5, 2715, 287, 2521, 461.5, 2135.5, 439, 2034.71, 250.127, 1520, 246.5, 1165, 100.5, 863, -85, 973.5, -665, 1271.5, -664.5, 1840.5, -445)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeB"]
+visible = false
+polygon = PackedVector2Array(2410.5, -384, 3637, -611.5, 5327, 377.5, 5389.5, 1186, 4757.68, 1172.17, 4159, 797, 3306, 1238.5, 2624.5, 1023, 2448, 869, 2437, 785, 2920.5, 770, 3062.5, 604, 3024.5, 385.5, 2715, 287, 2521, 461.5, 2135.5, 439, 2034.71, 250.127, 1520, 246.5, 1165, 100.5, 863, -85, 973.5, -665, 1271.5, -664.5, 1840.5, -445)
+
+[node name="Grass2" type="Line2D" parent="Ground/ShapeB"]
+z_index = 1
+texture_repeat = 2
+points = PackedVector2Array(2410.5, -384, 3637, -611.5, 5327, 377.5, 5389.5, 1186, 4757.68, 1172.17, 4159, 797, 3306, 1238.5, 2624.5, 1023, 2448, 869, 2437, 785, 2920.5, 770, 3062.5, 604, 3024.5, 385.5, 2715, 287, 2521, 461.5, 2135.5, 439, 2034.71, 250.127, 1520, 246.5, 1165, 100.5, 863, -85, 973.5, -665, 1271.5, -664.5, 1840.5, -445)
+closed = true
+width = 105.0
+default_color = Color(0.298039, 0.537255, 0.67451, 1)
+texture = ExtResource("9_j2h7a")
+texture_mode = 1
+
+[node name="Stuff" type="Node2D" parent="."]
+
+[node name="Finish" parent="Stuff" instance=ExtResource("11_u6jfl")]
+position = Vector2(4720, -1272)
+
+[node name="Spikes" type="StaticBody2D" parent="Stuff"]
+position = Vector2(2846, 1743)
+rotation = -3.14108
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes"]
+position = Vector2(47.0156, 20.5001)
+shape = SubResource("RectangleShape2D_jihuv")
+
+[node name="Spike" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-145, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike2" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-80, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike3" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(-14, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike4" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(46, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike5" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(111, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike6" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(177, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike7" type="Sprite2D" parent="Stuff/Spikes"]
+texture_repeat = 2
+position = Vector2(232, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spikes2" type="StaticBody2D" parent="Stuff"]
+position = Vector2(2370, 2825)
+rotation = -3.14108
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes2"]
+position = Vector2(236.511, 20.5)
+shape = SubResource("RectangleShape2D_jihuv")
+
+[node name="Spike4" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(46, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike5" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(111, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike6" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(177, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike7" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(232, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike8" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(297, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike9" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(363, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike10" type="Sprite2D" parent="Stuff/Spikes2"]
+texture_repeat = 2
+position = Vector2(423, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spikes3" type="StaticBody2D" parent="Stuff"]
+position = Vector2(1331, 2189)
+rotation = 4.71239
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Spikes3"]
+position = Vector2(138, 20.5)
+shape = SubResource("RectangleShape2D_jihuv")
+
+[node name="Spike" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(-145, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike2" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(-80, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike3" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(-14, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike4" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(46, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike5" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(111, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike6" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(177, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike7" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(232, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike8" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(297, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike9" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(363, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Spike10" type="Sprite2D" parent="Stuff/Spikes3"]
+texture_repeat = 2
+position = Vector2(423, 24)
+rotation = 3.14159
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("12_5w30v")
+
+[node name="Collect" type="Area2D" parent="Stuff"]
+position = Vector2(3738, -989)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Stuff/Collect"]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("13_ny73l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stuff/Collect"]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")
+
+[node name="Fan2" type="Area2D" parent="Stuff"]
+visible = false
+position = Vector2(5954, 1631)
+rotation = -2.85055
+collision_layer = 5
+collision_mask = 4
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1000.0
+script = ExtResource("14_otu32")
+power = 50000
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan2"]
+position = Vector2(32, 59)
+shape = SubResource("RectangleShape2D_6yb3y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan2"]
+position = Vector2(-2, 63)
+sprite_frames = SubResource("SpriteFrames_ne40b")
+animation = &"new_animation"
+frame_progress = 0.397791
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
+position = Vector2(-52.9999, 53)
+amount = 120
+texture = ExtResource("19_nek5k")
+lifetime = 0.0116078
+preprocess = 0.0116078
+visibility_rect = Rect2(-60, -140, 208, 288)
+process_material = SubResource("ParticleProcessMaterial_4dx6i")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan2"]
+stream = ExtResource("20_5edn5")
+attenuation = 1e-05
+
+[node name="Fan" type="Area2D" parent="Stuff"]
+visible = false
+position = Vector2(8881, 5056)
+rotation = -1.5708
+collision_layer = 5
+collision_mask = 4
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
+gravity = 1000.0
+script = ExtResource("14_otu32")
+power = 200000
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stuff/Fan"]
+position = Vector2(32, 59)
+shape = SubResource("RectangleShape2D_86f68")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stuff/Fan"]
+position = Vector2(-2, 63)
+sprite_frames = SubResource("SpriteFrames_ne40b")
+animation = &"new_animation"
+frame_progress = 0.397791
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
+position = Vector2(-52.9999, 53)
+amount = 120
+texture = ExtResource("19_nek5k")
+lifetime = 0.00290196
+preprocess = 0.00290196
+visibility_rect = Rect2(-60, -140, 208, 288)
+process_material = SubResource("ParticleProcessMaterial_86f68")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Stuff/Fan"]
+stream = ExtResource("20_5edn5")
+attenuation = 1e-05
+
+[node name="Pin" parent="Stuff" instance=ExtResource("21_oo41q")]
+position = Vector2(4252, -1428)
+mass = 20.0
+
+[node name="GameHUD" parent="." instance=ExtResource("22_imkjq")]
+
+[node name="BallPath" parent="." instance=ExtResource("23_51weo")]
+points = PackedVector2Array(645, -353.728, 645, -353.184, 645, -352.368, 645, -351.282, 645, -349.926, 645, -348.299, 645, -346.403, 645, -344.238, 645, -341.804, 645, -339.102, 644.982, -341.83, 644.966, -343.986, 644.95, -345.865, 644.933, -347.469, 644.917, -348.799, 644.901, -349.853, 644.884, -350.634, 644.868, -351.142, 644.852, -351.376, 644.836, -351.338, 644.819, -351.027, 644.803, -350.445, 644.787, -349.592, 644.771, -348.467, 644.755, -347.073, 644.739, -345.408, 644.723, -343.474, 644.707, -341.271, 644.691, -338.8, 644.661, -341.561, 644.633, -343.51, 644.606, -345.182, 644.578, -346.58, 644.551, -347.703, 644.524, -348.552, 644.496, -349.128, 644.469, -349.43, 644.442, -349.46, 644.414, -349.217, 644.387, -348.703, 644.36, -347.917, 644.333, -346.86, 644.306, -345.533, 644.279, -343.935, 644.252, -342.069, 644.225, -339.933, 644.198, -337.528, 644.155, -341.245, 644.117, -343.133, 644.08, -344.746, 644.042, -346.084, 644.005, -347.147, 643.967, -347.936, 643.93, -348.452, 643.893, -348.695, 643.856, -348.665, 643.819, -348.363, 643.782, -347.789, 643.745, -346.944, 643.708, -345.828, 643.671, -344.442, 643.634, -342.786, 643.597, -340.86, 643.56, -338.666, 643.512, -341.282, 643.467, -342.981, 643.421, -344.405, 643.376, -345.555, 643.33, -346.431, 643.285, -347.033, 643.24, -347.361, 643.194, -347.417, 643.149, -347.201, 643.104, -346.712, 643.059, -345.953, 643.014, -344.922, 642.969, -343.621, 642.924, -342.049, 642.88, -340.209, 642.835, -338.099, 642.778, -341.09, 642.725, -342.713, 642.672, -344.062, 642.62, -345.135, 642.567, -345.935, 642.514, -346.461, 642.462, -346.715, 642.409, -346.695, 642.357, -346.404, 642.305, -345.84, 642.253, -345.005, 642.201, -343.9, 642.149, -342.524, 642.097, -340.878, 642.045, -338.963, 641.985, -341.085, 641.926, -342.534, 641.867, -343.707, 641.809, -344.607, 641.75, -345.232, 641.692, -345.585, 641.634, -345.664, 641.576, -345.472, 641.518, -345.007, 641.459, -344.271, 641.402, -343.264, 641.344, -341.987, 641.286, -340.439, 641.229, -338.621, 641.162, -340.926, 641.098, -342.286, 641.034, -343.372, 640.97, -344.184, 640.907, -344.722, 640.843, -344.987, 640.78, -344.979, 640.716, -344.699, 640.641, -346.826, 640.561, -349.837, 640.611, -354.76, 641.777, -357.058, 644.921, -360.368, 649.267, -364.764, 653.227, -368.678, 656.933, -372.117, 664.327, -379.439, 672.778, -387.637, 681.336, -395.906, 690.513, -404.789, 701.625, -415.616, 713.312, -427.02, 724.474, -437.112, 734.626, -445.378, 742.349, -451.191, 748.834, -455.841, 753.2, -457.348, 757.374, -457.977, 761.542, -458.332, 765.702, -458.414, 769.925, -458.385, 774.194, -458.199, 778.456, -457.742, 782.711, -457.013, 786.959, -456.013, 791.2, -454.742, 795.434, -453.201, 799.661, -451.391, 803.88, -449.311, 808.093, -446.963, 812.298, -444.346, 816.497, -441.462, 820.688, -438.31, 824.873, -434.891, 829.051, -431.206, 833.221, -427.254, 837.385, -423.037, 841.542, -418.555, 845.881, -417.619, 849.75, -415.605, 853.612, -413.322, 857.468, -410.771, 861.402, -408.591, 865.352, -406.307, 869.368, -404.008, 873.438, -401.672, 877.563, -399.305, 881.745, -396.906, 885.981, -394.476, 890.272, -392.014, 894.618, -389.522, 899.017, -386.997, 903.471, -384.442, 907.978, -381.857, 912.539, -379.24, 917.152, -376.594, 921.819, -373.917, 926.537, -371.21, 931.308, -368.473, 936.131, -365.706, 941.005, -362.91, 945.93, -360.084, 950.906, -357.23, 955.933, -354.346, 961.011, -351.433, 966.138, -348.491, 971.316, -345.521, 976.543, -342.522, 981.819, -339.495, 987.144, -336.44, 992.519, -333.357, 997.941, -330.247, 1003.41, -327.108, 1008.93, -323.942, 1014.5, -320.749, 1020.11, -317.528, 1025.77, -314.281, 1031.48, -311.006, 1037.23, -307.705, 1043.03, -304.377, 1048.88, -301.023, 1054.77, -297.642, 1060.71, -294.236, 1066.7, -290.803, 1072.72, -287.344, 1078.8, -283.86, 1084.92, -280.35, 1091.08, -276.815, 1097.29, -273.254, 1103.54, -269.668, 1106.69, -276.135, 1111.15, -278.991, 1115.6, -281.57, 1120.04, -283.873, 1124.47, -285.899, 1128.9, -287.65, 1133.32, -289.126, 1137.74, -290.327, 1142.14, -291.254, 1146.54, -291.907, 1150.93, -292.286, 1154.58, -294.689, 1158.44, -296.242, 1162.25, -297.733, 1165.97, -299.198, 1169.61, -300.63, 1173.17, -302.029, 1176.65, -303.397, 1180.05, -304.733, 1183.36, -306.036, 1186.6, -307.309, 1189.76, -308.549, 1192.83, -309.759, 1195.83, -310.938, 1198.75, -312.086, 1201.59, -313.203, 1204.35, -314.29, 1207.04, -315.346, 1209.65, -316.372, 1212.18, -317.368, 1214.64, -318.335, 1217.02, -319.272, 1219.33, -320.179, 1221.56, -321.056, 1223.72, -321.905, 1225.81, -322.725, 1227.82, -323.516, 1229.76, -324.278, 1231.62, -325.011, 1233.42, -325.716, 1235.14, -326.393, 1236.79, -327.042, 1238.37, -327.663, 1239.88, -328.256, 1241.31, -328.822, 1242.68, -329.36, 1243.98, -329.871, 1245.21, -330.355, 1246.37, -330.812, 1247.47, -331.242, 1248.49, -331.646, 1249.45, -332.023, 1250.35, -332.374, 1251.17, -332.699, 1251.93, -332.998, 1252.63, -333.271, 1253.26, -333.518, 1253.82, -333.739, 1254.32, -333.935, 1254.75, -334.105, 1255.12, -334.25, 1255.42, -334.37, 1255.67, -334.465, 1255.84, -334.536, 1255.96, -334.581, 1256.01, -334.602, 1256.01, -334.599, 1255.94, -334.571, 1255.8, -334.519)
+
+[connection signal="body_entered" from="Stuff/Fan2" to="Stuff/Fan2" method="_on_body_entered"]
+[connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]

@@ -47,6 +47,7 @@ disabled = true
 stream = SubResource("AudioStreamRandomizer_35030")
 max_distance = 1000.0
 attenuation = 0.466517
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.04425, 29.9818)
