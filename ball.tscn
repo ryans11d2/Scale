@@ -81,9 +81,11 @@ visible = false
 collision_mask = 32
 
 [node name="Motion" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 
 [node name="Deform" type="Line2D" parent="."]
+visible = false
 points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 1, 1, 1)
 

@@ -99,7 +99,7 @@ func _ready():
 		$Select/NextPage.position
 	)
 	
-	
+	$Settings.visible = false
 	update_settings()
 	
 
@@ -116,6 +116,7 @@ func update_settings():
 	toggle_scale_mode(!scale_to_screen)
 	#$Settings/Settings/Options/Scroll/List/ScaleSize/Size.max_value = get_window().size.x
 	
+	$Settings/Settings/Options/Scroll/List/DisplayMode/Screen.max_value = DisplayServer.get_screen_count()
 	
 
 func _input(event: InputEvent) -> void:
@@ -508,4 +509,22 @@ func toggle_scale_mode(pixels: bool):
 		$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.text = "Screen"
 	
 	#$Settings/Settings/Options/Scroll/List/ScaleSize/Size.value = scale_length
+	
+
+func set_display(display: int):
+	
+	DisplayServer.window_set_current_screen(display)
+	
+
+func set_window_mode(mode: int):
+	
+	match mode:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			
+		2: 
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	

@@ -132,11 +132,10 @@ func _physics_process(delta):
 	#else:
 		#$Camera2D.position = Vector2.ZERO
 	
-	accel = linear_velocity.length() - deform.length()
-	deform = lerp(deform, linear_velocity, deform_speed * delta)
-	
-	$Deform.set_point_position(1, deform.rotated(-rotation))
-	$Motion.set_point_position(1, linear_velocity.rotated(-rotation))
+	#accel = linear_velocity.length() - deform.length()
+	#deform = lerp(deform, linear_velocity, deform_speed * delta)
+	#$Deform.set_point_position(1, deform.rotated(-rotation))
+	#$Motion.set_point_position(1, linear_velocity.rotated(-rotation))
 	
 	#$Sprite2D.scale.x += (deform.x - linear_velocity.x) * 0.01
 	#$Sprite2D.scale.y += (deform.y - linear_velocity.y) * 0.01
