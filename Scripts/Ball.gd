@@ -13,6 +13,7 @@ var stick_pos: Vector2 = Vector2.ZERO
 var stick_pow: float = 0
 var in_ground: int = 0
 var max_speed: float = 24000
+@export var bounce_power: float = 120.0
 
 var finished: bool = false##Is flag reached
 var dead: bool = false##Is ball dead
@@ -44,6 +45,10 @@ var tone_dir: bool = false##Shift tone up or down on bounce
 @export var trail_lag: float = 0.02##Trail update intercal
 @onready var trail: Node2D = $Offsets##Trail parent object
 var trail_lag_time: float = 0##Timer to update trail
+
+var deform: Vector2 = Vector2.ZERO
+var deform_speed: float = 8
+var accel: float = 0.0
 
 var debug_path: Array = []
 
@@ -127,6 +132,22 @@ func _physics_process(delta):
 	#else:
 		#$Camera2D.position = Vector2.ZERO
 	
+	accel = linear_velocity.length() - deform.length()
+	deform = lerp(deform, linear_velocity, deform_speed * delta)
+	
+	$Deform.set_point_position(1, deform.rotated(-rotation))
+	$Motion.set_point_position(1, linear_velocity.rotated(-rotation))
+	
+	#$Sprite2D.scale.x += (deform.x - linear_velocity.x) * 0.01
+	#$Sprite2D.scale.y += (deform.y - linear_velocity.y) * 0.01
+	#$Sprite2D.skew = rad_to_deg(deform.angle())
+	
+	#Make like a triangle of sorts
+	#When acceleration increases towards velocity dir, stretch towards velocity
+	#When acceleration decreases towards velocity dir, stretch accross velocity
+	#Maintain the same 'area' though, 
+	#basicaly an isosceles triangle where the height matches acceleration
+	
 	if Select.debug_mode: debug_path.push_back(global_position)
 	
 
@@ -151,7 +172,7 @@ func _integrate_forces(state):
 		jump_start = global_position.y
 		for i in state.get_contact_count():
 			var i_pos = state.get_contact_local_position(i)
-			var new_contact = global_position.direction_to(i_pos) * global_position.distance_to(i_pos)
+			var new_contact = global_position.direction_to(i_pos)# * global_position.distance_to(i_pos)
 			contacts.push_front(new_contact)
 	else:
 		in_ground = 0
@@ -180,6 +201,8 @@ func _integrate_forces(state):
 		for i in contacts:
 			push_force += i
 		push_force /= float(contacts.size())
+		push_force = push_force.normalized() * bounce_power
+		prints(growth * push_force.length())
 		linear_velocity -= push_force * growth
 		
 	
@@ -214,6 +237,8 @@ func _integrate_forces(state):
 	var stick_force: Vector2 = global_position.direction_to(stick_pos) * 3600.0 * (mass / 2.0)
 	#prints(stick_pow, stick_force.length() * stick_pow)
 	apply_central_force(stick_force * stick_pow)
+	
+	
 	
 
 func damage(dir: Vector2 = Vector2.ZERO):
