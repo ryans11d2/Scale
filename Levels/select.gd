@@ -47,6 +47,7 @@ var cheat_codes: Array[Array] = [
 ]
 var code_idx: Array[int] = []
 var cheated: bool = false
+var debug: bool = false
 
 var super_mode: bool = false
 var super_level: int = 0
@@ -57,43 +58,34 @@ var super_scale: bool = false
 var finish_points: int = 0
 
 
-#Accessability
+#Settings/Accessability
 
+var screen = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED
 var comic_text: bool = false
 
-var scale_length: float = 1024
+var music_volume: float = 1
+var sfx_volume: float = 1
 
+var scale_to_screen: bool = true
+var scale_length: float = 0.88#1024
 var sticky_scale: bool = false
 var scale_step: float = 0.01
+
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	#var files = FileAccess.open("user://save.txt", FileAccess.WRITE)
-	#for i in 12 * $Select/Levels.get_child_count():
-		#files.store_var(0)
-	#files.close()
-	#return
-	
 	if FileAccess.file_exists("user://save.txt"):
+		#printing the data broke the system
+		#print(FileAccess.get_file_as_bytes("user://save.txt"))
+		#print(FileAccess.get_file_as_string("user://save.txt"))
+		
 		var file = FileAccess.open("user://save.txt", FileAccess.READ)
-		if file.get_as_text().length() > 1:
-			save_data = JSON.parse_string(file.get_var()) as Dictionary
+		if file.get_length() > 0:
+			save_data = file.get_var()
+			#save_data = JSON.parse_string(file.get_var()) as Dictionary
 		file.close()
-	
-	#var validate = FileAccess.open("user://save.txt", FileAccess.READ)
-	#if validate.get_as_text().length() > 1:
-		#print("New File")
-		#validate.close()
-		#
-		#var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-		##for i in 12 * $Select/Levels.get_child_count():
-		##	file.store_var(0)
-		#file.store_var(save_data)
-		#file.close()
-		#
-	#else:
-		#validate.close()
 	
 	code_idx.resize(cheat_codes.size())
 	code_idx.fill(0)
@@ -117,8 +109,13 @@ func update_settings():
 	else: main_theme.default_font = preload("res://UI/Matemasie-Regular.ttf")
 	
 	
-	_on_music_volume_value_changed($Settings/Settings/Options/List/Music/MusicVolume.value)
-	_on_sfx_volume_value_changed($Settings/Settings/Options/List/SFX/SFXVolume.value)
+	_on_music_volume_value_changed($Settings/Settings/Options/Scroll/List/Music/MusicVolume.value)
+	_on_sfx_volume_value_changed($Settings/Settings/Options/Scroll/List/SFX/SFXVolume.value)
+	
+	set_scale_length(scale_length)
+	toggle_scale_mode(!scale_to_screen)
+	#$Settings/Settings/Options/Scroll/List/ScaleSize/Size.max_value = get_window().size.x
+	
 	
 
 func _input(event: InputEvent) -> void:
@@ -155,8 +152,9 @@ func enter_code(code: int):
 			set_level_status(0, i + 1)
 		open_page(page)
 	elif code == 2:
-		for i in 12:
-			set_level_status(2, i + 1)
+		#for i in 12:
+			#set_level_status(2, i + 1)
+		debug = true
 		open_page(page)
 	elif code == 3:
 		if level_path != "": 
@@ -167,10 +165,12 @@ func enter_code(code: int):
 	
 
 func quick_save():
-	save_data[level_path] = JSON.stringify(level_data.get_data())
+	#save_data[level_path] = JSON.stringify(level_data.get_data())
+	save_data[level_path] = level_data.get_data()
 	
 	var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
-	file.store_var(JSON.stringify(save_data))
+	#file.store_var(JSON.stringify(save_data))
+	file.store_var(save_data)
 	file.close()
 	
 
@@ -180,7 +180,8 @@ func get_level_status(level: int, on_page: int = -1) -> int:
 	var file: String = $Select/Levels.get_child(on_page).levels[level]
 	
 	if !save_data.has(file): return 0
-	else: return JSON.parse_string(save_data[file]).status
+	else: return save_data[file].status
+	#else: return JSON.parse_string(save_data[file]).status
 	
 	
 
@@ -207,6 +208,9 @@ func open_settings():
 	$Title.visible = false
 	$Select.visible = false
 	
+	if !scale_to_screen:
+		$Settings/Settings/Options/Scroll/List/ScaleSize/Size.max_value = get_window().size.x
+		
 
 func close_settings():
 	$Page.play()
@@ -216,9 +220,31 @@ func close_settings():
 	$Select.visible = true
 	
 
+func open_level_info():
+	
+	if level_data == null: return
+	
+	$Page.play()
+	
+	$LevelInfo.visible = true
+	$Title.visible = false
+	$Select.visible = false
+	
+	$LevelInfo/Page/Info/List/Text.text = level_data.get_info_text()
+	
+
+func close_level_info():
+	$Page.play()
+	
+	$LevelInfo.visible = false
+	$Title.visible = true
+	$Select.visible = true
+	
+
 func next_page():
 	if page < $Select/Levels.get_child_count() - 1: open_page(page + 1)
 	$Page.play()
+	
 
 func last_page():
 	if page > 0: open_page(page - 1)
@@ -228,9 +254,9 @@ func get_points():
 	finish_points = 0
 	for i in $Select/Levels.get_child_count():
 		for j in 12:
-			var get_status = get_level_status(j, i - 1)
+			var get_status = get_level_status(j, i)
 			if get_status == 1: finish_points += 1
-			elif get_status >= 1: finish_points += 2
+			elif get_status > 1: finish_points += 2
 
 func open_page(new_page: int):
 	
@@ -254,6 +280,7 @@ func open_page(new_page: int):
 		this_page.get_child(i).texture_hover = set_texture
 		
 	
+	if debug: gold = 99
 	this_page.get_child(9).visible = gold >= 9 or cheated
 	this_page.get_child(10).visible = gold >= 9 and get_level_status(9 > 0) or cheated
 	this_page.get_child(11).visible = gold >= 9 and get_level_status(10 > 0) or cheated
@@ -264,7 +291,7 @@ func open_page(new_page: int):
 	$Select/NextPage.visible = new_page < $Select/Levels.get_child_count() - 1
 	
 	var point_need = (9 * (page + 1)) + (3 * (page))
-	$Select/NextPage.disabled = finish_points < point_need
+	$Select/NextPage.disabled = finish_points < point_need and !debug
 	$Select/NextPage.tooltip_text = str(finish_points) + "/" + str(point_need)
 	
 	#end_super()
@@ -295,7 +322,8 @@ func open_level():
 	
 	var new_level: bool = !save_data.has(file)
 	level_data = LevelData.new()
-	if !new_level: level_data.set_data(JSON.parse_string(save_data[file]))
+	if !new_level: level_data.set_data(save_data[file])
+	#if !new_level: level_data.set_data(JSON.parse_string(save_data[file]))
 	
 	
 	level_path = file
@@ -307,6 +335,22 @@ func open_level():
 	get_tree().paused = true
 	$AnimationPlayer.play("open_level")
 	
+	
+
+func get_level_info(_event: InputEvent, select_idx: int = -1):
+	
+	if Input.is_action_just_pressed("cancel"):
+		
+		var file: String = $Select/Levels.get_child(page).levels[select_idx]
+		
+		var new_level: bool = !save_data.has(file)
+		if !new_level:
+			level_data = LevelData.new() 
+			level_data.set_data(save_data[file])
+			#level_data.set_data(JSON.parse_string(save_data[file]))
+			open_level_info()
+			
+		
 	
 
 func to_level():
@@ -334,6 +378,7 @@ func reset_level():
 	get_tree().root.add_child.call_deferred(level)
 
 func _process(_delta):
+	
 	if shrink_button: $Title/Button.scale = $Title/Button.scale.lerp(Vector2(0.9, 0.9), _delta * 5)
 	
 	if super_mode:
@@ -348,6 +393,7 @@ func _process(_delta):
 	
 	if Input.is_action_pressed("main"): $AnimationPlayer.speed_scale = 3.0
 	else: $AnimationPlayer.speed_scale = 1.0
+	
 	
 
 func finish_level(level: int = -1, got_scale: bool = false):
@@ -374,6 +420,13 @@ func shrink():
 	#await get_tree().create_timer(0.25).timeout
 	$AnimationPlayer.play("shrink")
 
+func back_to_main_menu():
+	$AnimationPlayer.play_backwards("shrink")
+
+func quit_game():
+	get_tree().quit()
+	
+
 
 func end_super():
 	_on_super_toggled(false)
@@ -399,21 +452,60 @@ func _on_super_toggled(toggled_on: bool) -> void:
 
 func _on_music_volume_value_changed(value: float) -> void:
 	
-	var slider := $Settings/Settings/Options/List/Music/MusicVolume
+	var slider := $Settings/Settings/Options/Scroll/List/Music/MusicVolume
 	var bus: int = AudioServer.get_bus_index("Music")
 	
 	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
-	AudioServer.set_bus_volume_linear(bus, value)
+	music_volume = value
+	AudioServer.set_bus_volume_linear(bus, music_volume)
 	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
 	
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
 	
-	var slider := $Settings/Settings/Options/List/Music/MusicVolume
+	var slider := $Settings/Settings/Options/Scroll/List/SFX/SFXVolume
 	var bus: int = AudioServer.get_bus_index("SFX")
 	
 	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
-	AudioServer.set_bus_volume_linear(bus, value)
+	sfx_volume = value
+	AudioServer.set_bus_volume_linear(bus, sfx_volume)
 	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
+	
+
+func set_scale_length(length: float):
+	
+	if scale_to_screen:
+		scale_length = get_window().size.x * length
+	else:
+		scale_length = length
+
+func toggle_scale_mode(pixels: bool):
+	
+	scale_to_screen = pixels
+	var screen_width: int = get_window().size.x
+	var spin_box: SpinBox = $Settings/Settings/Options/Scroll/List/ScaleSize/Size
+	
+	if pixels:
+		var new_length = scale_length * float(screen_width)
+		print(screen_width)
+		spin_box.max_value = screen_width
+		spin_box.min_value = 64
+		spin_box.step = 1.0
+		
+		scale_length = new_length
+		spin_box.set_value_no_signal(scale_length)
+		$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.text = "Pixel"
+	else:
+		var new_length = scale_length / float(screen_width)
+		print(new_length)
+		spin_box.max_value = 1
+		spin_box.min_value = 0.1
+		spin_box.step = 0.01
+		
+		scale_length = new_length
+		spin_box.set_value_no_signal(new_length)
+		$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.text = "Screen"
+	
+	#$Settings/Settings/Options/Scroll/List/ScaleSize/Size.value = scale_length
 	

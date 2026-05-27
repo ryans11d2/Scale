@@ -233,6 +233,7 @@ func damage(dir: Vector2 = Vector2.ZERO):
 			
 			power = false
 			power_shield = false
+			$Bounce.bus = "SFX"
 			
 			#Visual Changes
 			modulate = Color.WHITE
@@ -303,7 +304,14 @@ func grass_sound():## Play tone adjusted ground hit
 	else: tone = 12 - bounce_tone
 	
 	#Set tone of bounce sound to note 
-	$Bounce.pitch_scale = pow(2, float(tone) / 12.0 - ((full + 1) / 4.0))
+	##$Bounce.pitch_scale = pow(2, float(tone) / 12.0 - ((full + 1) / 4.0))
+	$Bounce.pitch_scale = (11 - full) / 4.0
+	
+	var hit_strength: float = clamp(linear_velocity.length() - 200, 0, 2000)
+	hit_strength *= abs(-linear_velocity.normalized().dot(ground_dir))
+	hit_strength = clamp(log(hit_strength) / log(1.5) - 10, -16, 12)
+	#print(hit_strength)
+	$Bounce.volume_db = hit_strength
 	
 	$Bounce.play()#Play bounce sound
 	
@@ -339,6 +347,7 @@ func _on_area_2d_area_entered(area):
 		modulate = Color(1, 0.686, 0.996)
 		trail.visible = true
 		trail.modulate = Color(1, 0.686, 0.996)
+		$Bounce.bus = "SuperSFX"
 	
 
 

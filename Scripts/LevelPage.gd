@@ -14,3 +14,14 @@ extends Control
 	"level ??",
 	"level ???",
 ]
+
+func _ready() -> void:
+	
+	var idx: int = 0
+	for i in get_children():
+		if !i.has_connections("button_down"):
+			i.connect("button_down", Select.open_level)
+		i.gui_input.connect(Select.get_level_info.bind(idx))
+		i.visible = levels[idx][0] != "l"
+		idx += 1
+	

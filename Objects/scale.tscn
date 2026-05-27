@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://crx1pyhbwjkkd"]
+
+[ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="1_lebf8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etor8"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
+radius = 29.2746
+
+[node name="Collect" type="Area2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("1_lebf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-17, 26)
+shape = SubResource("CircleShape2D_etor8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_8860t")

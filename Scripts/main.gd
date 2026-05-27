@@ -15,6 +15,7 @@ var drag_pos: Vector2 = Vector2.ZERO
 var slide_pos: float = 0
 var drag_value: float = 0
 
+var start_time: float
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -36,7 +37,8 @@ func _ready():
 		$GameHUD/Finish/Back.connect("pressed", menu)
 		$GameHUD/Reset.connect("pressed", $Ball.reset)
 	
-	hud.get_node("Scale").size.x = Select.scale_length
+	if Select.scale_to_screen: hud.get_node("Scale").size.x = Select.scale_length
+	else: hud.get_node("Scale").size.x = Select.scale_length * get_window().size.x * (1152.0 / get_window().size.x)
 	hud.get_node("Scale").step = Select.scale_step
 	
 	hud.get_node("Reset").grab_focus()
@@ -44,6 +46,7 @@ func _ready():
 	drag_value = hud.get_node("Scale").max_value / hud.get_node("Scale").size.x
 	drag_value *= (hud.get_node("Scale").size.x / get_window().size.x)
 	
+	start_time = Time.get_datetime_dict_from_system().second
 	
 
 
@@ -95,19 +98,27 @@ func _process(delta):
 
 ##Finished a level
 func level_complete(stats: Array, collect, damaged):
+	
+	var final_time = start_time - Time.get_datetime_dict_from_system().second
+	Select.level_data.total_time += final_time
+	Select.level_data.scales_found += scales
+	
 	hud.get_node("Finish").visible = true#Show menu
 	hud.get_node("Scale").visible = false#Hide scale bar
 	#Display game stats
-	hud.get_node("Finish/Time").text = "Time: " + str(int(stats[0] / 60)) + ":" + str(stats[0] % 60)
+	hud.get_node("Finish/Time").text = "Time: " + str(int(final_time / 60)) + ":" + str(int(final_time) % 60)
 	hud.get_node("Finish/Rotation").text = "Rotations: " + str(stats[1]) + " (" + str(int(stats[1] / 360)) + ")"
 	hud.get_node("Finish/Collect").text = "Scales: " + str(collect) + "/" + str(scales) + "\n"
 	hud.get_node("Finish/Collect").text += "Max Roll: " + str(int(stats[2])) + "\n" 
 	hud.get_node("Finish/Collect").text += "Max Bounce: " + str(int(stats[3]))# + "\n" 
 	hud.get_node("Finish/Back").grab_focus
 	
+	
+	
+	
 	Select.level_data.finishes += 1
-	Select.level_data.scales_found += stats[1]
-	Select.level_data.total_time += stats[0]
+	#Select.level_data.scales_found += scales
+	#Select.level_data.total_time += stats[0]
 	if collect == scales: Select.level_data.perfect_finishes += 1
 	if Select.level_data.first_time == -1: 
 		Select.level_data.first_time = stats[0]
@@ -136,6 +147,11 @@ func level_complete(stats: Array, collect, damaged):
 
 func menu():##Go to menu
 	#get_tree().change_scene_to_file("res://select.tscn")
+	
+	var final_time = Time.get_datetime_dict_from_system().second - start_time
+	Select.level_data.total_time += final_time
+	Select.level_data.scales_found += scales
+	
 	Select.back_to_menu()
 	
 

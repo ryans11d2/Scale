@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxnla8n6oly6w"]
+[gd_scene load_steps=15 format=3 uid="uid://cxnla8n6oly6w"]
 
 [ext_resource type="Theme" uid="uid://c464d2wngy2ip" path="res://UI/main_theme.tres" id="1_a2jrw"]
+[ext_resource type="Shader" uid="uid://dmfudvrvj2iol" path="res://pixelate.tres" id="1_gsa5p"]
 [ext_resource type="Texture2D" uid="uid://bup8re70cjfl7" path="res://Sprites/Scale_Slider_Tick.png" id="2_kllk0"]
 [ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="3_6k4gu"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_wh55g"]
@@ -8,6 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="6_x82ca"]
 [ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="7_3uot2"]
 [ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="8_jfwq6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k4gu"]
+shader = ExtResource("1_gsa5p")
+shader_parameter/Pixelate = 512.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gsa5p"]
 texture = ExtResource("2_kllk0")
@@ -31,6 +36,15 @@ stream_1/weight = 2.0
 
 [node name="GameHUD" type="CanvasLayer"]
 process_mode = 3
+
+[node name="Pixelate" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_6k4gu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Scale" type="HSlider" parent="."]
 anchors_preset = 5

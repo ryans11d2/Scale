@@ -24,7 +24,6 @@ Select="*res://select.tscn"
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor]
 

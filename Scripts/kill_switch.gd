@@ -2,6 +2,8 @@ extends Area2D
 
 var fx_line: Line2D = null
 
+@export var kill_parent = true
+
 func _ready() -> void:
 	
 	for i in get_children():
@@ -12,6 +14,11 @@ func _ready() -> void:
 	if fx_line != null:
 		fx_line.modulate.a = 0.0
 		fx_line.width = 0
+	
+	for i in get_child_count():
+		if (i > 2 and fx_line == null) or (i > 3 and fx_line != null):
+			get_child(i).global_position += Vector2(65536, 65536)
+	
 
 func collect():
 	$Collect.play()
@@ -27,7 +34,16 @@ func collect():
 		tween.tween_property(fx_line, "modulate:a", 0.2, 0.02)
 		tween.play()
 		await tween.finished
-	get_parent().queue_free()
+	
+	for i in get_child_count():
+		print(get_child(i).name)
+		if (i > 2 and fx_line == null) or (i > 3 and fx_line != null):
+			get_child(i).global_position -= Vector2(65536, 65536)
+			if kill_parent: get_child(i).reparent(get_parent().get_parent())
+			else: get_child(i).reparent(get_parent())
+	
+	if kill_parent: get_parent().queue_free()
+	else: queue_free()
 	
 
 func _on_body_entered(body: Node2D) -> void:

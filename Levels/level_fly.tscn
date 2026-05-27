@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c2m6gdrdlphjg"]
+[gd_scene load_steps=38 format=3 uid="uid://c2m6gdrdlphjg"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_gd61g"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_54usd"]
@@ -18,14 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cxyfeu6mko51d" path="res://Sprites/wall fan/Scale_Fan_T1_F4.png" id="17_qpdu8"]
 [ext_resource type="Texture2D" uid="uid://cugcpnsveumge" path="res://Sprites/Scale_Wind_Particle_IDV.png" id="18_m4wff"]
 [ext_resource type="AudioStream" uid="uid://dc56r4c7prvqy" path="res://Sounds/blow.mp3" id="19_42u4p"]
-[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="21_y54ty"]
-[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="22_1e5op"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="23_fk3y0"]
-[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="24_k07b6"]
-[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="25_nhbho"]
-[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="26_ehety"]
-[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="27_kmqbt"]
-[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="28_uyryv"]
+[ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="19_i2lra"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
 radius = 200.0
@@ -160,22 +153,6 @@ spread = 0.0
 initial_velocity_min = 3570.0
 initial_velocity_max = 3570.0
 gravity = Vector3(0, 0, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
-texture = ExtResource("22_1e5op")
-texture_margin_top = 72.0
-texture_margin_bottom = 7.0
-draw_center = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7lr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84h1g"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
-streams_count = 2
-stream_0/stream = ExtResource("26_ehety")
-stream_1/stream = ExtResource("27_kmqbt")
-stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_gd61g")
@@ -348,7 +325,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan"]
 position = Vector2(-52.9999, 53)
@@ -382,7 +359,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan4"]
 position = Vector2(-52.9999, 53)
@@ -415,7 +392,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan5"]
 position = Vector2(-52.9999, 53)
@@ -449,7 +426,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan6"]
 position = Vector2(-52.9999, 53)
@@ -482,7 +459,7 @@ shape = SubResource("RectangleShape2D_c8778")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan7"]
 position = Vector2(-52.9999, 53)
@@ -517,7 +494,7 @@ shape = SubResource("RectangleShape2D_366li")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan2"]
 z_index = 1
@@ -551,7 +528,7 @@ shape = SubResource("RectangleShape2D_gd61g")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan3"]
 position = Vector2(-52.9999, 53)
@@ -585,7 +562,7 @@ shape = SubResource("RectangleShape2D_54usd")
 position = Vector2(-2, 63)
 sprite_frames = SubResource("SpriteFrames_ne40b")
 animation = &"new_animation"
-frame_progress = 0.707466
+frame_progress = 0.366732
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Stuff/Fan8"]
 position = Vector2(-52.9999, 53)
@@ -611,102 +588,7 @@ preprocess = 1.92437
 visibility_rect = Rect2(-60, -2140, 6930, 6288)
 process_material = SubResource("ParticleProcessMaterial_gd61g")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Scale" type="HSlider" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -519.0
-offset_top = 23.0
-offset_right = 427.0
-offset_bottom = 102.0
-grow_horizontal = 2
-theme_override_icons/grabber = ExtResource("21_y54ty")
-theme_override_icons/grabber_highlight = ExtResource("21_y54ty")
-theme_override_icons/grabber_disabled = ExtResource("21_y54ty")
-theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
-min_value = 1.0
-max_value = 10.0
-step = 0.01
-value = 1.0
-
-[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -147.0
-offset_right = 124.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("23_fk3y0")
-theme_override_font_sizes/normal_font_size = 26
-text = "    Level Complete
-"
-fit_content = true
-
-[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("23_fk3y0")
-theme_override_font_sizes/normal_font_size = 20
-text = "Time
-"
-fit_content = true
-
-[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("23_fk3y0")
-theme_override_font_sizes/normal_font_size = 20
-text = "Rotation
-"
-fit_content = true
-
-[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("23_fk3y0")
-theme_override_font_sizes/normal_font_size = 20
-text = "Collect
-"
-fit_content = true
-
-[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
-layout_mode = 2
-texture_normal = ExtResource("24_k07b6")
-texture_pressed = ExtResource("24_k07b6")
-texture_hover = ExtResource("24_k07b6")
-
-[node name="Reset" type="TextureButton" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_top = 9.0
-offset_right = 192.0
-offset_bottom = 329.0
-grow_horizontal = 0
-scale = Vector2(0.32, 0.32)
-texture_normal = ExtResource("25_nhbho")
-texture_pressed = ExtResource("25_nhbho")
-texture_hover = ExtResource("25_nhbho")
-
-[node name="AudioUI" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_myk1j")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("28_uyryv")
-volume_db = -10.0
-autoplay = true
+[node name="GameHUD" parent="." instance=ExtResource("19_i2lra")]
 
 [connection signal="body_entered" from="Stuff/Fan" to="Stuff/Fan" method="_on_body_entered"]
 [connection signal="body_entered" from="Stuff/Fan4" to="Stuff/Fan4" method="_on_body_entered"]
@@ -716,7 +598,3 @@ autoplay = true
 [connection signal="body_entered" from="Stuff/Fan2" to="Stuff/Fan2" method="_on_body_entered"]
 [connection signal="body_entered" from="Stuff/Fan3" to="Stuff/Fan3" method="_on_body_entered"]
 [connection signal="body_entered" from="Stuff/Fan8" to="Stuff/Fan8" method="_on_body_entered"]
-[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
-[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
-[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
-[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]

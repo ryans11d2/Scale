@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://huqyggsokcwy"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://huqyggsokcwy"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_6u1k0"]
 resource_name = "Reverb"
@@ -6,6 +6,34 @@ room_size = 0.9
 damping = 0.4
 spread = 0.8
 wet = 0.3
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_j3pel"]
+resource_name = "Phaser"
+range_max_hz = 831.538
+rate_hz = 5.477
+feedback = 0.1
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.3
+damping = 0.02
+spread = 0.2
+dry = 0.59
+wet = 0.05
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
+resource_name = "Chorus"
+voice_count = 3
+dry = 0.6
+wet = 1.0
+voice/1/depth_ms = 4.0
+voice/2/depth_ms = 9.0
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
 
 [resource]
 bus/0/volume_db = 1.06049
@@ -41,3 +69,15 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"SFX"
+bus/6/name = &"SuperSFX"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"SFX"
+bus/6/effect/0/effect = SubResource("AudioEffectPhaser_j3pel")
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
+bus/6/effect/1/enabled = true
+bus/6/effect/2/effect = SubResource("AudioEffectChorus_j3pel")
+bus/6/effect/2/enabled = true

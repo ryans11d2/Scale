@@ -1,0 +1,86 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://dmfudvrvj2iol"]
+
+[sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_3hnqr"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+function = 23
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_x8fdr"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 3
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3hnqr"]
+source = 1
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_3hnqr"]
+output_port_for_preview = 0
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_lwmip"]
+parameter_name = "Pixelate"
+default_value_enabled = true
+default_value = 2.0
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lwmip"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float Pixelate = 2.0;
+uniform sampler2D screen_tex_frg_3 : hint_screen_texture;
+
+
+
+void fragment() {
+// Input:4
+	vec2 n_out4p0 = UV;
+
+
+// FloatParameter:6
+	float n_out6p0 = Pixelate;
+
+
+// VectorOp:9
+	vec2 n_out9p0 = n_out4p0 * vec2(n_out6p0);
+
+
+// VectorFunc:10
+	vec2 n_out10p0 = round(n_out9p0);
+
+
+// VectorOp:11
+	vec2 n_out11p0 = n_out10p0 / vec2(n_out6p0);
+
+
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(screen_tex_frg_3, n_out11p0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out3p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-1279.77, -252.366)
+mode = 1
+flags/light_only = false
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_3hnqr")
+nodes/fragment/3/position = Vector2(-220, 240)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_3hnqr")
+nodes/fragment/4/position = Vector2(-1340, 120)
+nodes/fragment/6/node = SubResource("VisualShaderNodeFloatParameter_lwmip")
+nodes/fragment/6/position = Vector2(-1240, 400)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_lwmip")
+nodes/fragment/9/position = Vector2(-880, 180)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorFunc_3hnqr")
+nodes/fragment/10/position = Vector2(-680, 180)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_x8fdr")
+nodes/fragment/11/position = Vector2(-460, 180)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 4, 0, 9, 0, 6, 0, 9, 1, 9, 0, 10, 0, 10, 0, 11, 0, 6, 0, 11, 1, 11, 0, 3, 0)

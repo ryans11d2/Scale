@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8u15dq5fhl2h"]
+[gd_scene load_steps=27 format=3 uid="uid://b8u15dq5fhl2h"]
 
 [ext_resource type="Script" uid="uid://bneybkwhpltyn" path="res://Levels/select.gd" id="1_2h88q"]
 [ext_resource type="Theme" uid="uid://c464d2wngy2ip" path="res://UI/main_theme.tres" id="2_o8ycb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://vbjwww8jrh36" path="res://Sprites/Scale_BG_Menu.png" id="4_00gtk"]
 [ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="4_46aab"]
 [ext_resource type="Script" uid="uid://d8ohg5nmjo5n" path="res://Scripts/LevelPage.gd" id="6_nj8xm"]
+[ext_resource type="Script" uid="uid://d0oa56r6u4s78" path="res://Scripts/menu_button.gd" id="6_o8ycb"]
 [ext_resource type="Texture2D" uid="uid://blni6ou5hqa7k" path="res://Sprites/Scale_Button_UI_Yellow.png" id="8_nj8xm"]
 [ext_resource type="Texture2D" uid="uid://dl5316bhg8y1u" path="res://Sprites/Scale_Button_UI_Purple.png" id="8_q0ty2"]
 [ext_resource type="AudioStream" uid="uid://b5802shng83nc" path="res://Sounds/select_005.ogg" id="9_hfr88"]
@@ -384,51 +385,104 @@ text = "Scaliball"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Control" parent="Title"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 128.0
-offset_right = 45.0
-offset_bottom = 128.0
-scale = Vector2(0.9, 0.9)
-
-[node name="Start" type="TextureButton" parent="Title/Button"]
+[node name="Button" type="VBoxContainer" parent="Title"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -172.0
-offset_top = -55.0
-offset_right = 203.0
-offset_bottom = 77.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -108.0
+offset_right = 280.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.925, 0.925)
+scale = Vector2(0.9, 0.9)
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Title/Button"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Start" type="TextureButton" parent="Title/Button"]
+layout_mode = 2
+size_flags_vertical = 3
 keep_pressed_outside = true
 texture_normal = ExtResource("4_46aab")
 texture_pressed = ExtResource("4_46aab")
 texture_hover = ExtResource("4_46aab")
 stretch_mode = 0
+script = ExtResource("6_o8ycb")
 
-[node name="Label" type="Label" parent="Title/Button"]
+[node name="Label" type="Label" parent="Title/Button/Start"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -116.0
-offset_top = -29.0
-offset_right = 116.0
-offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_frxo6")
 theme_override_font_sizes/font_size = 56
 text = "START"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="Title/Button"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 4
+keep_pressed_outside = true
+texture_normal = ExtResource("10_o8ycb")
+texture_pressed = ExtResource("10_o8ycb")
+texture_hover = ExtResource("10_o8ycb")
+stretch_mode = 0
+script = ExtResource("6_o8ycb")
+
+[node name="Label" type="Label" parent="Title/Button/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_frxo6")
+theme_override_font_sizes/font_size = 56
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Title/Button"]
+layout_mode = 2
+size_flags_vertical = 4
+keep_pressed_outside = true
+texture_normal = ExtResource("2_vf574")
+texture_pressed = ExtResource("2_vf574")
+texture_hover = ExtResource("2_vf574")
+stretch_mode = 0
+script = ExtResource("6_o8ycb")
+
+[node name="Label" type="Label" parent="Title/Button/Quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_frxo6")
+theme_override_font_sizes/font_size = 56
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomSpace" type="ColorRect" parent="Title/Button"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Select" type="Control" parent="."]
 layout_mode = 3
@@ -1246,6 +1300,8 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("6_nj8xm")
+levels = Array[String](["res://Levels/level_bumpy.tscn", "res://Levels/level_loop.tscn", "res://Levels/level_drop.tscn", "res://Levels/level_push_air.tscn", "level 5", "level 6", "level 7", "level 8", "level 9", "level ?", "level ??", "level ???"])
 
 [node name="Level1" type="TextureButton" parent="Select/Levels/Adventure"]
 layout_mode = 2
@@ -1808,7 +1864,7 @@ offset_top = -272.0
 offset_right = -440.0
 offset_bottom = -208.0
 theme_override_font_sizes/font_size = 21
-text = "Settings"
+text = "Menu"
 
 [node name="Settings" type="Control" parent="."]
 visible = false
@@ -1830,7 +1886,7 @@ anchor_bottom = 0.5
 offset_left = -192.0
 offset_top = -260.0
 offset_right = 192.0
-offset_bottom = 252.0
+offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1845,27 +1901,32 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="List" type="VBoxContainer" parent="Settings/Settings/Options"]
+[node name="Scroll" type="ScrollContainer" parent="Settings/Settings/Options"]
 layout_mode = 2
 
-[node name="Audio" type="Label" parent="Settings/Settings/Options/List"]
+[node name="List" type="VBoxContainer" parent="Settings/Settings/Options/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Audio" type="Label" parent="Settings/Settings/Options/Scroll/List"]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Audio"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Music" type="HBoxContainer" parent="Settings/Settings/Options/List"]
+[node name="Music" type="HBoxContainer" parent="Settings/Settings/Options/Scroll/List"]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="Settings/Settings/Options/List/Music"]
+[node name="Music" type="Label" parent="Settings/Settings/Options/Scroll/List/Music"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 text = "Music"
 horizontal_alignment = 1
 
-[node name="MusicVolume" type="HSlider" parent="Settings/Settings/Options/List/Music"]
+[node name="MusicVolume" type="HSlider" parent="Settings/Settings/Options/Scroll/List/Music"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.1
@@ -1874,17 +1935,17 @@ step = 0.1
 value = 1.0
 exp_edit = true
 
-[node name="SFX" type="HBoxContainer" parent="Settings/Settings/Options/List"]
+[node name="SFX" type="HBoxContainer" parent="Settings/Settings/Options/Scroll/List"]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="Settings/Settings/Options/List/SFX"]
+[node name="Music" type="Label" parent="Settings/Settings/Options/Scroll/List/SFX"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 text = "SFX"
 horizontal_alignment = 1
 
-[node name="SFXVolume" type="HSlider" parent="Settings/Settings/Options/List/SFX"]
+[node name="SFXVolume" type="HSlider" parent="Settings/Settings/Options/Scroll/List/SFX"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 0.1
@@ -1893,7 +1954,88 @@ step = 0.1
 value = 1.0
 exp_edit = true
 
+[node name="Gameplay" type="Label" parent="Settings/Settings/Options/Scroll/List"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Gameplay"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScaleSize" type="HBoxContainer" parent="Settings/Settings/Options/Scroll/List"]
+layout_mode = 2
+
+[node name="ScaleLength" type="Label" parent="Settings/Settings/Options/Scroll/List/ScaleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "Scale Length"
+horizontal_alignment = 1
+
+[node name="Size" type="SpinBox" parent="Settings/Settings/Options/Scroll/List/ScaleSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.88
+
+[node name="ScaleMode" type="CheckBox" parent="Settings/Settings/Options/Scroll/List/ScaleSize"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Screen"
+
 [node name="Back" type="Button" parent="Settings/Settings"]
+custom_minimum_size = Vector2(162, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back
+"
+
+[node name="LevelInfo" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_o8ycb")
+
+[node name="Page" type="VBoxContainer" parent="LevelInfo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -260.0
+offset_right = 192.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LevelInfo/Page"]
+layout_mode = 2
+theme_type_variation = &"BigLabel"
+text = "Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info" type="PanelContainer" parent="LevelInfo/Page"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="List" type="VBoxContainer" parent="LevelInfo/Page/Info"]
+layout_mode = 2
+
+[node name="Text" type="RichTextLabel" parent="LevelInfo/Page/Info/List"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "aer maroo"
+
+[node name="Back" type="Button" parent="LevelInfo/Page"]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -1919,11 +2061,24 @@ libraries = {
 &"": SubResource("AnimationLibrary_6uugp")
 }
 
-[connection signal="button_down" from="Title/Button/Start" to="." method="grow"]
-[connection signal="mouse_entered" from="Title/Button/Start" to="." method="deflate"]
-[connection signal="mouse_exited" from="Title/Button/Start" to="." method="inflate"]
+[connection signal="button_down" from="Title/Button/Start" to="Title/Button/Start" method="_on_button_down"]
+[connection signal="button_down" from="Title/Button/Start" to="Button" method="play"]
+[connection signal="mouse_entered" from="Title/Button/Start" to="Title/Button/Start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Button/Start" to="Title/Button/Start" method="_on_mouse_exited"]
 [connection signal="pressed" from="Title/Button/Start" to="." method="shrink"]
-[connection signal="pressed" from="Title/Button/Start" to="Button" method="play"]
+[connection signal="pressed" from="Title/Button/Start" to="Title/Button/Start" method="_on_pressed"]
+[connection signal="button_down" from="Title/Button/Settings" to="Button" method="play"]
+[connection signal="button_down" from="Title/Button/Settings" to="Title/Button/Settings" method="_on_button_down"]
+[connection signal="mouse_entered" from="Title/Button/Settings" to="Title/Button/Settings" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Button/Settings" to="Title/Button/Settings" method="_on_mouse_exited"]
+[connection signal="pressed" from="Title/Button/Settings" to="." method="open_settings"]
+[connection signal="pressed" from="Title/Button/Settings" to="Title/Button/Settings" method="_on_pressed"]
+[connection signal="button_down" from="Title/Button/Quit" to="Button" method="play"]
+[connection signal="button_down" from="Title/Button/Quit" to="Title/Button/Quit" method="_on_button_down"]
+[connection signal="mouse_entered" from="Title/Button/Quit" to="Title/Button/Quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Button/Quit" to="Title/Button/Quit" method="_on_mouse_exited"]
+[connection signal="pressed" from="Title/Button/Quit" to="." method="quit_game"]
+[connection signal="pressed" from="Title/Button/Quit" to="Title/Button/Quit" method="_on_pressed"]
 [connection signal="button_down" from="Select/Levels/Basic/Level1" to="." method="open_level"]
 [connection signal="button_down" from="Select/Levels/Basic/Level2" to="." method="open_level"]
 [connection signal="button_down" from="Select/Levels/Basic/Level3" to="." method="open_level"]
@@ -1963,7 +2118,10 @@ libraries = {
 [connection signal="button_down" from="Select/LastPage" to="." method="last_page"]
 [connection signal="button_down" from="Select/NextPage" to="." method="next_page"]
 [connection signal="toggled" from="Select/Super" to="." method="_on_super_toggled"]
-[connection signal="pressed" from="Select/Settings" to="." method="open_settings"]
-[connection signal="value_changed" from="Settings/Settings/Options/List/Music/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="Settings/Settings/Options/List/SFX/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="pressed" from="Select/Settings" to="." method="back_to_main_menu"]
+[connection signal="value_changed" from="Settings/Settings/Options/Scroll/List/Music/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="Settings/Settings/Options/Scroll/List/SFX/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="Settings/Settings/Options/Scroll/List/ScaleSize/Size" to="." method="set_scale_length"]
+[connection signal="toggled" from="Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode" to="." method="toggle_scale_mode"]
 [connection signal="pressed" from="Settings/Settings/Back" to="." method="close_settings"]
+[connection signal="pressed" from="LevelInfo/Page/Back" to="." method="close_level_info"]

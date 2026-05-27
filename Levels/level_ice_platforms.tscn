@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bxeos2k7544su"]
+[gd_scene load_steps=18 format=3 uid="uid://bxeos2k7544su"]
 
 [ext_resource type="Script" uid="uid://bjfwi3utv1hqe" path="res://Scripts/main.gd" id="1_g6hp1"]
 [ext_resource type="Texture2D" uid="uid://cib2j6781ikfd" path="res://Sprites/Scale_BG_Night.png" id="2_g2qbq"]
@@ -11,14 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cey5ol50wpm0a" path="res://Objects/finish.tscn" id="9_gi2vf"]
 [ext_resource type="Texture2D" uid="uid://bdkgkssyk1y1q" path="res://Sprites/Scale_Spike.png" id="10_uoa3l"]
 [ext_resource type="Texture2D" uid="uid://oys2ccoprca" path="res://Sprites/Scale_Golden_Scale.png" id="11_l0ncj"]
-[ext_resource type="Texture2D" uid="uid://bg0crn72ccy6k" path="res://Sprites/Scale_Slider_Pointer.png" id="12_2rrid"]
-[ext_resource type="Texture2D" uid="uid://b7nqwq2dmo3wi" path="res://Sprites/Scale_Slider.png" id="13_afc2v"]
-[ext_resource type="FontFile" uid="uid://tulbp6yn0856" path="res://UI/Matemasie-Regular.ttf" id="14_8igm5"]
-[ext_resource type="Texture2D" uid="uid://b5ly2cc1dqiml" path="res://Sprites/Scale_Button_UI_Green.png" id="15_ob867"]
-[ext_resource type="Texture2D" uid="uid://ccmy4xvlguuqs" path="res://Sprites/Scale_Button_UI_Red.png" id="16_xhhon"]
-[ext_resource type="AudioStream" uid="uid://bqnsahsjk7u8q" path="res://Sounds/drawKnife1.ogg" id="17_mtfj4"]
-[ext_resource type="AudioStream" uid="uid://btn07b52inexq" path="res://Sounds/drawKnife2.ogg" id="18_c8k2c"]
-[ext_resource type="AudioStream" uid="uid://n8pc1o3fyelo" path="res://Sounds/(Scaliball Level) game-176807.mp3" id="19_tqylx"]
+[ext_resource type="PackedScene" uid="uid://cxnla8n6oly6w" path="res://game_hud.tscn" id="12_xuu0u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77423"]
 radius = 200.0
@@ -34,22 +27,6 @@ radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8860t"]
 radius = 29.2746
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v31s"]
-texture = ExtResource("13_afc2v")
-texture_margin_top = 72.0
-texture_margin_bottom = 7.0
-draw_center = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7lr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84h1g"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_myk1j"]
-streams_count = 2
-stream_0/stream = ExtResource("17_mtfj4")
-stream_1/stream = ExtResource("18_c8k2c")
-stream_1/weight = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g6hp1")
@@ -114,16 +91,16 @@ physics_material_override = ExtResource("6_txuxf")
 texture_repeat = 2
 color = Color(0, 0.470588, 1, 1)
 texture = ExtResource("7_x2uky")
-polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
+polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 10774.5, -120.946, 10639, -658, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Ground/ShapeIce"]
 visible = false
-polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
+polygon = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 10774.5, -120.946, 10639, -658, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 
 [node name="Grass2" type="Line2D" parent="Ground/ShapeIce"]
 z_index = 1
 texture_repeat = 2
-points = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
+points = PackedVector2Array(2412.5, -187.5, 2645.5, -186, 2645.5, -322.426, 2931.5, -322.5, 2931, -194, 3272, -195.5, 3272, -284.5, 3761, -284, 3710.5, -270, 3567, -139, 3610, 0, 3790, 78, 4068.5, 26.5, 4068.5, -74, 4435, -74, 4785.5, -6.5, 5083, -10, 5282.5, 71.5, 5671.5, 111.5, 6018, 75, 5983.5, -140, 5816, -122.5, 5803, -142.5, 6014.5, -195.5, 6143, -757, 6365, -754, 6776, -507, 7152.5, -507, 7261.5, -321.5, 7550, -321.5, 7549.5, -425.5, 8132.5, -425, 8132.5, -241, 8626, -241.5, 8626, -388, 8852, -323.5, 8852.5, -128.5, 9121.5, -20, 9503.5, 49, 9869, 13.5, 9869, -147.5, 10477, -147.5, 10774.5, -120.946, 10655.3, -593.602, 10639, -658, 12230.5, 9, 11164.5, 2946, 1480, 2446, 192.5, -719.5, 941, -2216.5, 5271.5, -2620, 4492.5, -2047, 4673.5, -1669.5, 5166.5, -1160.5, 5318.5, -779.5, 5311.5, -529, 5477.5, -353.5, 5481.5, -318, 5247.5, -439, 4888.5, -537.5, 4178, -560, 3456, -697, 2683, -756, 1750.5, -900.5, 1713.5, -630.5, 1874, -503, 1970.5, -370, 2281.5, -370)
 closed = true
 width = 106.78
 default_color = Color(0.364706, 1, 1, 1)
@@ -652,103 +629,4 @@ shape = SubResource("CircleShape2D_etor8")
 position = Vector2(-7, -10)
 shape = SubResource("CircleShape2D_8860t")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Scale" type="HSlider" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -519.0
-offset_top = 23.0
-offset_right = 427.0
-offset_bottom = 102.0
-grow_horizontal = 2
-theme_override_icons/grabber = ExtResource("12_2rrid")
-theme_override_icons/grabber_highlight = ExtResource("12_2rrid")
-theme_override_icons/grabber_disabled = ExtResource("12_2rrid")
-theme_override_styles/slider = SubResource("StyleBoxTexture_6v31s")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fu7lr")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_84h1g")
-min_value = 1.0
-max_value = 10.0
-step = 0.01
-value = 1.0
-
-[node name="Finish" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -147.0
-offset_right = 124.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="LevelComplete" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("14_8igm5")
-theme_override_font_sizes/normal_font_size = 26
-text = "    Level Complete
-"
-fit_content = true
-
-[node name="Time" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("14_8igm5")
-theme_override_font_sizes/normal_font_size = 20
-text = "Time
-"
-fit_content = true
-
-[node name="Rotation" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("14_8igm5")
-theme_override_font_sizes/normal_font_size = 20
-text = "Rotation
-"
-fit_content = true
-
-[node name="Collect" type="RichTextLabel" parent="CanvasLayer/Finish"]
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("14_8igm5")
-theme_override_font_sizes/normal_font_size = 20
-text = "Collect
-"
-fit_content = true
-
-[node name="Back" type="TextureButton" parent="CanvasLayer/Finish"]
-layout_mode = 2
-texture_normal = ExtResource("15_ob867")
-texture_pressed = ExtResource("15_ob867")
-texture_hover = ExtResource("15_ob867")
-
-[node name="Reset" type="TextureButton" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -128.0
-offset_top = 9.0
-offset_right = 192.0
-offset_bottom = 329.0
-grow_horizontal = 0
-scale = Vector2(0.32, 0.32)
-texture_normal = ExtResource("16_xhhon")
-texture_pressed = ExtResource("16_xhhon")
-texture_hover = ExtResource("16_xhhon")
-
-[node name="AudioUI" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_myk1j")
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_tqylx")
-volume_db = -10.0
-autoplay = true
-
-[connection signal="drag_started" from="CanvasLayer/Scale" to="." method="_on_scale_drag_started"]
-[connection signal="value_changed" from="CanvasLayer/Scale" to="Ball" method="_on_scale_value_changed"]
-[connection signal="button_down" from="CanvasLayer/Finish/Back" to="." method="menu"]
-[connection signal="button_down" from="CanvasLayer/Reset" to="Ball" method="reset"]
+[node name="GameHUD" parent="." instance=ExtResource("12_xuu0u")]
