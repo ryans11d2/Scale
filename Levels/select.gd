@@ -60,18 +60,32 @@ var finish_points: int = 0
 
 #Settings/Accessability
 
-var screen = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED
-var comic_text: bool = false
+#var screen = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED
+#var comic_text: bool = false
+#
+#var music_volume: float = 1
+#var sfx_volume: float = 1
+#
+#var scale_to_screen: bool = true
+#var scale_length: float = 0.88#1024
+#var sticky_scale: bool = false
+#var scale_step: float = 0.01
+#var smooth_cam: bool = true
 
-var music_volume: float = 1
-var sfx_volume: float = 1
+var settings: Dictionary = {
+	"screen" = DisplayServer.WindowMode.WINDOW_MODE_WINDOWED,
+	"screen_int" = 0,
+	"comic_text" = false,
+	
+	"music_volume" = 1,
+	"sfx_volume" = 1,
 
-var scale_to_screen: bool = true
-var scale_length: float = 0.88#1024
-var sticky_scale: bool = false
-var scale_step: float = 0.01
-
-
+	"scale_to_screen" = true,
+	"scale_length" = 0.88,#1024
+	"sticky_scale" = false,
+	"scale_step" = 0.01,
+	"smooth_cam" = true,
+}
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -100,23 +114,47 @@ func _ready():
 	)
 	
 	$Settings.visible = false
+	load_settings()
 	update_settings()
 	
 
+func save_settings():
+	var file = FileAccess.open("user://settings.dat", FileAccess.WRITE)
+	file.store_var(settings)
+	file.close()
+
+func load_settings():
+	
+	if FileAccess.file_exists("user://settings.dat"):
+		
+		var file = FileAccess.open("user://settings.dat", FileAccess.READ)
+		settings = file.get_var()
+		file.close()
+		
+	else:
+		save_settings()
+
 func update_settings():
 	
-	if comic_text: main_theme.default_font = preload("res://UI/Comic Sans MS.ttf")
+	if settings.comic_text: main_theme.default_font = preload("res://UI/Comic Sans MS.ttf")
 	else: main_theme.default_font = preload("res://UI/Matemasie-Regular.ttf")
 	
 	
-	_on_music_volume_value_changed($Settings/Settings/Options/Scroll/List/Music/MusicVolume.value)
-	_on_sfx_volume_value_changed($Settings/Settings/Options/Scroll/List/SFX/SFXVolume.value)
+	$Settings/Settings/Options/Scroll/List/Music/MusicVolume.value = settings.music_volume
+	$Settings/Settings/Options/Scroll/List/SFX/SFXVolume.value = settings.sfx_volume
 	
-	set_scale_length(scale_length)
-	toggle_scale_mode(!scale_to_screen)
+	$Settings/Settings/Options/Scroll/List/ScaleSize/Size.value = settings.scale_length
+	$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.button_pressed = settings.scale_to_screen
+	#set_scale_length(settings.scale_length)
+	#toggle_scale_mode(!settings.scale_to_screen)
 	#$Settings/Settings/Options/Scroll/List/ScaleSize/Size.max_value = get_window().size.x
 	
 	$Settings/Settings/Options/Scroll/List/DisplayMode/Screen.max_value = DisplayServer.get_screen_count()
+	$Settings/Settings/Options/Scroll/List/DisplayMode/Window.select(settings.screen_int)
+	$Settings/Settings/Options/Scroll/List/Comic.set_pressed_no_signal(settings.comic_text)
+	
+	$Settings/Settings/Options/Scroll/List/StickyScale.set_pressed_no_signal(settings.sticky_scale)
+	$Settings/Settings/Options/Scroll/List/CamLook.set_pressed_no_signal(settings.smooth_cam)
 	
 
 func _input(event: InputEvent) -> void:
@@ -209,11 +247,14 @@ func open_settings():
 	$Title.visible = false
 	$Select.visible = false
 	
-	if !scale_to_screen:
+	if !settings.scale_to_screen:
 		$Settings/Settings/Options/Scroll/List/ScaleSize/Size.max_value = get_window().size.x
 		
 
 func close_settings():
+	
+	save_settings()
+	
 	$Page.play()
 	
 	$Settings.visible = false
@@ -422,7 +463,7 @@ func shrink():
 	$AnimationPlayer.play("shrink")
 
 func back_to_main_menu():
-	$AnimationPlayer.play_backwards("shrink")
+	$AnimationPlayer.play("shrink", -1, -3.0, true)
 
 func quit_game():
 	get_tree().quit()
@@ -457,8 +498,8 @@ func _on_music_volume_value_changed(value: float) -> void:
 	var bus: int = AudioServer.get_bus_index("Music")
 	
 	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
-	music_volume = value
-	AudioServer.set_bus_volume_linear(bus, music_volume)
+	settings.music_volume = value
+	AudioServer.set_bus_volume_linear(bus, settings.music_volume)
 	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
 	
 
@@ -469,42 +510,42 @@ func _on_sfx_volume_value_changed(value: float) -> void:
 	var bus: int = AudioServer.get_bus_index("SFX")
 	
 	#AudioServer.set_bus_volume_db(bus, log(value / 10.0) * 80)
-	sfx_volume = value
-	AudioServer.set_bus_volume_linear(bus, sfx_volume)
+	settings.sfx_volume = value
+	AudioServer.set_bus_volume_linear(bus, settings.sfx_volume)
 	AudioServer.set_bus_mute(bus, slider.value == slider.min_value)
 	
 
 func set_scale_length(length: float):
 	
-	if scale_to_screen:
-		scale_length = get_window().size.x * length
+	if settings.scale_to_screen:
+		settings.scale_length = get_window().size.x * length
 	else:
-		scale_length = length
+		settings.scale_length = length
 
 func toggle_scale_mode(pixels: bool):
 	
-	scale_to_screen = pixels
+	settings.scale_to_screen = pixels
 	var screen_width: int = get_window().size.x
 	var spin_box: SpinBox = $Settings/Settings/Options/Scroll/List/ScaleSize/Size
 	
 	if pixels:
-		var new_length = scale_length * float(screen_width)
+		var new_length = settings.scale_length * float(screen_width)
 		print(screen_width)
 		spin_box.max_value = screen_width
 		spin_box.min_value = 64
 		spin_box.step = 1.0
 		
-		scale_length = new_length
-		spin_box.set_value_no_signal(scale_length)
+		settings.scale_length = new_length
+		spin_box.set_value_no_signal(settings.scale_length)
 		$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.text = "Pixel"
 	else:
-		var new_length = scale_length / float(screen_width)
+		var new_length = settings.scale_length / float(screen_width)
 		print(new_length)
 		spin_box.max_value = 1
 		spin_box.min_value = 0.1
 		spin_box.step = 0.01
 		
-		scale_length = new_length
+		settings.scale_length = new_length
 		spin_box.set_value_no_signal(new_length)
 		$Settings/Settings/Options/Scroll/List/ScaleSize/ScaleMode.text = "Screen"
 	
@@ -518,6 +559,8 @@ func set_display(display: int):
 
 func set_window_mode(mode: int):
 	
+	settings.screen_int = mode
+	
 	match mode:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -528,3 +571,15 @@ func set_window_mode(mode: int):
 		2: 
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
 	
+
+
+func _on_sticky_scale_toggled(toggled_on: bool) -> void:
+	settings.sticky_scale = toggled_on
+
+
+func _on_cam_look_toggled(toggled_on: bool) -> void:
+	settings.smooth_cam = toggled_on
+
+
+func _on_comic_toggled(toggled_on: bool) -> void:
+	settings.comic_text = toggled_on

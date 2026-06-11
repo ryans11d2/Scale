@@ -37,9 +37,9 @@ func _ready():
 		$GameHUD/Finish/Back.connect("pressed", menu)
 		$GameHUD/Reset.connect("pressed", $Ball.reset)
 	
-	if Select.scale_to_screen: hud.get_node("Scale").size.x = Select.scale_length
-	else: hud.get_node("Scale").size.x = Select.scale_length * get_window().size.x * (1152.0 / get_window().size.x)
-	hud.get_node("Scale").step = Select.scale_step
+	if Select.settings.scale_to_screen: hud.get_node("Scale").size.x = Select.settings.scale_length
+	else: hud.get_node("Scale").size.x = Select.settings.scale_length * get_window().size.x * (1152.0 / get_window().size.x)
+	hud.get_node("Scale").step = Select.settings.scale_step
 	
 	hud.get_node("Reset").grab_focus()
 	
@@ -176,7 +176,7 @@ func _on_scale_drag_started():
 func _on_scale_drag_ended(_value):
 	
 	if Input.is_action_just_released("main"):
-		dragging = Select.sticky_scale
+		dragging = Select.settings.sticky_scale
 		scaling = false
 		#print("END")
 	

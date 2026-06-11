@@ -79,6 +79,10 @@ func _ready():
 		modulate = Color(1, 0.686, 0.996)
 		trail.modulate = Color(1, 0.686, 0.996)
 	
+	if Select.settings.smooth_cam and get_node_or_null("Camera2D") != null:
+		$Camera2D.position_smoothing_enabled = true
+		$Camera2D.position_smoothing_speed = 5
+	
 
 func _physics_process(delta):
 	time += delta
@@ -113,6 +117,13 @@ func _physics_process(delta):
 	if linear_velocity.length() > max_speed:
 		print("MAX SPEED")
 		linear_velocity = linear_velocity.normalized() * max_speed
+	
+	if Select.settings.smooth_cam and get_node_or_null("Camera2D") != null:
+		var look_speed: float = max(linear_velocity.length() - 200, 0.0)
+		var cam_length: float = clamp(look_speed / 1200.0, 0, 1)
+		var target_pos: Vector2 = linear_velocity.normalized() * (cam_length * 400)
+		$Camera2D.position = lerp($Camera2D.position, target_pos, min(60 * delta, 1.0)).rotated(-rotation)
+		
 	
 	#The rays are disabled btw
 	#$CamRay.global_rotation = 0
@@ -201,7 +212,7 @@ func _integrate_forces(state):
 			push_force += i
 		push_force /= float(contacts.size())
 		push_force = push_force.normalized() * bounce_power
-		prints(growth * push_force.length())
+		#prints(growth * push_force.length())
 		linear_velocity -= push_force * growth
 		
 	
